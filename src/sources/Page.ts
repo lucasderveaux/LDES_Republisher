@@ -18,6 +18,9 @@ export class Page{
         return this.triples;
     }
 
+    //moet dit eigenlijk wel?
+    //ik weet niet of dit goed is
+
     public serialize():object{
         let serialized: object = {};
         let triples = [];

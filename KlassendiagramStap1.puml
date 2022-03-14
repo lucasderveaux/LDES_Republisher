@@ -1,0 +1,47 @@
+@startuml klassendiagram
+class ObservationKeeper{
+    - simpleValues: Map<string,Map<string,Array<Observation>>>
+    - createNewSimpleValue(idSimpleValue:string):void
+    - createNewLocationID(idSimpleValue:string,idLocation:string):void
+    + addSimpleValue(idSimpleValue:string,idLocation:string,simpleValue:Observation)
+}
+
+class FeatureOfInterest{
+    - longitude:number
+    - latitude:number
+    - id: string
+
+    +getLongitude():number
+    +getLatitude():number
+    +getId():string
+}
+
+class Observation{
+    - timestamp:Date
+    - value: number
+}
+
+abstract ASource{
+    +schrijfWeg():void
+    +controleerGrootte():void
+    +createPage():Page
+    + publishData()
+}
+
+interface ISource{
+    +getData():Promise<Obseration[]>
+    +getPage(id:any):Page
+}
+
+class Page{
+    - triples: RDF.Quad[]
+    - metadata: RDF.Quad[]
+    + getMetadata():RDF.Quad[]
+    + getTriples():RDF.Quad[]
+
+}
+
+class BlueBikeExample{
+
+}
+@enduml

@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as cors from 'cors';
 import { Router } from './router';
+
 const app = express();
 app.use(cors());
 
@@ -20,8 +21,7 @@ export class StarterClass{
     }
 
     public start():any {
-        return app.listen(3000);
+        return app.listen(8080);
     }
 
-    
 }
