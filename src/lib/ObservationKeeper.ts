@@ -1,9 +1,12 @@
+import { FeatureOfInterest } from "./FeatureOfInterest";
 import { Observation } from "./Observation";
 
 export class ObservationKeeper{
     private simpleValues:Map<string,Map<string,Array<Observation>>>;
+    private featureOfInterests:Map<string,FeatureOfInterest>;
     constructor(){
         this.simpleValues = new Map<string,Map<string,Array<Observation>>>();
+        this.featureOfInterests = new Map<string,FeatureOfInterest>();
     }
 
     private createNewSimpleValue(idSimpleValue:string):void{
@@ -24,6 +27,10 @@ export class ObservationKeeper{
         }
 
         this.simpleValues[idSimpleValue][idLocation].push(simpleValue);
+    }
+
+    public addFeatureOfInterest(feature:FeatureOfInterest){
+        this.featureOfInterests.set(feature.getId(),feature);
     }
     
 }

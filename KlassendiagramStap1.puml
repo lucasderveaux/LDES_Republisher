@@ -1,9 +1,11 @@
 @startuml klassendiagram
 class ObservationKeeper{
     - simpleValues: Map<string,Map<string,Array<Observation>>>
+    - featureOfInterests: Map<String,FeatureOfInterest>
     - createNewSimpleValue(idSimpleValue:string):void
     - createNewLocationID(idSimpleValue:string,idLocation:string):void
     + addSimpleValue(idSimpleValue:string,idLocation:string,simpleValue:Observation)
+    + addFeatureOfInterest(feature:FeatureOfInterest)
 }
 
 class FeatureOfInterest{
@@ -22,6 +24,7 @@ class Observation{
 }
 
 abstract ASource{
+    - keeperOfTheObservations:ObservationKeeper
     +schrijfWeg():void
     +controleerGrootte():void
     +createPage():Page
@@ -42,6 +45,5 @@ class Page{
 }
 
 class BlueBikeExample{
-
 }
 @enduml

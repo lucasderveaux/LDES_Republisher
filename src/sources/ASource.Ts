@@ -1,10 +1,12 @@
 import { Observation } from '../lib/Observation';
 import {ISource} from './ISource';
 import { Page } from './Page';
+import {ObservationKeeper} from '../lib/ObservationKeeper';
 
 export abstract class ASource implements ISource{
+    private keeperOfTheObservations:ObservationKeeper;
     constructor(){
-
+        this.keeperOfTheObservations = new ObservationKeeper();
     }
 
     public abstract getData():Promise<Observation>;
