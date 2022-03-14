@@ -9,7 +9,7 @@ export abstract class ASource implements ISource{
         this.keeperOfTheObservations = new ObservationKeeper();
     }
 
-    public abstract getData():Promise<Observation>;
+    public abstract getData():Promise<Observation[]>;
     public abstract getPage(id:any):Page;
 
     /*

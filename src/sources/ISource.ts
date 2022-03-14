@@ -11,6 +11,6 @@ export interface ISource{
     - raw data (double int whatever)
     - Timestamp
     */
-    getData():Promise<Observation>;
+    getData():Promise<Observation[]>;
     getPage(id:any):Page;
 }

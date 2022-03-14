@@ -21,10 +21,9 @@ export class BlueBikeExample implements ISource{
     }
 
    
-    async getData():Promise<Observation> {
-        return null;
-        /*
-        return new Promise<IData[]>((resolve,reject)=>{
+    async getData():Promise<Observation[]> {
+        
+        return new Promise<Observation[]>((resolve,reject)=>{
             try {
                 let options = {
                     emitMemberOnce: true,
@@ -35,20 +34,18 @@ export class BlueBikeExample implements ISource{
 
                 let LDESClient = newEngine();
                 let eventStreamSync = LDESClient.createReadStream(
-                    "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/bluebike.ttl",
+                    "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl",
                     options
                 );
 
-                let data: IData[] = [];
+                let data: Observation[] = [];
 
                 eventStreamSync.on('data', (member : any) => {
-                    //data.push(member);
                     //het is hier ook met Quads wnat ik heb die representation zo ingesteld
                     let memberURI = member.id.value;
-                    //console.log(memberURI);
+                    console.log(memberURI);
                     let quads=member.quads;
-                    //console.log(quads);
-                    data.push(member);
+                    console.log(quads);
                 });
                 eventStreamSync.on('end', () => {
                     console.log("No more data!");
@@ -59,7 +56,7 @@ export class BlueBikeExample implements ISource{
                 return reject(e);
             }
         });
-        */
+        
     }
 
 }
