@@ -1,4 +1,5 @@
-@startuml klassendiagram
+@startuml
+
 class ObservationKeeper{
     - simpleValues: Map<string,Map<string,Array<Observation>>>
     - featureOfInterests: Map<String,FeatureOfInterest>
@@ -23,17 +24,17 @@ class Observation{
     - value: number
 }
 
-abstract ASource{
+interface ISource{
+    +getData():Promise<Obseration[]>
+    +getPage(id:any):Page
+}
+
+abstract ASource implements ISource{
     - keeperOfTheObservations:ObservationKeeper
     +schrijfWeg():void
     +controleerGrootte():void
     +createPage():Page
     + publishData()
-}
-
-interface ISource{
-    +getData():Promise<Obseration[]>
-    +getPage(id:any):Page
 }
 
 class Page{
@@ -44,6 +45,12 @@ class Page{
 
 }
 
-class BlueBikeExample{
+class BlueBikeExample extends ASource{
 }
+
+Observation - ObservationKeeper
+ObservationKeeper -- FeatureOfInterest
+ObservationKeeper - ASource
+ASource - Page
+
 @enduml
