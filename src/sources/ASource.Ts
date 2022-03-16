@@ -4,7 +4,7 @@ import { Page } from './Page';
 import {ObservationKeeper} from '../lib/ObservationKeeper';
 
 export abstract class ASource implements ISource{
-    private keeperOfTheObservations:ObservationKeeper;
+    keeperOfTheObservations:ObservationKeeper;
     constructor(){
         this.keeperOfTheObservations = new ObservationKeeper();
     }
