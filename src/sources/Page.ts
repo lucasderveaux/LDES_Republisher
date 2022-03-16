@@ -1,5 +1,7 @@
 import type * as RDF from "rdf-js";
 import * as RdfString from "rdf-string";
+import * as f from "@dexagod/rdf-retrieval"
+import rdfSerializer from "rdf-serialize";
 
 export class Page{
     private triples: RDF.Quad[];
@@ -31,5 +33,13 @@ export class Page{
         this.metadata.forEach(metadata_quad => {metadata.push(RdfString.quadToStringQuad(metadata_quad))})
         serialized['metadata'] = metadata;
         return serialized;
+    }
+
+    public async getSerializedPage(contentType:string ="text/turtle"):Promise<NodeJS.ReadableStream>{
+        let all: RDF.Quad[]=this.getMetada();
+        all = all.concat(this.getTriples());
+        const tripleStream:RDF.Stream<RDF.Quad>=await f.quadArrayToQuadStream(all);
+
+        return rdfSerializer.serialize(tripleStream,{contentType:contentType});
     }
 }
