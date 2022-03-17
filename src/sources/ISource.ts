@@ -1,4 +1,4 @@
-import {Page} from "./Page";
+import {Page} from "../lib/Page";
 import { Observation } from "../lib/Observation";
 
 export interface ISource{
@@ -11,6 +11,6 @@ export interface ISource{
     - raw data (double int whatever)
     - Timestamp
     */
-    getData():Promise<Observation[]>;
+    getData():void;
     getPage(id:any):Page;
 }
