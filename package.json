@@ -4,7 +4,7 @@
   "description": "Linked Data Extractor ",
   "main": "./dist/main.js",
   "scripts": {
-    "start": "yarn run build",
+    "start": "yarn run build && node ./dist/test.js",
     "build": "yarn run clean && tsc",
     "clean": "rm -rf dist"
   },
