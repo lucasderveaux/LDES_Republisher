@@ -4,13 +4,14 @@ import { Page } from "../lib/Page";
 import { newEngine } from '@treecg/actor-init-ldes-client';
 import { Observation } from '../lib/Observation';
 import { FeatureOfInterest } from '../lib/FeatureOfInterest';
+import { ObservationKeeper } from '../lib/ObservationKeeper';
 
 export class BlueBikeExample extends ASource {
     //private triples: RDF.Quad[];
     //private metadata:RDF.Quad[];   
 
-    constructor() {
-        super();
+    constructor(keeperOfTheObservations:ObservationKeeper) {
+        super(keeperOfTheObservations);
         //Hier zou nog vanalles kunnen komen in het verband met triples en metadat.
         //Misschien moet ik terug met Pages werken want eigenlijk was dat wel een goed systeem.
         //Ja ik ga dat doen dat is super logisch.

@@ -5,8 +5,8 @@ import {ObservationKeeper} from '../lib/ObservationKeeper';
 
 export abstract class ASource implements ISource{
     keeperOfTheObservations:ObservationKeeper;
-    constructor(){
-        this.keeperOfTheObservations = new ObservationKeeper();
+    constructor(keeperOfTheObservations:ObservationKeeper){
+        this.keeperOfTheObservations = keeperOfTheObservations;
     }
 
     public abstract getData():void;
