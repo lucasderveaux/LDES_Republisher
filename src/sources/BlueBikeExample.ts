@@ -38,8 +38,8 @@ export class BlueBikeExample extends ASource {
 
                 let LDESClient = newEngine();
                 let eventStreamSync = LDESClient.createReadStream(
-                    "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl",
-                    //"https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl",
+                    //"https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl",
+                    "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl",
                     options
                 );
 
@@ -65,7 +65,7 @@ export class BlueBikeExample extends ASource {
     }
 
     public async analyseData(member: RDF.Quad[]): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
+        return new Promise<void>(async (resolve, reject) => {
             try {
                 //eerst kijkt die of dat de featureOfInterest al bestaat
                 let created: string;
@@ -120,7 +120,7 @@ export class BlueBikeExample extends ASource {
                     //controleren of de featureOfInterest al bestaat
                     if (!this.keeperOfTheObservations.featureOfInterests.has(name)) {
                         //heeft de key nog niet
-                        let feature = new FeatureOfInterest(longitude, latitude, name);
+                        let feature = await new FeatureOfInterest(longitude, latitude, name);
                         this.keeperOfTheObservations.addFeatureOfInterest(feature);
 
                     }
@@ -129,10 +129,10 @@ export class BlueBikeExample extends ASource {
                     let availableObservation = new Observation(created, available);
                     let inUseObservation = new Observation(created, inUse);
                     if (availableObservation.isUsable()) {
-                        this.keeperOfTheObservations.addSimpleValue("available", name, availableObservation);
+                        this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#bikes_available", name, availableObservation);
                     }
                     if (inUseObservation.isUsable()) {
-                        this.keeperOfTheObservations.addSimpleValue("inUse", name, inUseObservation);
+                        this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#docks_in_use", name, inUseObservation);
                     }
                 }
 
