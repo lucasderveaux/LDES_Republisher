@@ -42,12 +42,12 @@ export class QuadTheCreator {
                 }
 
                 // check if file not exists
-                if (!fs.existsSync("output/"+test + "/" + idLocation.substring(8).replace(/ /g, "_").replace(/\//g,'_')+ ".ttl")) {
+                if (!fs.existsSync("output/"+test + "/" + idLocation.replace(/ /g, "_").replace(/\//g,'_')+ ".ttl")) {
                     // make file where we will store newly fetched data     
                     const writer = new N3.Writer({ format: 'N-Triples' });
                     let serialised = writer.quadsToString(quads);
 
-                    fs.writeFileSync("output/"+test + "/" + idLocation.substring(8).replace(/ /g, "_").replace(/\//g,'_') + ".ttl", serialised);
+                    fs.writeFileSync("output/"+test + "/" + idLocation.replace(/ /g, "_").replace(/\//g,'_') + ".ttl", serialised);
                 }
             }
         }
@@ -55,7 +55,7 @@ export class QuadTheCreator {
 
     public createFeatureOfInterest(feature: FeatureOfInterest, quads: RDF.Quad[]): void {
         // ik beslis dat de url is
-        let starturl = "https://blue-bike.be/stations/" + feature.getId().substring(8).replace(/ /g, '_').replace(/\//g,'_');
+        let starturl = "https://blue-bike.be/stations/" + feature.getId().replace(/ /g, '_').replace(/\//g,'_');
         quads.push(
             quad(
                 namedNode(starturl),
@@ -95,7 +95,7 @@ export class QuadTheCreator {
     }
 
     public createObservation(observation: Observation, idSimpleValue: string, idLocation: string, quads: RDF.Quad[]): void {
-        let starturl: string = "https://blue-bike.be/" + idLocation.substring(8).replace(/ /g, "_").replace(/\//g,'_') + "observations/" + observation.getTimestamp()
+        let starturl: string = "https://blue-bike.be/" + idLocation.replace(/ /g, "_").replace(/\//g,'_') + "observations/" + observation.getTimestamp()
         quads.push(
             quad(
                 namedNode(starturl),
@@ -107,7 +107,7 @@ export class QuadTheCreator {
             quad(
                 namedNode(starturl),
                 namedNode('http://www.w3.org/ns/sosa/hasFeatureOfInterest'),
-                namedNode('https://blue-bike.be/stations/' + idLocation.substring(8).replace(/ /g, "_").replace(/\//g,'_'))
+                namedNode('https://blue-bike.be/stations/' + idLocation.replace(/ /g, "_").replace(/\//g,'_'))
             )
         );
         quads.push(
