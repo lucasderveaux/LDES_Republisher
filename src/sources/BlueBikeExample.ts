@@ -26,6 +26,7 @@ export class BlueBikeExample extends ASource {
 
     public async getData(): Promise<void> {
         //let url ="https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
+        let start = Date.now();
 
         return new Promise<void>((resolve, reject) => {
             try {
@@ -48,16 +49,18 @@ export class BlueBikeExample extends ASource {
                     //console.log(member.id.value);
                     //console.log(member.quads);
                     //console.log(memberURI);
-                    await this.analyseData(member.quads);
 
+                    await this.analyseData(member.quads);
                 });
                 eventStreamSync.on('end', () => {
                     console.log("No more data!");
-                    //this.controle();
+                    console.log("gestart" + start + "\tgestopt:" + Date.now());
+                    // this.controle();
                     return resolve();
                 });
             } catch (e) {
                 console.error(e);
+                // this.controle();
                 return reject(e);
             }
         });
@@ -145,12 +148,16 @@ export class BlueBikeExample extends ASource {
     }
 
     public controle(): void {
-        for (let x of this.keeperOfTheObservations.simpleValues.keys()) {
-            console.log(x);
-            for (let y of this.keeperOfTheObservations.simpleValues.get(x).keys()) {
-                console.log("\t-\t" + y);
-                for (let z of this.keeperOfTheObservations.simpleValues.get(x).get(y)) {
-                    console.log("\t-\t-\t" + z.toString());
+        for (let w of this.keeperOfTheObservations.simpleValues.keys()) {
+            // dit zijn er twee
+            console.log(w);
+            for (let x of this.keeperOfTheObservations.simpleValues.get(w).keys()) {
+                console.log("\t-\t" + x);
+                for (let y of this.keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
+                    console.log("\t\t\t" + y);
+                    for (let z of this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y)) {
+                        console.log("\t\t\t\t" + z.toString());
+                    }
                 }
             }
         }

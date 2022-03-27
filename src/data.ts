@@ -17,13 +17,6 @@ export class Data{
         this.keeperOfTheObservations = new ObservationKeeper();
         this.source = new BlueBikeExample(this.keeperOfTheObservations);
         this.creatorOfTheQuads = new QuadTheCreator();
-        
-        // create necessary directories where data will be stored
-        /*
-		if (!existsSync(this.config.storage)) {
-			mkdirSync(this.config.storage);
-		}
-        */
     }
 
     public async fetchData():Promise<void> {

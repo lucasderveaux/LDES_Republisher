@@ -18,36 +18,49 @@ export class QuadTheCreator {
         console.log("all hail the keeper of the observations");
         console.log("de grootte van de featureOfInterests: " + keeperOfTheObservations.featureOfInterests.size);
         for (let idSimpleValue of keeperOfTheObservations.simpleValues.keys()) {
-            console.log("de is van de simplevalue is" + idSimpleValue);
             i = idSimpleValue.search(/#/);
-            let test = idSimpleValue.substring(i + 1);
-            console.log(test);
-            for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
-                quads = [];
-                this.createFeatureOfInterest(keeperOfTheObservations.featureOfInterests.get(idLocation), quads);
-                for (let observation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(idLocation)) {
-                    this.createObservation(observation, idSimpleValue, idLocation, quads);
-                }
-                //hier wegschrijven naar de juiste file
-                // check if directory does not exist
-                if (!fs.existsSync("output")) {
-                    //console.log('Directory not existing!');
-                    // make directory where we will store newly fetched data
-                    fs.mkdirSync("output");
-                }
-                if (!fs.existsSync("output/"+test)) {
-                    //console.log('Directory not existing!');
-                    // make directory where we will store newly fetched data
-                    fs.mkdirSync("output/"+test);
-                }
+            let simpleValueID = idSimpleValue.substring(i + 1);
+            for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
+                for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
+                    quads = [];
+                    this.createFeatureOfInterest(keeperOfTheObservations.featureOfInterests.get(idLocation), quads);
+                    for (let observation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation)) {
+                        this.createObservation(observation, idSimpleValue, idLocation, quads);
+                    }
+                    //hier wegschrijven naar de juiste file
 
-                // check if file not exists
-                if (!fs.existsSync("output/"+test + "/" + idLocation.replace(/ /g, "_").replace(/\//g,'_')+ ".ttl")) {
-                    // make file where we will store newly fetched data     
-                    const writer = new N3.Writer({ format: 'N-Triples' });
-                    let serialised = writer.quadsToString(quads);
 
-                    fs.writeFileSync("output/"+test + "/" + idLocation.replace(/ /g, "_").replace(/\//g,'_') + ".ttl", serialised);
+                    // check if directory does not exist
+                    if (!fs.existsSync("output")) {
+                        //console.log('Directory not existing!');
+                        // make directory where we will store newly fetched data
+                        fs.mkdirSync("output");
+                    }
+                    if (!fs.existsSync("output/" + simpleValueID)) {
+                        //console.log('Directory not existing!');
+                        // make directory where we will store newly fetched data
+                        fs.mkdirSync("output/" + simpleValueID);
+                    }
+                    if (!fs.existsSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_'))) {
+                        //console.log('Directory not existing!');
+                        // make directory where we will store newly fetched data
+                        fs.mkdirSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_'));
+                    }
+                    if (!fs.existsSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_')+"/"+day.replace(/ /g,"_"))) {
+                        //console.log('Directory not existing!');
+                        // make directory where we will store newly fetched data
+                        fs.mkdirSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_')+"/"+day.replace(/ /g,"_"));
+                    }
+
+
+                    // check if file not exists
+                    if (!fs.existsSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_') +"/"+day.replace(/ /g,"_")+"/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_') + ".ttl")) {
+                        // make file where we will store newly fetched data     
+                        const writer = new N3.Writer({ format: 'N-Triples' });
+                        let serialised = writer.quadsToString(quads);
+
+                        fs.writeFileSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_') +"/"+day.replace(/ /g,"_")+"/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_') + ".ttl", serialised);
+                    }
                 }
             }
         }
@@ -55,7 +68,7 @@ export class QuadTheCreator {
 
     public createFeatureOfInterest(feature: FeatureOfInterest, quads: RDF.Quad[]): void {
         // ik beslis dat de url is
-        let starturl = "https://blue-bike.be/stations/" + feature.getId().replace(/ /g, '_').replace(/\//g,'_');
+        let starturl = "https://blue-bike.be/stations/" + feature.getId().replace(/ /g, '_').replace(/\//g, '_');
         quads.push(
             quad(
                 namedNode(starturl),
@@ -95,7 +108,7 @@ export class QuadTheCreator {
     }
 
     public createObservation(observation: Observation, idSimpleValue: string, idLocation: string, quads: RDF.Quad[]): void {
-        let starturl: string = "https://blue-bike.be/" + idLocation.replace(/ /g, "_").replace(/\//g,'_') + "observations/" + observation.getTimestamp()
+        let starturl: string = "https://blue-bike.be/" + idLocation.replace(/ /g, "_").replace(/\//g, '_') + "/observations/" + observation.getTimestamp()
         quads.push(
             quad(
                 namedNode(starturl),
@@ -107,7 +120,7 @@ export class QuadTheCreator {
             quad(
                 namedNode(starturl),
                 namedNode('http://www.w3.org/ns/sosa/hasFeatureOfInterest'),
-                namedNode('https://blue-bike.be/stations/' + idLocation.replace(/ /g, "_").replace(/\//g,'_'))
+                namedNode('https://blue-bike.be/stations/' + idLocation.replace(/ /g, "_").replace(/\//g, '_'))
             )
         );
         quads.push(
