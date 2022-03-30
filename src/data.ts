@@ -31,10 +31,10 @@ export class Data{
         });
     }
 
-    public async writeData():Promise<void>{
+    public async writeData(config:IConfig):Promise<void>{
         return new Promise<void>(async(resolve,reject)=>{
             try{
-                await this.creatorOfTheQuads.writeData(this.keeperOfTheObservations);
+                await this.creatorOfTheQuads.writeData(this.keeperOfTheObservations,config);
                 return resolve();
             } catch(e){
                 console.error(e);

@@ -22,7 +22,7 @@ const run = async (): Promise<void> => {
 	core.startGroup('Fetch and write data');
 	const data_fetcher = new Data(config);
 	await data_fetcher.fetchData();
-	await data_fetcher.writeData();
+	await data_fetcher.writeData(config);
 	core.endGroup();
 
 	core.startGroup('File changes');

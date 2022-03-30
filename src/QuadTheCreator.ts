@@ -4,6 +4,7 @@ import { FeatureOfInterest } from "./lib/FeatureOfInterest";
 import { Observation } from "./lib/Observation";
 import { literal, namedNode, quad } from '@rdfjs/data-model';
 import * as fs from "fs";
+import { IConfig } from "./config";
 const N3 = require('n3');
 
 export class QuadTheCreator {
@@ -11,7 +12,7 @@ export class QuadTheCreator {
         console.log("Quad the creator has started");
     }
 
-    public writeData(keeperOfTheObservations: ObservationKeeper) {
+    public writeData(keeperOfTheObservations: ObservationKeeper,config:IConfig) {
         let quads: RDF.Quad[];
         let i: number;
 
@@ -23,6 +24,8 @@ export class QuadTheCreator {
             for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
                     quads = [];
+                    let idLocationFile = idLocation.replace(/ /g, "_").replace(/\//g, '_');
+                    let dayFile = day.replace(/ /g,"_");
                     this.createFeatureOfInterest(keeperOfTheObservations.featureOfInterests.get(idLocation), quads);
                     for (let observation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation)) {
                         this.createObservation(observation, idSimpleValue, idLocation, quads);
@@ -31,35 +34,35 @@ export class QuadTheCreator {
 
 
                     // check if directory does not exist
-                    if (!fs.existsSync("output")) {
+                    if (!fs.existsSync(`${config.storage}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        fs.mkdirSync("output");
+                        fs.mkdirSync(`${config.storage}`);
                     }
-                    if (!fs.existsSync("output/" + simpleValueID)) {
+                    if (!fs.existsSync(`${config.storage}/${simpleValueID}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        fs.mkdirSync("output/" + simpleValueID);
+                        fs.mkdirSync(`${config.storage}/${simpleValueID}`);
                     }
-                    if (!fs.existsSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_'))) {
+                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        fs.mkdirSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_'));
+                        fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}`);
                     }
-                    if (!fs.existsSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_')+"/"+day.replace(/ /g,"_"))) {
+                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        fs.mkdirSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_')+"/"+day.replace(/ /g,"_"));
+                        fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
                     }
 
 
                     // check if file not exists
-                    if (!fs.existsSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_') +"/"+day.replace(/ /g,"_")+"/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_') + ".ttl")) {
+                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
                         // make file where we will store newly fetched data     
                         const writer = new N3.Writer({ format: 'N-Triples' });
                         let serialised = writer.quadsToString(quads);
 
-                        fs.writeFileSync("output/" + simpleValueID + "/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_') +"/"+day.replace(/ /g,"_")+"/"+ idLocation.replace(/ /g, "_").replace(/\//g, '_') + ".ttl", serialised);
+                        fs.writeFileSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
                     }
                 }
             }
