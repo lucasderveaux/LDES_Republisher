@@ -39,8 +39,8 @@ export class BlueBikeExample extends ASource {
 
                 let LDESClient = newEngine();
                 let eventStreamSync = LDESClient.createReadStream(
-                    //"https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl",
-                    "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl",
+                    "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl",
+                    //"https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl",
                     options
                 );
 
