@@ -4,9 +4,14 @@
   "description": "Linked Data Extractor ",
   "main": "./dist/main.js",
   "scripts": {
-    "start": "yarn run build && node ./dist/test.js",
+    "start": "yarn run build && node ./lib/test.js",
     "build": "yarn run clean && tsc",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "package": "ncc build --source-map --target es2020 lib/main.js",
+    "package-post": "ncc build --target es2020 lib/post.js -o dist/post",
+    "dist": "npm run build && npm run package && npm run package-post",
+    "format": "prettier --write **/*.ts",
+    "test": "npm run build && env-cmd npm run start"
   },
   "author": "Lucas Derveaux",
   "license": "MIT",
@@ -19,6 +24,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "fs": "^0.0.1-security",
+    "ncc": "^0.3.6",
     "path": "^0.12.7",
     "rdf-js": "^4.0.2",
     "rdf-serialize": "^2.0.0",
