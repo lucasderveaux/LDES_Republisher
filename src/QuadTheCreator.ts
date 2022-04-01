@@ -25,7 +25,7 @@ export class QuadTheCreator {
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
                     quads = [];
                     let idLocationFile = idLocation.replace(/ /g, "_").replace(/\//g, '_');
-                    let dayFile = day.replace(/ /g,"_");
+                    let dayFile = day.replace(/ /g,"_").replace(/[^a-zA-Z]/g,"");
                     this.createFeatureOfInterest(keeperOfTheObservations.featureOfInterests.get(idLocation), quads);
                     for (let observation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation)) {
                         this.createObservation(observation, idSimpleValue, idLocation, quads);

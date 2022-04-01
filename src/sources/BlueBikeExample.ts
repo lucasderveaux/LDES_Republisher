@@ -5,6 +5,7 @@ import { newEngine } from '@treecg/actor-init-ldes-client';
 import { Observation } from '../lib/Observation';
 import { FeatureOfInterest } from '../lib/FeatureOfInterest';
 import { ObservationKeeper } from '../lib/ObservationKeeper';
+var fs = require('fs');
 
 export class BlueBikeExample extends ASource {
     //private triples: RDF.Quad[];
@@ -39,8 +40,8 @@ export class BlueBikeExample extends ASource {
 
                 let LDESClient = newEngine();
                 let eventStreamSync = LDESClient.createReadStream(
-                    "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl",
-                    //"https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl",
+                    //"https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl",
+                    "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl",
                     options
                 );
 
@@ -54,13 +55,15 @@ export class BlueBikeExample extends ASource {
                 });
                 eventStreamSync.on('end', () => {
                     console.log("No more data!");
-                    console.log("gestart" + start + "\tgestopt:" + Date.now());
+                    console.log("totale tijd: \t" + ((Date.now() - start) / 1000) + " seconden");
                     // this.controle();
+                    //this.controleNaam();
                     return resolve();
                 });
             } catch (e) {
                 console.error(e);
                 // this.controle();
+
                 return reject(e);
             }
         });
@@ -161,5 +164,47 @@ export class BlueBikeExample extends ASource {
                 }
             }
         }
+    }
+
+    public controleNaam() {
+        let mijnSet = new Set();
+        let dagenSet = new Set();
+
+        for (let idSimpleValue of this.keeperOfTheObservations.simpleValues.keys()) {
+
+            for (let day of this.keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
+                for (let idLocation of this.keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
+
+                    mijnSet.add(idLocation.replace(/ /g, "_").replace(/\//g, '_'));
+                    dagenSet.add(day.replace(/ /g, "_"));
+                }
+            }
+        }
+
+        let str: string = "";
+        for (let plek of mijnSet) {
+            str += plek + '\n';
+        }
+
+        let str2: string = "";
+        for (let dag of dagenSet) {
+            str2 += dag + "\n";
+        }
+
+        fs.writeFileSync('./stations.txt', (str), function (err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("file saved");
+            }
+        });
+
+        fs.writeFileSync('./dagen.txt', (str2), function (err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("file saved");
+            }
+        });
     }
 }

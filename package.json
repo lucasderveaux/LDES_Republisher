@@ -10,8 +10,7 @@
     "package": "ncc build --source-map --target es2020 lib/main.js",
     "package-post": "ncc build --target es2020 lib/post.js -o dist/post",
     "dist": "npm run build && npm run package && npm run package-post",
-    "format": "prettier --write **/*.ts",
-    "test": "npm run build && env-cmd npm run start"
+    "format": "prettier --write **/*.ts"
   },
   "author": "Lucas Derveaux",
   "license": "MIT",
