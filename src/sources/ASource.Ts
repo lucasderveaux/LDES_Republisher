@@ -1,7 +1,7 @@
-import { Observation } from '../lib/Observation';
+import { Observation } from '../Objects/Observation';
 import {ISource} from './ISource';
-import { Page } from '../lib/Page';
-import {ObservationKeeper} from '../lib/ObservationKeeper';
+import { Page } from '../Objects/Page';
+import {ObservationKeeper} from '../Objects/ObservationKeeper';
 
 export abstract class ASource implements ISource{
     keeperOfTheObservations:ObservationKeeper;

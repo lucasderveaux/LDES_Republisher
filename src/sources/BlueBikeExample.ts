@@ -1,10 +1,10 @@
 import type * as RDF from 'rdf-js';
 import { ASource } from './ASource';
-import { Page } from "../lib/Page";
+import { Page } from "../Objects/Page";
 import { newEngine } from '@treecg/actor-init-ldes-client';
-import { Observation } from '../lib/Observation';
-import { FeatureOfInterest } from '../lib/FeatureOfInterest';
-import { ObservationKeeper } from '../lib/ObservationKeeper';
+import { Observation } from '../Objects/Observation';
+import { FeatureOfInterest } from '../Objects/FeatureOfInterest';
+import { ObservationKeeper } from '../Objects/ObservationKeeper';
 var fs = require('fs');
 
 export class BlueBikeExample extends ASource {

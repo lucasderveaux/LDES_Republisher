@@ -1,7 +1,7 @@
-import { ObservationKeeper } from "./lib/ObservationKeeper";
+import { ObservationKeeper } from "./Objects/ObservationKeeper";
 import type * as RDF from 'rdf-js';
-import { FeatureOfInterest } from "./lib/FeatureOfInterest";
-import { Observation } from "./lib/Observation";
+import { FeatureOfInterest } from "./Objects/FeatureOfInterest";
+import { Observation } from "./Objects/Observation";
 import { literal, namedNode, quad } from '@rdfjs/data-model';
 import * as fs from "fs";
 import { IConfig } from "./config";
@@ -12,10 +12,10 @@ export class QuadTheCreator {
         console.log("Quad the creator has started");
     }
 
-    public writeData(keeperOfTheObservations: ObservationKeeper,config:IConfig) {
+    public async writeData(keeperOfTheObservations: ObservationKeeper,config:IConfig) {
         let quads: RDF.Quad[];
         let i: number;
-
+        const writer = new N3.Writer({ format: 'N-Triples' });
         console.log("all hail the keeper of the observations");
         console.log("de grootte van de featureOfInterests: " + keeperOfTheObservations.featureOfInterests.size);
         for (let idSimpleValue of keeperOfTheObservations.simpleValues.keys()) {
@@ -24,8 +24,8 @@ export class QuadTheCreator {
             for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
                     quads = [];
-                    let idLocationFile = idLocation.replace(/ /g, "_").replace(/\//g, '_');
-                    let dayFile = day.replace(/ /g,"_").replace(/[^a-zA-Z]/g,"");
+                    let idLocationFile =  await idLocation.replace(/ /g, "_").replace(/\//g, '_');
+                    let dayFile = await day.replace(/ /g,"_").replace(/[^a-zA-Z]/g,"");
                     this.createFeatureOfInterest(keeperOfTheObservations.featureOfInterests.get(idLocation), quads);
                     for (let observation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation)) {
                         this.createObservation(observation, idSimpleValue, idLocation, quads);
@@ -37,32 +37,32 @@ export class QuadTheCreator {
                     if (!fs.existsSync(`${config.storage}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        fs.mkdirSync(`${config.storage}`);
+                        await fs.mkdirSync(`${config.storage}`);
                     }
                     if (!fs.existsSync(`${config.storage}/${simpleValueID}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        fs.mkdirSync(`${config.storage}/${simpleValueID}`);
+                        await fs.mkdirSync(`${config.storage}/${simpleValueID}`);
                     }
                     if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}`);
+                        await fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}`);
                     }
                     if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
+                        await fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
                     }
 
 
                     // check if file not exists
                     if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
                         // make file where we will store newly fetched data     
-                        const writer = new N3.Writer({ format: 'N-Triples' });
-                        let serialised = writer.quadsToString(quads);
+                        
+                        let serialised = await writer.quadsToString(quads);
 
-                        fs.writeFileSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
+                        await fs.writeFileSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
                     }
                 }
             }

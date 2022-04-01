@@ -1,5 +1,5 @@
 import { IConfig } from "./config";
-import { ObservationKeeper } from "./lib/ObservationKeeper"
+import { ObservationKeeper } from "./Objects/ObservationKeeper"
 import { BlueBikeExample } from "./sources/BlueBikeExample";
 import { ISource } from "./sources/ISource";
 import { existsSync, mkdirSync } from 'fs';

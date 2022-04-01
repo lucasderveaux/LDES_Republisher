@@ -6,7 +6,7 @@
   "scripts": {
     "start": "yarn run build && node ./lib/test.js",
     "build": "yarn run clean && tsc",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && rm -rf lib",
     "package": "ncc build --source-map --target es2020 lib/main.js",
     "package-post": "ncc build --target es2020 lib/post.js -o dist/post",
     "dist": "npm run build && npm run package && npm run package-post",

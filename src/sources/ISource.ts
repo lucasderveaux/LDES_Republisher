@@ -1,5 +1,5 @@
-import {Page} from "../lib/Page";
-import { Observation } from "../lib/Observation";
+import {Page} from "../Objects/Page";
+import { Observation } from "../Objects/Observation";
 
 export interface ISource{
     /*
