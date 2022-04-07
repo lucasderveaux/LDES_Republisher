@@ -19,22 +19,9 @@ inputs:
     description: 'Git email that makes the commits'
     required: false
     default: 'LDES-action@users.noreply.github.com'
-  fragmentation_strategy:
-    description: 'Fragmentation strategy to use'
-    required: false
-    default: 'version'
-  fragmentation_page_size:
-    description: 'RDF object count per page'
-    required: false
-    default: "50"
-  datasource_strategy:
-    description: 'Datasource strategy to use'
-    required: false
-    default: 'ldes-client'
-  materialize_version:
-    description: 'Wether version materialization should be used'
-    required: false
-    default: 'false'
+  literal_values:
+    description: 'The different litteral values that need to be extracted and need to be divided and grouped in 24h'
+    required: true
 outputs:
   delta_bytes: # size of changed data
     description: 'The overall number of bytes changed in the output data this run (current size - previous size)'
@@ -54,10 +41,7 @@ runs:
         INPUT_GH_PAGES_URL: ${{ inputs.gh_pages_url }}
         INPUT_GIT_USERNAME: ${{ inputs.git_username }}
         INPUT_GIT_EMAIL: ${{ inputs.git_email }}
-        INPUT_FRAGMENTATION_STRATEGY: ${{ inputs.fragmentation_strategy }}
-        INPUT_FRAGMENTATION_PAGE_SIZE: ${{ inputs.fragmentation_page_size }}
-        INPUT_DATASOURCE_STRATEGY: ${{ inputs.datasource_strategy }}
-        INPUT_MATERIALIZE_VERSION: ${{ inputs.materialize_version }}
+        INPUT_LITERAL_VALUES: ${{ inputs.literal_values }}
     - name: Run post script
       run: node ${{ github.action_path }}/dist/post/index.js
       shell: bash

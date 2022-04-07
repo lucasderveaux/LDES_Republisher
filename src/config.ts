@@ -7,6 +7,7 @@ export interface IConfig {
 	gh_pages_url: string; // URL of the GitHub Pages deployment
 	git_username: string; // GitHub username that makes the commits
 	git_email: string; // GitHub email that makes the commits
+	literal_values:any;
 }
 
 export function getConfig(): IConfig {
@@ -16,6 +17,7 @@ export function getConfig(): IConfig {
 		gh_pages_branch: core.getInput('gh_pages_branch'),
 		gh_pages_url: core.getInput('gh_pages_url'),
 		git_username: core.getInput('git_username'),
-		git_email: core.getInput('git_email')
+		git_email: core.getInput('git_email'),
+		literal_values: core.getInput('literal_values')
 	};
 }

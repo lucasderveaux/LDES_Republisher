@@ -4,6 +4,7 @@ import { BlueBikeExample } from "./sources/BlueBikeExample";
 import { ISource } from "./sources/ISource";
 import { existsSync, mkdirSync } from 'fs';
 import { QuadTheCreator } from "./QuadTheCreator";
+import { GeneralExtractor } from "./sources/GeneralExtractor";
 
 export class Data{
     private readonly config:IConfig;
@@ -15,7 +16,7 @@ export class Data{
     public constructor(config:IConfig){
         this.config = config;
         this.keeperOfTheObservations = new ObservationKeeper();
-        this.source = new BlueBikeExample(this.keeperOfTheObservations);
+        this.source = new GeneralExtractor(this.keeperOfTheObservations,config);
         this.creatorOfTheQuads = new QuadTheCreator();
     }
 

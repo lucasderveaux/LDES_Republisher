@@ -13,6 +13,7 @@ export class BlueBikeExample extends ASource {
 
     constructor(keeperOfTheObservations: ObservationKeeper) {
         super(keeperOfTheObservations);
+        
         //Hier zou nog vanalles kunnen komen in het verband met triples en metadat.
         //Misschien moet ik terug met Pages werken want eigenlijk was dat wel een goed systeem.
         //Ja ik ga dat doen dat is super logisch.

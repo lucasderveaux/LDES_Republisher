@@ -12,7 +12,7 @@ export class QuadTheCreator {
         console.log("Quad the creator has started");
     }
 
-    public async writeData(keeperOfTheObservations: ObservationKeeper,config:IConfig) {
+    public async writeData(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         let quads: RDF.Quad[];
         let i: number;
         const writer = new N3.Writer({ format: 'N-Triples' });
@@ -24,8 +24,8 @@ export class QuadTheCreator {
             for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
                     quads = [];
-                    let idLocationFile =  await idLocation.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g,"");
-                    let dayFile = await day.replace(/ /g,"_");
+                    let idLocationFile = await idLocation.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "");
+                    let dayFile = await day.replace(/ /g, "_");
                     this.createFeatureOfInterest(keeperOfTheObservations.featureOfInterests.get(idLocation), quads);
                     for (let observation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation)) {
                         this.createObservation(observation, idSimpleValue, idLocation, quads);
@@ -59,7 +59,7 @@ export class QuadTheCreator {
                     // check if file not exists
                     if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
                         // make file where we will store newly fetched data     
-                        
+
                         let serialised = await writer.quadsToString(quads);
 
                         await fs.writeFileSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
