@@ -40,9 +40,7 @@ export class GeneralExtractor extends ASource {
 
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
-                    for(let str in this.literal_values){
-                        console.log(this.literal_values[str]);
-                    }
+                    this.controle();
                     return resolve();
                 });
             } catch (e) {
@@ -106,6 +104,23 @@ export class GeneralExtractor extends ASource {
         });
 
     }
+
+    public controle(): void {
+        for (let w of this.keeperOfTheObservations.simpleValues.keys()) {
+            // dit zijn er twee
+            console.log(w);
+            for (let x of this.keeperOfTheObservations.simpleValues.get(w).keys()) {
+                console.log("\t-\t" + x);
+                for (let y of this.keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
+                    console.log("\t\t\t" + y);
+                    for (let z of this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y)) {
+                        console.log("\t\t\t\t" + z.toString());
+                    }
+                }
+            }
+        }
+    }
+
 
     public getPage(id: any): Page {
         throw new Error('Method not implemented.');
