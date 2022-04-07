@@ -14,10 +14,9 @@ const run = async (): Promise<void> => {
 
     let test2:string[];
     test2 = JSON.parse(test);
-    if(test2.includes('melk')){
-        console.log("ja");
-    }else{
-        console.log("nee");
+    
+    for(let str in test2){
+        console.log(test2[str]);
     }
 
 }

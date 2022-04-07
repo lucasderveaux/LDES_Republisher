@@ -41,7 +41,7 @@ export class GeneralExtractor extends ASource {
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
                     for(let str in this.literal_values){
-                        console.log(str);
+                        console.log(this.literal_values);
                     }
                     return resolve();
                 });
@@ -63,6 +63,7 @@ export class GeneralExtractor extends ASource {
                 let created:string
                 member.forEach((triple) => {
                     if (this.literal_values.includes(triple.predicate.value)) {
+                        console.log(triple.predicate.value);
                         literal = parseFloat(triple.object.value);
                         literalPredicate = triple.predicate.value;
                     } else {
