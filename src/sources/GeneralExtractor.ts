@@ -10,11 +10,17 @@ import { Observation } from '../Objects/Observation';
 export class GeneralExtractor extends ASource {
     private config: IConfig;
     private literal_values: string[];
+    private url: string;
 
     constructor(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         super(keeperOfTheObservations);
         this.config = config;
         this.literal_values = JSON.parse(this.config.literal_values);
+        //test
+      //  this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
+       // this.url = "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
+        //test
+
     }
 
     public getData(): Promise<void> {
@@ -31,7 +37,9 @@ export class GeneralExtractor extends ASource {
                 let LDESClient = newEngine();
 
                 let eventStreamSync = LDESClient.createReadStream(
+        
                     this.config.url, options
+                   
                 );
 
                 eventStreamSync.on('data', async (member: any) => {
@@ -40,7 +48,7 @@ export class GeneralExtractor extends ASource {
 
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
-                    this.controle();
+                    //this.controle();
                     return resolve();
                 });
             } catch (e) {
@@ -57,14 +65,12 @@ export class GeneralExtractor extends ASource {
                 let version: string;
                 let name: string;
                 let literal: number;
-                let literalPredicate: string;
-                let created:string
+                let created: string;
+                let observations = new Map<string, number>();
+
                 member.forEach((triple) => {
                     if (this.literal_values.includes(triple.predicate.value)) {
-                        console.log(triple.predicate.value+" is de predicat");
-                        literal = parseFloat(triple.object.value);
-                        literalPredicate = triple.predicate.value;
-                        console.log(literalPredicate+"\t:\t"+literal);
+                        observations.set(triple.predicate.value, parseFloat(triple.object.value));                        
                     } else {
                         switch (triple.predicate.value) {
                             case "http://purl.org/dc/terms/isVersionOf": {
@@ -79,20 +85,23 @@ export class GeneralExtractor extends ASource {
                                 break;
                             }
                             case "http://purl.org/dc/terms/created": {
-                            //console.log("created on:\t" + triple.object.value);
-                            created = triple.object.value;
-                            //console.log("dubbelcheck on the date:\t" + created.toString());
-                            break;
-                        }
+                                //console.log("created on:\t" + triple.object.value);
+                                created = triple.object.value;
+                                //console.log("dubbelcheck on the date:\t" + created.toString());
+                                break;
+                            }
                         }
                     }
                 });
-                if (version && name && literal && created) {
-                    let currentObservation = new Observation(created,literal);
-                    if(currentObservation.isUsable()){
-                        this.keeperOfTheObservations.addSimpleValue(literalPredicate, name, currentObservation);
+                if (version && name && created) {
+                    let currentObservation: Observation;
+                    for (let key of observations.keys()) {
+                        currentObservation = new Observation(created, observations.get(key));
+                        if (currentObservation.isUsable()) {
+                            this.keeperOfTheObservations.addSimpleValue(key, name, currentObservation);
+                        }
                     }
-                    
+
                 }
 
                 return resolve();
@@ -106,6 +115,7 @@ export class GeneralExtractor extends ASource {
     }
 
     public controle(): void {
+        console.log("huh");
         for (let w of this.keeperOfTheObservations.simpleValues.keys()) {
             // dit zijn er twee
             console.log(w);
