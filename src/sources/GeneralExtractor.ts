@@ -40,6 +40,9 @@ export class GeneralExtractor extends ASource {
 
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
+                    for(let str in this.literal_values){
+                        console.log(str);
+                    }
                     return resolve();
                 });
             } catch (e) {
