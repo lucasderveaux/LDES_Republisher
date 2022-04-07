@@ -41,7 +41,7 @@ export class GeneralExtractor extends ASource {
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
                     for(let str in this.literal_values){
-                        console.log(this.literal_values);
+                        console.log(this.literal_values[str]);
                     }
                     return resolve();
                 });
@@ -63,9 +63,10 @@ export class GeneralExtractor extends ASource {
                 let created:string
                 member.forEach((triple) => {
                     if (this.literal_values.includes(triple.predicate.value)) {
-                        console.log(triple.predicate.value);
+                        console.log(triple.predicate.value+" is de predicat");
                         literal = parseFloat(triple.object.value);
                         literalPredicate = triple.predicate.value;
+                        console.log(literalPredicate+"\t:\t"+literal);
                     } else {
                         switch (triple.predicate.value) {
                             case "http://purl.org/dc/terms/isVersionOf": {
