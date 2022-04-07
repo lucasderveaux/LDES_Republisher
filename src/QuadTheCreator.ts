@@ -1,5 +1,5 @@
 import { ObservationKeeper } from "./Objects/ObservationKeeper";
-import type * as RDF from 'rdf-js';
+import * as RDF from 'rdf-js';
 import { FeatureOfInterest } from "./Objects/FeatureOfInterest";
 import { Observation } from "./Objects/Observation";
 import { literal, namedNode, quad } from '@rdfjs/data-model';
@@ -71,6 +71,7 @@ export class QuadTheCreator {
 
     public createFeatureOfInterest(feature: FeatureOfInterest, quads: RDF.Quad[]): void {
         // ik beslis dat de url is
+        
         let starturl = "https://blue-bike.be/stations/" + feature.getId().replace(/ /g, '_').replace(/\//g, '_');
         quads.push(
             quad(

@@ -7,7 +7,7 @@ export interface IConfig {
 	gh_pages_url: string; // URL of the GitHub Pages deployment
 	git_username: string; // GitHub username that makes the commits
 	git_email: string; // GitHub email that makes the commits
-	literal_values:any;
+	literal_values:string;
 }
 
 export function getConfig(): IConfig {
