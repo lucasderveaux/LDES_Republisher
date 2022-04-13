@@ -15,10 +15,10 @@ export class GeneralExtractor extends ASource {
     constructor(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         super(keeperOfTheObservations);
         this.config = config;
-        //this.literal_values = JSON.parse(this.config.literal_values);
+        this.literal_values = JSON.parse(this.config.literal_values);
         //test
-        this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
-        this.url = "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
+        // this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
+        // this.url = "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
         //test
 
     }
@@ -38,10 +38,10 @@ export class GeneralExtractor extends ASource {
 
                 let eventStreamSync = LDESClient.createReadStream(
 
-                    // this.config.url, options
-                    //test
-                    this.url, options
-                    //test
+                    this.config.url, options
+                    // //test
+                    // this.url, options
+                    // //test
 
                 );
 
@@ -52,7 +52,7 @@ export class GeneralExtractor extends ASource {
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
 
-                    this.controle();
+                    // this.controle();
 
                     return resolve();
                 });
@@ -132,10 +132,10 @@ export class GeneralExtractor extends ASource {
                 for (let y of this.keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
                     //dit zijn de dagen
                     console.log("\t\t\t" + y);
-                    
+
                     for (let z of this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).keys()) {
                         //dit is de sortedMap
-                        console.log("\t\t\t\t" + z+":\t"+this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).get(z));
+                        console.log("\t\t\t\t" + z + ":\t" + this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).get(z));
                     }
                     //console.log("\t\t\t\t"+this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).length);
                 }

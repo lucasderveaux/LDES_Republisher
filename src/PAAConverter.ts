@@ -1,8 +1,9 @@
 import { ObservationKeeper } from "./Objects/ObservationKeeper";
-import {SortedMap} from "collections/sorted-map";
+import { SortedMap } from "collections/sorted-map";
+import { resolve } from "path";
 
-export class PAAConverter{
-    constructor(){
+export class PAAConverter {
+    constructor() {
 
     }
 
@@ -10,52 +11,107 @@ export class PAAConverter{
     Hier moet er opnieuw een mapping gebeuren die de array overloopt in twee stukken
     */
 
-    public ConvertAll(keeperOfTheObservations:ObservationKeeper){
+    public async ConvertAll(keeperOfTheObservations: ObservationKeeper) {
         for (let w of keeperOfTheObservations.simpleValues.keys()) {
             // dit zijn de types
-            console.log(w);
             for (let x of keeperOfTheObservations.simpleValues.get(w).keys()) {
                 //dit zijn de stations
-                console.log("\t-\t" + x);
                 for (let y of keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
                     //dit zijn de dagen
-                    console.log("\t\t\t" + y);
-                    //console.log(this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y));
-                    // for (let z of this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).keys()) {
-                    //     //dit is de sortedMap
-                    //     console.log("\t\t\t\t" + this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).get(z));
-                    // }
-                    this.convertOne(y,keeperOfTheObservations.simpleValues.get(w).get(x).get(y));
+                    try {
+                        let endMap: SortedMap;
+                        endMap = await this.convertOne(keeperOfTheObservations.simpleValues.get(w).get(x).get(y));
+                        //overwrite SortedMap
+                        keeperOfTheObservations.simpleValues.get(w).get(x).set(y, endMap);
+                    } catch (e) {
+                        console.error(e);
+                    }
                 }
             }
         }
     }
 
-    public convertOne(key:string,sortedMap:SortedMap){
-        //amound of milliseconds since January 1, 1970, 00:00:00
-        let min:number = sortedMap.keys().next().value;
-        
-        
-        //in milliseconds
-        // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 100 miliseconds in a second
-        let divider = (24*60*60*100)/sortedMap.length;
+    public convertOne(sortedMap: SortedMap): Promise<SortedMap> {
+        return new Promise<SortedMap>(async (resolve, reject) => {
+            try {
+                //amound of milliseconds since January 1, 1970, 00:00:00
+                let min: number = sortedMap.keys().next().value;
 
-        let begin = 0;
-        let end = divider;
 
-        let map=new Map<number,Array<number>>();
+                //in milliseconds
+                // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 100 miliseconds in a second
+                let divider = (24 * 60 * 60 * 100) / sortedMap.length;
 
-        for(let key of sortedMap.keys()){
-            if(!map.has(begin)){
-                map.set(begin,new Array<number>());
+                let beginInterval = 0;
+                let endInterval = divider;
+
+                let map = new Map<number, Array<number>>();
+
+                for (let key of sortedMap.keys()) {
+                    let toTest = key - min;
+                    //kijken of het überhaupt kan
+                    //eigenlijk moet ik overal evenveel observaties hebben.
+                    //nee nee losse punten
+                    while (toTest > endInterval) {
+                        //dit kan eigenlijk niet meer dan 1 keer voorkomen
+                        //maar in voorzorg wordt dit er wel ingestoken
+                        //you never know
+                        //maar ja dan moet ik wel hier iets insteken
+                        //0 kan niet... misschien dan de waarde van de vorige?
+                        //nee eigenlijk is het beter niets
+                        beginInterval = endInterval;
+                        endInterval += divider;
+                    }
+
+                    if (!map.has(beginInterval)) {
+                        map.set(beginInterval, new Array<number>());
+                        map.set(endInterval, new Array<number>());
+                    }
+
+                    //op dit punt zijn de arrays gemaakt en zitten we in de juiste interval
+                    //er zijn twee opties ofwle zitten we in het juiste interval 
+                    //ofwel op de grens en zitten we in beide
+
+                    //zit in beide
+                    if (toTest == endInterval) {
+                        map.get(beginInterval).push(sortedMap.get(key));
+                        map.get(endInterval).push(sortedMap.get(key));
+                    }
+
+                    if (toTest > beginInterval && toTest < endInterval) {
+                        map.get(beginInterval).push(sortedMap.get(key));
+                    } else {
+                        //dit kan eigenlijk niet
+                        //er is iets mis gegaan met de volgorde van de iterator van de sortedMap
+                        while (toTest < beginInterval) {
+                            endInterval = beginInterval;
+                            beginInterval = endInterval - divider;
+                        }
+                        map.get(beginInterval).push(sortedMap.get(key))
+                    }
+                }
+
+                //hier hebben we dus de map<number,Array<number>>
+                //en map met als key het begin van de interval en als value een array waar we het gemiddelde van moeten nemen
+                //dus wat ik nu moet doen is de juiste sortedMap aanmaken met het gemiddelde van elke Array<number>
+
+                let endMap = new SortedMap();
+                for (let key of map.keys()) {
+                    let avg: number = 0;
+                    let div: number = 0;
+                    for (let n of map.get(key)) {
+                        avg += n;
+                        div++;
+                    }
+                    avg = avg / div;
+                    endMap.set(key, avg);
+                }
+                console.log("it worked");
+                resolve(endMap);
+            } catch (e) {
+                console.error(e);
+                reject(e);
             }
-
-            let time = key-min;
-            //dit is nog niet af!!!!
-            
-            if(time>=begin || time<=end){
-                map.get(begin).push(sortedMap.get(key));
-            }
-        }
+        });
     }
 }

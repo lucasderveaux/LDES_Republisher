@@ -5,6 +5,7 @@ import { Observation } from "./Objects/Observation";
 import { literal, namedNode, quad } from '@rdfjs/data-model';
 import * as fs from "fs";
 import { IConfig } from "./config";
+import { SortedMap } from "collections/sorted-map";
 const N3 = require('n3');
 
 export class QuadTheCreator {
@@ -28,7 +29,7 @@ export class QuadTheCreator {
                     let dayFile = await day.replace(/ /g, "_");
                     //this.createFeatureOfInterest(keeperOfTheObservations.featureOfInterests.get(idLocation), quads);
                     for (let observation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation)) {
-                        this.createObservation(observation, idSimpleValue, idLocation, quads);
+                        this.createObservation(observation,idSimpleValue, quads);
                     }
                     //hier wegschrijven naar de juiste file
 
@@ -71,7 +72,7 @@ export class QuadTheCreator {
 
     // public createFeatureOfInterest(feature: FeatureOfInterest, quads: RDF.Quad[]): void {
     //     // ik beslis dat de url is
-        
+
     //     let starturl = "https://blue-bike.be/stations/" + feature.getId().replace(/ /g, '_').replace(/\//g, '_');
     //     quads.push(
     //         quad(
@@ -111,35 +112,56 @@ export class QuadTheCreator {
     //     );
     // }
 
-    public createObservation(observation: Observation, idSimpleValue: string, idLocation: string, quads: RDF.Quad[]): void {
-        let starturl: string = "https://blue-bike.be/" + idLocation.replace(/ /g, "_").replace(/\//g, '_') + "/observations/" + observation.getTimestamp()
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-                namedNode('http://www.w3.org/ns/sosa/Observation')
-            )
-        );
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode('http://www.w3.org/ns/sosa/hasFeatureOfInterest'),
-                namedNode('https://blue-bike.be/stations/' + idLocation.replace(/ /g, "_").replace(/\//g, '_'))
-            )
-        );
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode(idSimpleValue),
-                literal(observation.getValue().toString())
-            )
-        );
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode('http://www.w3.org/ns/sosa/resultTime'),
-                literal(observation.getTimestamp())
-            )
-        );
+    // public createObservation(observation: Observation, idSimpleValue: string, idLocation: string, quads: RDF.Quad[]): void {
+    //     let starturl: string = "https://blue-bike.be/" + idLocation.replace(/ /g, "_").replace(/\//g, '_') + "/observations/" + observation.getTimestamp()
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+    //             namedNode('http://www.w3.org/ns/sosa/Observation')
+    //         )
+    //     );
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode('http://www.w3.org/ns/sosa/hasFeatureOfInterest'),
+    //             namedNode('https://blue-bike.be/stations/' + idLocation.replace(/ /g, "_").replace(/\//g, '_'))
+    //         )
+    //     );
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode(idSimpleValue),
+    //             literal(observation.getValue().toString())
+    //         )
+    //     );
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode('http://www.w3.org/ns/sosa/resultTime'),
+    //             literal(observation.getTimestamp())
+    //         )
+    //     );
+    // }
+
+    public createObservation(sortedMap: SortedMap, idSimpleValue:string, quads: RDF.Quad[]): void {
+        for (let key of sortedMap.keys()) {
+            let starturl: string = "https://blue-bike.be/observations/" + key;
+            quads.push(
+                quad(
+                    namedNode(starturl),
+                    namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                    namedNode('http://www.w3.org/ns/sosa/Observation')
+                )
+            );
+            quads.push(
+                quad(
+                    namedNode(starturl),
+                    namedNode(idSimpleValue),
+                    literal(sortedMap.get(key).toString())
+                )
+            );
+
+        }
     }
 }

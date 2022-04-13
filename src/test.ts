@@ -4,8 +4,9 @@ import {SortedMap} from "collections/sorted-map";
 
 const run = async (): Promise<void> => {
     console.log("at least it's starting...");
-    const data_fetcher = new Data(getConfig());
+    let data_fetcher = new Data(getConfig());
     await data_fetcher.fetchData();
+    await data_fetcher.convertData();
     //await data_fetcher.writeData(null);
 
     let sortedMap = new SortedMap();
