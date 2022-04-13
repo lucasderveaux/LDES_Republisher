@@ -1,52 +1,62 @@
 import { FeatureOfInterest } from "./FeatureOfInterest";
 import { Observation } from "./Observation";
+import {SortedMap} from "collections/sorted-map";
+
 
 export class ObservationKeeper {
-    simpleValues: Map<string, Map<string,Map<string, Array<Observation>>>>;
+    simpleValues: Map<string, Map<string, Map<string, SortedMap>>>;
     simplevalues
     // - type
     // -   - dag
     // -   -   -observation
-    featureOfInterests: Map<string, FeatureOfInterest>;
+    featureOfInterests: Map<string, string>;
     constructor() {
-        this.simpleValues = new Map<string, Map<string,Map<string, Array<Observation>>>>();
-        this.featureOfInterests = new Map<string, FeatureOfInterest>();
+        this.simpleValues = new Map<string, Map<string, Map<string, SortedMap>>>();
+        this.featureOfInterests = new Map<string, string>();
     }
 
-    private createNewSimpleValue(idSimpleValue: string): void {
-        this.simpleValues.set(idSimpleValue, new Map<string, Map<string,Array<Observation>>>());
+    private createNewSimpleValue(typeOfSimpleValue: string): void {
+        this.simpleValues.set(typeOfSimpleValue, new Map<string, Map<string, SortedMap>>());
     }
 
-    private createNewLocationId(idSimpleValue: string, day:string,idLocation: string): void {
-        this.simpleValues.get(idSimpleValue).get(day).set(idLocation, new Array<Observation>());
+    private createNewLocationId(typeOfSimpleValue: string, day: string, idLocation: string): void {
+        this.simpleValues.get(typeOfSimpleValue).get(day).set(idLocation, new SortedMap());
     }
 
-    private createNewDay(idSimpleValue:string,day:string){
-        this.simpleValues.get(idSimpleValue).set(day,new Map<string,Array<Observation>>());
+    private createNewDay(typeOfSimpleValue: string, day: string) {
+        this.simpleValues.get(typeOfSimpleValue).set(day, new Map<string, SortedMap>());
     }
 
-    public addSimpleValue(idSimpleValue: string, idLocation: string, simpleValue: Observation) {
-        let day = new Date(simpleValue.getTimestamp()).toDateString();
+    public addSimpleValue(typeOfSimpleValue: string, idLocation: string, timestamp: string, simpleValue: number) {
+        let priority = Date.parse(timestamp);
+        let day = new Date(timestamp).toDateString();
         //console.log(day);
-        if (!this.simpleValues.has(idSimpleValue)) {
-            //console.log(idSimpleValue + " besta niet");
-            this.createNewSimpleValue(idSimpleValue);
+        if (!this.simpleValues.has(typeOfSimpleValue)) {
+            //console.log(typeOfSimpleValue + " besta niet");
+            this.createNewSimpleValue(typeOfSimpleValue);
         }
 
-        if(!this.simpleValues.get(idSimpleValue).has(day)){
-            this.createNewDay(idSimpleValue,day);
+        if (!this.simpleValues.get(typeOfSimpleValue).has(day)) {
+            this.createNewDay(typeOfSimpleValue, day);
         }
 
-        if (!this.simpleValues.get(idSimpleValue).get(day).has(idLocation)) {
+        if (!this.simpleValues.get(typeOfSimpleValue).get(day).has(idLocation)) {
             //console.log(idLocation + "besta niet");
-            this.createNewLocationId(idSimpleValue,day, idLocation);
+            this.createNewLocationId(typeOfSimpleValue, day, idLocation);
         }
-        this.simpleValues.get(idSimpleValue).get(day).get(idLocation).push(simpleValue);
+        this.simpleValues.get(typeOfSimpleValue).get(day).get(idLocation).set(priority, simpleValue);
         //console.log("simple value toegevoegd");
     }
 
-    public addFeatureOfInterest(feature: FeatureOfInterest) {
-        this.featureOfInterests.set(feature.getId(), feature);
+    /*    
+        public addFeatureOfInterest(feature: FeatureOfInterest) {
+            this.featureOfInterests.set(feature.getId(), feature);
+        }
+    */
+    public addFeatureOfInterest(idLocation: string, versionOf: string) {
+        if (!this.featureOfInterests.has(idLocation)) {
+            this.featureOfInterests.set(idLocation, versionOf);
+        }
     }
 
 }

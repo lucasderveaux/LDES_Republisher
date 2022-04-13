@@ -128,7 +128,7 @@ export class BlueBikeExample extends ASource {
                     if (!this.keeperOfTheObservations.featureOfInterests.has(name)) {
                         //heeft de key nog niet
                         let feature = await new FeatureOfInterest(longitude, latitude, name);
-                        this.keeperOfTheObservations.addFeatureOfInterest(feature);
+                        //werkt neit meer -> this.keeperOfTheObservations.addFeatureOfInterest(feature);
 
                     }
 
@@ -136,10 +136,10 @@ export class BlueBikeExample extends ASource {
                     let availableObservation = new Observation(created, available);
                     let inUseObservation = new Observation(created, inUse);
                     if (availableObservation.isUsable()) {
-                        this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#bikes_available", name, availableObservation);
+                       // this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#bikes_available", name, availableObservation);
                     }
                     if (inUseObservation.isUsable()) {
-                        this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#docks_in_use", name, inUseObservation);
+                      //  this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#docks_in_use", name, inUseObservation);
                     }
                 }
 

@@ -15,10 +15,10 @@ export class GeneralExtractor extends ASource {
     constructor(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         super(keeperOfTheObservations);
         this.config = config;
-        this.literal_values = JSON.parse(this.config.literal_values);
+        //this.literal_values = JSON.parse(this.config.literal_values);
         //test
-      //  this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
-       // this.url = "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
+        this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
+        this.url = "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
         //test
 
     }
@@ -37,9 +37,12 @@ export class GeneralExtractor extends ASource {
                 let LDESClient = newEngine();
 
                 let eventStreamSync = LDESClient.createReadStream(
-        
-                    this.config.url, options
-                   
+
+                    // this.config.url, options
+                    //test
+                    this.url, options
+                    //test
+
                 );
 
                 eventStreamSync.on('data', async (member: any) => {
@@ -48,7 +51,9 @@ export class GeneralExtractor extends ASource {
 
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
-                    //this.controle();
+
+                    this.controle();
+
                     return resolve();
                 });
             } catch (e) {
@@ -70,7 +75,7 @@ export class GeneralExtractor extends ASource {
 
                 member.forEach((triple) => {
                     if (this.literal_values.includes(triple.predicate.value)) {
-                        observations.set(triple.predicate.value, parseFloat(triple.object.value));                        
+                        observations.set(triple.predicate.value, parseFloat(triple.object.value));
                     } else {
                         switch (triple.predicate.value) {
                             case "http://purl.org/dc/terms/isVersionOf": {
@@ -94,13 +99,15 @@ export class GeneralExtractor extends ASource {
                     }
                 });
                 if (version && name && created) {
-                    let currentObservation: Observation;
                     for (let key of observations.keys()) {
-                        currentObservation = new Observation(created, observations.get(key));
-                        if (currentObservation.isUsable()) {
-                            this.keeperOfTheObservations.addSimpleValue(key, name, currentObservation);
+
+                        if (observations.get(key)) {
+                            this.keeperOfTheObservations.addSimpleValue(key, name, created, observations.get(key));
                         }
                     }
+
+                    this.keeperOfTheObservations.addFeatureOfInterest(name, version);
+
 
                 }
 
@@ -117,15 +124,20 @@ export class GeneralExtractor extends ASource {
     public controle(): void {
         console.log("huh");
         for (let w of this.keeperOfTheObservations.simpleValues.keys()) {
-            // dit zijn er twee
+            // dit zijn de types
             console.log(w);
             for (let x of this.keeperOfTheObservations.simpleValues.get(w).keys()) {
+                //dit zijn de stations
                 console.log("\t-\t" + x);
                 for (let y of this.keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
+                    //dit zijn de dagen
                     console.log("\t\t\t" + y);
-                    for (let z of this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y)) {
-                        console.log("\t\t\t\t" + z.toString());
+                    
+                    for (let z of this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).keys()) {
+                        //dit is de sortedMap
+                        console.log("\t\t\t\t" + z+":\t"+this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).get(z));
                     }
+                    //console.log("\t\t\t\t"+this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).length);
                 }
             }
         }

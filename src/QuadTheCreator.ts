@@ -69,47 +69,47 @@ export class QuadTheCreator {
         }
     }
 
-    public createFeatureOfInterest(feature: FeatureOfInterest, quads: RDF.Quad[]): void {
-        // ik beslis dat de url is
+    // public createFeatureOfInterest(feature: FeatureOfInterest, quads: RDF.Quad[]): void {
+    //     // ik beslis dat de url is
         
-        let starturl = "https://blue-bike.be/stations/" + feature.getId().replace(/ /g, '_').replace(/\//g, '_');
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-                namedNode('http://www.w3.org/ns/sosa/FeatureOfInterest')
-            )
-        );
-        let date: Date = new Date();
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode('http://purl.org/dc/terms/created'),
-                literal(date.toISOString())
-            )
-        );
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode('http://schema.org/name'),
-                literal(feature.getId())
-            )
-        );
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode('http://www.w3.org/2003/01/geo/wgs84_pos#latitude'),
-                literal(feature.getLatitude().toString())
-            )
-        );
-        quads.push(
-            quad(
-                namedNode(starturl),
-                namedNode('http://www.w3.org/2003/01/geo/wgs84_pos#longitude'),
-                literal(feature.getLongitude().toString())
-            )
-        );
-    }
+    //     let starturl = "https://blue-bike.be/stations/" + feature.getId().replace(/ /g, '_').replace(/\//g, '_');
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+    //             namedNode('http://www.w3.org/ns/sosa/FeatureOfInterest')
+    //         )
+    //     );
+    //     let date: Date = new Date();
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode('http://purl.org/dc/terms/created'),
+    //             literal(date.toISOString())
+    //         )
+    //     );
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode('http://schema.org/name'),
+    //             literal(feature.getId())
+    //         )
+    //     );
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode('http://www.w3.org/2003/01/geo/wgs84_pos#latitude'),
+    //             literal(feature.getLatitude().toString())
+    //         )
+    //     );
+    //     quads.push(
+    //         quad(
+    //             namedNode(starturl),
+    //             namedNode('http://www.w3.org/2003/01/geo/wgs84_pos#longitude'),
+    //             literal(feature.getLongitude().toString())
+    //         )
+    //     );
+    // }
 
     public createObservation(observation: Observation, idSimpleValue: string, idLocation: string, quads: RDF.Quad[]): void {
         let starturl: string = "https://blue-bike.be/" + idLocation.replace(/ /g, "_").replace(/\//g, '_') + "/observations/" + observation.getTimestamp()
