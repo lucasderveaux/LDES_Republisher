@@ -22,15 +22,15 @@ export class QuadTheCreator {
         for (let idSimpleValue of keeperOfTheObservations.simpleValues.keys()) {
             i = idSimpleValue.search(/#/);
             let simpleValueID = idSimpleValue.substring(i + 1);
-            for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
-                for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
+            for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
+                for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(idLocation).keys()) {
                     quads = [];
                     let idLocationFile = await idLocation.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "");
                     let dayFile = await day.replace(/ /g, "_");
                     //this.createFeatureOfInterest(keeperOfTheObservations.featureOfInterests.get(idLocation), quads);
-                    for (let observation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation).keys()) {
-                        this.createObservation(observation,idSimpleValue, quads);
-                    }
+
+                    this.createObservation(keeperOfTheObservations.simpleValues.get(idSimpleValue).get(idLocation).get(day), idSimpleValue, quads);
+
                     //hier wegschrijven naar de juiste file
 
 
@@ -144,7 +144,7 @@ export class QuadTheCreator {
     //     );
     // }
 
-    public createObservation(sortedMap: SortedMap, idSimpleValue:string, quads: RDF.Quad[]): void {
+    public createObservation(sortedMap: SortedMap, idSimpleValue: string, quads: RDF.Quad[]): void {
         for (let key of sortedMap.keys()) {
             let starturl: string = "https://blue-bike.be/observations/" + key;
             quads.push(
