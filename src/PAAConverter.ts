@@ -31,6 +31,8 @@ export class PAAConverter {
         }
     }
 
+    
+
     public convertOne(sortedMap: SortedMap): Promise<SortedMap> {
         return new Promise<SortedMap>(async (resolve, reject) => {
             try {
@@ -48,6 +50,7 @@ export class PAAConverter {
                 let map = new Map<number, Array<number>>();
 
                 for (let key of sortedMap.keys()) {
+                    
                     let toTest = key - min;
                     //kijken of het überhaupt kan
                     //eigenlijk moet ik overal evenveel observaties hebben.
@@ -65,8 +68,9 @@ export class PAAConverter {
 
                     if (!map.has(beginInterval)) {
                         map.set(beginInterval, new Array<number>());
-                        map.set(endInterval, new Array<number>());
+                        
                     }
+                    
 
                     //op dit punt zijn de arrays gemaakt en zitten we in de juiste interval
                     //er zijn twee opties ofwle zitten we in het juiste interval 
@@ -75,6 +79,9 @@ export class PAAConverter {
                     //zit in beide
                     if (toTest == endInterval) {
                         map.get(beginInterval).push(sortedMap.get(key));
+                        if(!map.has(endInterval)){
+                            map.set(endInterval, new Array<number>());
+                        }
                         map.get(endInterval).push(sortedMap.get(key));
                     }
 
@@ -97,16 +104,22 @@ export class PAAConverter {
 
                 let endMap = new SortedMap();
                 for (let key of map.keys()) {
+
                     let avg: number = 0;
                     let div: number = map.get(key).length;
-                    for (let n of map.get(key)) {
-                        avg += n;
-                       
+                    if (map.get(key).length != 0) {
+                        for (let n of map.get(key)) {
+                           
+                            avg += n;
+
+                        }
                     }
                     avg = avg / div;
-                    endMap.set(key, avg);
+                   
+                        endMap.set(key, avg);
+                    
                 }
-              
+
                 resolve(endMap);
             } catch (e) {
                 console.error(e);

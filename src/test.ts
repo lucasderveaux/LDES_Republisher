@@ -9,32 +9,32 @@ const run = async (): Promise<void> => {
     await data_fetcher.convertData();
     //await data_fetcher.writeData(null);
 
-    let sortedMap = new SortedMap();
+    // let sortedMap = new SortedMap();
 
-    sortedMap.set(1,"Bas");
-    sortedMap.set(4,"Maarten");
-    sortedMap.set(3,"lucas");
+    // sortedMap.set(1,"Bas");
+    // sortedMap.set(4,"Maarten");
+    // sortedMap.set(3,"lucas");
 
-    for(let str of sortedMap.keys()){
-        console.log(sortedMap.get(str));
-    }
-    console.log("\n");
+    // for(let str of sortedMap.keys()){
+    //     console.log(sortedMap.get(str));
+    // }
+    // console.log("\n");
 
-    sortedMap.set(2,"Lore");
-    sortedMap.set(3,"Lucas");
+    // sortedMap.set(2,"Lore");
+    // sortedMap.set(3,"Lucas");
 
-    for(let str of sortedMap.keys()){
-        console.log(sortedMap.get(str));
-    }
+    // for(let str of sortedMap.keys()){
+    //     console.log(sortedMap.get(str));
+    // }
 
-    sortedMap.set(2,"Jeroen");
-    console.log("\nnieuw\n\n");
+    // sortedMap.set(2,"Jeroen");
+    // console.log("\nnieuw\n\n");
 
-    for(let str of sortedMap.keys()){
-        console.log(sortedMap.get(str));
-    }
+    // for(let str of sortedMap.keys()){
+    //     console.log(sortedMap.get(str));
+    // }
 
-    console.log(sortedMap.keys().next().value);
+    // console.log(sortedMap.keys().next().value);
 
 }
 run().catch((error) => {
