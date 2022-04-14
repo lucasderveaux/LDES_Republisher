@@ -127,10 +127,10 @@ export class GeneralExtractor extends ASource {
             // dit zijn de types
             console.log(w);
             for (let x of this.keeperOfTheObservations.simpleValues.get(w).keys()) {
-                //dit zijn de stations
+                //dit zijn de dagen
                 console.log("\t-\t" + x);
                 for (let y of this.keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
-                    //dit zijn de dagen
+                    //dit zijn de stations
                     console.log("\t\t\t" + y);
 
                     for (let z of this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).keys()) {

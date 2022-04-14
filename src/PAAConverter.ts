@@ -15,9 +15,9 @@ export class PAAConverter {
         for (let w of keeperOfTheObservations.simpleValues.keys()) {
             // dit zijn de types
             for (let x of keeperOfTheObservations.simpleValues.get(w).keys()) {
-                //dit zijn de stations
+                //dit zijn de dagen
                 for (let y of keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
-                    //dit zijn de dagen
+                    //dit zijn de stations
                     try {
                         let endMap: SortedMap;
                         endMap = await this.convertOne(keeperOfTheObservations.simpleValues.get(w).get(x).get(y));
@@ -98,15 +98,15 @@ export class PAAConverter {
                 let endMap = new SortedMap();
                 for (let key of map.keys()) {
                     let avg: number = 0;
-                    let div: number = 0;
+                    let div: number = map.get(key).length;
                     for (let n of map.get(key)) {
                         avg += n;
-                        div++;
+                       
                     }
                     avg = avg / div;
                     endMap.set(key, avg);
                 }
-                console.log("it worked");
+              
                 resolve(endMap);
             } catch (e) {
                 console.error(e);
