@@ -18,8 +18,8 @@ export class Data {
     public constructor(config: IConfig) {
         this.config = config;
         this.keeperOfTheObservations = new ObservationKeeper();
-        this.source = new GeneralExtractor(this.keeperOfTheObservations, config);
-        this.creatorOfTheQuads = new QuadTheCreator();
+        this.source = new GeneralExtractor(this.keeperOfTheObservations, this.config);
+        this.creatorOfTheQuads = new QuadTheCreator(this.config);
         this.PAA = new PAAConverter();
     }
 
