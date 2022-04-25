@@ -53,7 +53,7 @@ export class QuadTheCreator {
                         await fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
                     }
 
-                    let baseURL = `${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`;
+                    let baseURL = `${config.gh_pages_url}/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`;
 
                     this.createObservation(keeperOfTheObservations, idSimpleValue, day, idLocation, quads, baseURL);
                     // check if file not exists
