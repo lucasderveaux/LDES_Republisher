@@ -8,6 +8,7 @@ export interface IConfig {
 	git_username: string; // GitHub username that makes the commits
 	git_email: string; // GitHub email that makes the commits
 	literal_values:string;
+	gh_repository: string;
 }
 
 export function getConfig(): IConfig {
@@ -18,6 +19,7 @@ export function getConfig(): IConfig {
 		gh_pages_url: core.getInput('gh_pages_url'),
 		git_username: core.getInput('git_username'),
 		git_email: core.getInput('git_email'),
-		literal_values: core.getInput('literal_values')
+		literal_values: core.getInput('literal_values'),
+		gh_repository: core.getInput('gh_repository')
 	};
 }

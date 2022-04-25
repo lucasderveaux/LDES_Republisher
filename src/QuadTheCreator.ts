@@ -54,7 +54,7 @@ export class QuadTheCreator {
                         await fs.mkdirSync(`${this.config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
                     }
 
-                    let baseURL = `${this.config.gh_pages_url}/${this.config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`;
+                    let baseURL = `${this.config.gh_pages_url}${this.config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`;
 
                     this.createObservation(keeperOfTheObservations, idSimpleValue, day, idLocation, quads, baseURL);
                     // check if file not exists
@@ -96,7 +96,7 @@ export class QuadTheCreator {
             quad(
                 namedNode(baseURL),
                 namedNode('http://purl.org/pav/createdWith'),
-                blankNode('createdWith')
+                namedNode(this.config.gh_repository)
             )
         )
 
@@ -122,7 +122,7 @@ export class QuadTheCreator {
             quad(
                 blankNode('createdWith'),
                 namedNode('http://example.org/timeparameter'),
-                namedNode(' http://www.w3.org/ns/sosa/resultTime')
+                namedNode('http://www.w3.org/ns/sosa/resultTime')
             )
         );
 
@@ -168,7 +168,7 @@ export class QuadTheCreator {
             quad(
                 namedNode(baseURL),
                 namedNode('https://w3id.org/tree#view'),
-                namedNode(baseURL)
+                namedNode('?page=1')
             )
         );
 
