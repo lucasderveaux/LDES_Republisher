@@ -7,6 +7,12 @@ inputs:
   storage:
     description: 'Output directory name where the fetched data will be stored'
     required: true
+  url_featureOfInterest:
+    description: 'url that defines the feature of interest of the observation'
+    required: true
+  url_timestamp:
+    description: 'url that defines the timestamp'
+    required: true
   gh_pages_url:
     description: 'URL to the GitHub Pages repository'
     required: false

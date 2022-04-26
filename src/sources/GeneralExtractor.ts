@@ -15,7 +15,7 @@ export class GeneralExtractor extends ASource {
     constructor(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         super(keeperOfTheObservations);
         this.config = config;
-        console.log("hier komt het" +this.config.gh_pages_url);
+        console.log("hier komt het" + this.config.gh_pages_url);
         this.literal_values = JSON.parse(this.config.literal_values);
         //test
         //this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
@@ -79,7 +79,7 @@ export class GeneralExtractor extends ASource {
                         observations.set(triple.predicate.value, parseFloat(triple.object.value));
                     } else {
                         switch (triple.predicate.value) {
-                            case "http://purl.org/dc/terms/isVersionOf": {
+                            case this.config.url_featureOfInterest: {
                                 //console.log("created on:\t" + triple.object.value);
                                 version = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
@@ -90,7 +90,7 @@ export class GeneralExtractor extends ASource {
                                 name = triple.object.value;
                                 break;
                             }
-                            case "http://purl.org/dc/terms/created": {
+                            case this.config.url_timestamp: {
                                 //console.log("created on:\t" + triple.object.value);
                                 created = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
@@ -99,16 +99,21 @@ export class GeneralExtractor extends ASource {
                         }
                     }
                 });
-                if (version && name && created) {
-                    for (let key of observations.keys()) {
+                if (version && created) {
+                    if (!name) {
+                        name = version;
+                    } 
 
-                        if (observations.get(key)) {
-                            this.keeperOfTheObservations.addSimpleValue(key, name, created, observations.get(key));
+
+                        for (let key of observations.keys()) {
+
+                            if (observations.get(key)) {
+                                this.keeperOfTheObservations.addSimpleValue(key, name, created, observations.get(key));
+                            }
                         }
-                    }
 
-                    this.keeperOfTheObservations.addFeatureOfInterest(name, version);
-
+                        this.keeperOfTheObservations.addFeatureOfInterest(name, version);
+                    
 
                 }
 

@@ -12,7 +12,6 @@ export class QuadTheCreator {
     private config: IConfig;
     constructor(config: IConfig) {
         this.config = config;
-        
     }
 
 
