@@ -129,6 +129,8 @@ export class GeneralExtractor extends ASource {
 
     public controle(): void {
         console.log("huh");
+        console.log(this.config.url_featureOfInterest);
+        console.log(this.config.url_timestamp);
         for (let w of this.keeperOfTheObservations.simpleValues.keys()) {
             // dit zijn de types
             console.log(w);
