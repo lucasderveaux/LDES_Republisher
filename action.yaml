@@ -7,7 +7,7 @@ inputs:
   storage:
     description: 'Output directory name where the fetched data will be stored'
     required: true
-  url_featureOfInterest:
+  url_feature_of_interest:
     description: 'url that defines the feature of interest of the observation'
     required: true
   url_timestamp:
@@ -52,6 +52,8 @@ runs:
         INPUT_GIT_USERNAME: ${{ inputs.git_username }}
         INPUT_GIT_EMAIL: ${{ inputs.git_email }}
         INPUT_LITERAL_VALUES: ${{ inputs.literal_values }}
+        URL_FEATURE_OF_INTEREST: ${{ inputs.url_feature_of_interest }}
+        URL_TIMESTAMP: ${{ inputs.url_timestamp }}
     - name: Run post script
       run: node ${{ github.action_path }}/dist/post/index.js
       shell: bash

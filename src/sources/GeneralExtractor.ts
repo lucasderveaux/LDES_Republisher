@@ -79,7 +79,7 @@ export class GeneralExtractor extends ASource {
                         observations.set(triple.predicate.value, parseFloat(triple.object.value));
                     } else {
                         switch (triple.predicate.value) {
-                            case this.config.url_featureOfInterest: {
+                            case this.config.url_feature_of_interest: {
                                 console.log("created on:\t" + triple.object.value);
                                 version = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
@@ -129,7 +129,7 @@ export class GeneralExtractor extends ASource {
 
     public controle(): void {
         console.log("huh");
-        console.log(this.config.url_featureOfInterest);
+        console.log(this.config.url_feature_of_interest);
         console.log(this.config.url_timestamp);
         for (let w of this.keeperOfTheObservations.simpleValues.keys()) {
             // dit zijn de types

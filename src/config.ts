@@ -9,7 +9,7 @@ export interface IConfig {
 	git_email: string; // GitHub email that makes the commits
 	literal_values:string;
 	gh_repository: string;
-	url_featureOfInterest:string;
+	url_feature_of_interest:string;
 	url_timestamp: string;
 }
 
@@ -23,7 +23,7 @@ export function getConfig(): IConfig {
 		git_email: core.getInput('git_email'),
 		literal_values: core.getInput('literal_values'),
 		gh_repository: core.getInput('gh_repository'),
-		url_featureOfInterest: core.getInput('url_featoureOfInterest'),
+		url_feature_of_interest: core.getInput('url_featoureOfInterest'),
 		url_timestamp:core.getInput('url_timestamp')
 	};
 }
