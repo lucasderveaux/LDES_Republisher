@@ -27,16 +27,16 @@ jobs:
       - name: Fetch and write data blueBike
         uses: lucasderveaux/LinkedDataExtractor@main
         with:
-          url: "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl"
+          url: "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl"
           storage: BB
           literal_values: '["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use", "https://w3id.org/gbfs#capacity"]'
           url_timestamp: 'http://purl.org/dc/terms/created'
           url_featureOfInterest: 'http://purl.org/dc/terms/isVersionOf'
-      - name: Fetch and write data crowdscan
-        uses: lucasderveaux/LinkedDataExtractor@main
-        with:
-          url: "https://production.crowdscan.be/feed/public/gent_langemunt/v1/1"
-          storage: CS
-          literal_values: '["http://www.w3.org/ns/sosa/hasSimpleResult"]'
-          url_timestamp: 'http://www.w3.org/ns/sosa/resultTime'
-          url_featureOfInterest: 'http://www.w3.org/ns/sosa/hasfeatureOfInterest'
+      #- name: Fetch and write data crowdscan
+       # uses: lucasderveaux/LinkedDataExtractor@main
+        #with:
+         # url: "https://production.crowdscan.be/feed/public/gent_langemunt/v1/1"
+          #storage: CS
+          #literal_values: '["http://www.w3.org/ns/sosa/hasSimpleResult"]'
+          #url_timestamp: 'http://www.w3.org/ns/sosa/resultTime'
+          #url_featureOfInterest: 'http://www.w3.org/ns/sosa/hasfeatureOfInterest'
