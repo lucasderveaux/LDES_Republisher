@@ -18,7 +18,7 @@ export class GeneralExtractor extends ASource {
         console.log("hier komt het" + this.config.gh_pages_url);
         this.literal_values = JSON.parse(this.config.literal_values);
         //test
-        //this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
+       // this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
         //this.url = "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
         //test
 
@@ -53,7 +53,7 @@ export class GeneralExtractor extends ASource {
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
 
-                    // this.controle();
+                     this.controle();
 
                     return resolve();
                 });
@@ -80,7 +80,7 @@ export class GeneralExtractor extends ASource {
                     } else {
                         switch (triple.predicate.value) {
                             case this.config.url_featureOfInterest: {
-                                //console.log("created on:\t" + triple.object.value);
+                                console.log("created on:\t" + triple.object.value);
                                 version = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
                                 break;
@@ -91,7 +91,7 @@ export class GeneralExtractor extends ASource {
                                 break;
                             }
                             case this.config.url_timestamp: {
-                                //console.log("created on:\t" + triple.object.value);
+                                console.log("created on:\t" + triple.object.value);
                                 created = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
                                 break;
