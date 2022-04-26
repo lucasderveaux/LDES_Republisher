@@ -22,8 +22,8 @@ export function getConfig(): IConfig {
 		git_username: core.getInput('git_username'),
 		git_email: core.getInput('git_email'),
 		literal_values: core.getInput('literal_values'),
-		gh_repository: core.getInput('gh_repository'),
-		url_feature_of_interest: core.getInput('url_featoureOfInterest'),
-		url_timestamp:core.getInput('url_timestamp')
+		url_feature_of_interest: core.getInput('url_feature_of_interest'),
+		url_timestamp:core.getInput('url_timestamp'),
+		gh_repository:core.getInput('gh_repository')
 	};
 }
