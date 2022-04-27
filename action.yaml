@@ -7,12 +7,6 @@ inputs:
   storage:
     description: 'Output directory name where the fetched data will be stored'
     required: true
-  url_feature_of_interest:
-    description: 'url that defines the feature of interest of the observation'
-    required: true
-  url_timestamp:
-    description: 'url that defines the timestamp'
-    required: true
   gh_pages_url:
     description: 'URL to the GitHub Pages repository'
     required: false
@@ -31,6 +25,12 @@ inputs:
     default: 'LDES-action@users.noreply.github.com'
   literal_values:
     description: 'The different litteral values that need to be extracted and need to be divided and grouped in 24h'
+    required: true
+  url_feature_of_interest:
+    description: 'url that defines the feature of interest of the observation'
+    required: true
+  url_timestamp:
+    description: 'url that defines the timestamp'
     required: true
 outputs:
   delta_bytes: # size of changed data
