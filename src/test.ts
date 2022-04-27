@@ -4,9 +4,12 @@ import {SortedMap} from "collections/sorted-map";
 
 const run = async (): Promise<void> => {
     console.log("at least it's starting...");
-    let data_fetcher = new Data(getConfig());
-    await data_fetcher.fetchData();
-    await data_fetcher.convertData();
+
+    // let data_fetcher = new Data(getConfig());
+    // await data_fetcher.fetchData();
+    // await data_fetcher.convertData();
+
+
     //await data_fetcher.writeData(null);
 
     // let sortedMap = new SortedMap();
@@ -35,6 +38,13 @@ const run = async (): Promise<void> => {
     // }
 
     // console.log(sortedMap.keys().next().value);
+
+    let test = "http://www.w3.org/ns/sosa/hasSimpleResult";
+
+    let i = test.lastIndexOf('/');
+    test = test.substring(i+1);
+
+    console.log(test);
 
 }
 run().catch((error) => {

@@ -21,7 +21,7 @@ export class QuadTheCreator {
         const writer = new N3.Writer({ format: 'N-Triples' });
 
         for (let idSimpleValue of keeperOfTheObservations.simpleValues.keys()) {
-            i = idSimpleValue.search(/#/);
+            i = idSimpleValue.lastIndexOf('/');
             let simpleValueID = idSimpleValue.substring(i + 1);
             for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
