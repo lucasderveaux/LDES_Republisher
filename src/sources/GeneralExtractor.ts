@@ -10,16 +10,23 @@ import { Observation } from '../Objects/Observation';
 export class GeneralExtractor extends ASource {
     private config: IConfig;
     private literal_values: string[];
-    private url: string;
+
+    //test
+    // private url: string;
+    // private url_timestamp: string;
+    // private url_feature_of_interest: string;
+    //test
 
     constructor(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         super(keeperOfTheObservations);
         this.config = config;
         this.literal_values = JSON.parse(this.config.literal_values);
-        
+
         //test
-       // this.literal_values = ["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use"];
-        //this.url = "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
+        //this.literal_values = ["http://www.w3.org/ns/sosa/hasSimpleResult"];
+        //this.url = "https://production.crowdscan.be/feed/public/gent_langemunt/v1/1";
+        //    this.url_timestamp="http://www.w3.org/ns/sosa/resultTime";
+        //    this.url_feature_of_interest="http://www.w3.org/ns/sosa/hasFeatureOfInterest";
         //test
 
     }
@@ -53,7 +60,7 @@ export class GeneralExtractor extends ASource {
                 eventStreamSync.on('end', () => {
                     console.log('No more data!');
 
-                     this.controle();
+                    //this.controle();
 
                     return resolve();
                 });
@@ -75,12 +82,13 @@ export class GeneralExtractor extends ASource {
                 let observations = new Map<string, number>();
 
                 member.forEach((triple) => {
+                    //console.log(triple.predicate.value);
                     if (this.literal_values.includes(triple.predicate.value)) {
                         observations.set(triple.predicate.value, parseFloat(triple.object.value));
                     } else {
                         switch (triple.predicate.value) {
                             case this.config.url_feature_of_interest: {
-                                console.log("created on:\t" + triple.object.value);
+                                //console.log("interest on:\t" + triple.object.value);
                                 version = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
                                 break;
@@ -91,7 +99,7 @@ export class GeneralExtractor extends ASource {
                                 break;
                             }
                             case this.config.url_timestamp: {
-                                console.log("created on:\t" + triple.object.value);
+                                //console.log("created on:\t" + triple.object.value);
                                 created = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
                                 break;
@@ -102,18 +110,19 @@ export class GeneralExtractor extends ASource {
                 if (version && created) {
                     if (!name) {
                         name = version;
-                    } 
+                    }
 
 
-                        for (let key of observations.keys()) {
+                    for (let key of observations.keys()) {
 
-                            if (observations.get(key)) {
-                                this.keeperOfTheObservations.addSimpleValue(key, name, created, observations.get(key));
-                            }
+                        if (observations.get(key)) {
+                            //console.log("observation toegevoegd");
+                            this.keeperOfTheObservations.addSimpleValue(key, name, created, observations.get(key));
                         }
+                    }
 
-                        this.keeperOfTheObservations.addFeatureOfInterest(name, version);
-                    
+                    this.keeperOfTheObservations.addFeatureOfInterest(name, version);
+
 
                 }
 
@@ -128,9 +137,9 @@ export class GeneralExtractor extends ASource {
     }
 
     public controle(): void {
-        console.log("huh");
-        console.log(this.config.url_feature_of_interest);
-        console.log(this.config.url_timestamp);
+        //console.log("huh");
+        //console.log(this.config.url_feature_of_interest);
+        //console.log(this.config.url_timestamp);
         for (let w of this.keeperOfTheObservations.simpleValues.keys()) {
             // dit zijn de types
             console.log(w);

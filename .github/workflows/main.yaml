@@ -28,7 +28,7 @@ jobs:
         uses: lucasderveaux/LinkedDataExtractor@main
         with:
           url: "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl"
-          storage: test
+          storage: BB
           literal_values: '["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use", "https://w3id.org/gbfs#capacity"]'
           url_timestamp: 'http://purl.org/dc/terms/created'
           url_feature_of_interest: 'http://purl.org/dc/terms/isVersionOf'
@@ -39,4 +39,4 @@ jobs:
           storage: CS
           literal_values: '["http://www.w3.org/ns/sosa/hasSimpleResult"]'
           url_timestamp: 'http://www.w3.org/ns/sosa/resultTime'
-          url_feature_of_interest: 'http://www.w3.org/ns/sosa/hasfeatureOfInterest'
+          url_feature_of_interest: 'http://www.w3.org/ns/sosa/hasFeatureOfInterest'
