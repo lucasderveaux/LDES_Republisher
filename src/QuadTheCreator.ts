@@ -144,7 +144,7 @@ export class QuadTheCreator {
             )
         );
 
-        let size = sortedMap.length();
+        let size = sortedMap.length;
         let seconds = (24 * 60 * 60) / size;
 
         //  ifc:timeStep [
