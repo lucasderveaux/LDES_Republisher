@@ -40,9 +40,7 @@ const run = async (): Promise<void> => {
     // console.log(sortedMap.keys().next().value);
 
     let test = "http://www.w3.org/ns/sosa/hasSimpleResult";
-
-    let i = test.lastIndexOf('/');
-    test = test.substring(i+1);
+    test = test.substring(test.lastIndexOf('/')+1);
 
     console.log(test);
 

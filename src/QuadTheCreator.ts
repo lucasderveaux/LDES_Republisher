@@ -17,16 +17,15 @@ export class QuadTheCreator {
 
     public async writeData(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         let quads: RDF.Quad[];
-        let i: number;
         const writer = new N3.Writer({ format: 'N-Triples' });
 
         for (let idSimpleValue of keeperOfTheObservations.simpleValues.keys()) {
-            i = idSimpleValue.lastIndexOf('/');
-            let simpleValueID = idSimpleValue.substring(i + 1);
+            let simpleValueID = idSimpleValue.substring(idSimpleValue.lastIndexOf('/') + 1);
             for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
                     quads = [];
-                    let idLocationFile = await idLocation.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "");
+                    let idLocationFile = idLocation.substring(idLocation.lastIndexOf('/') + 1);
+                    idLocationFile = await idLocation.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "");
                     let dayFile = await day.replace(/ /g, "_");
 
 
@@ -97,68 +96,6 @@ export class QuadTheCreator {
                 namedNode('http://purl.org/pav/createdWith'),
                 namedNode(this.config.gh_repository)
             )
-        )
-
-        /*
-        pas op
-        dit is allemaal speculation at this point
-        14/04/2022
-        */
-
-
-        //blankNode specification
-        //timeseriesWindowCreator
-        quads.push(
-            quad(
-                blankNode('createdWith'),
-                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-                namedNode('http://example.org/TimeSeriesWindowCreator')
-            )
-        );
-
-        //timeParameter
-        quads.push(
-            quad(
-                blankNode('createdWith'),
-                namedNode('http://example.org/timeparameter'),
-                namedNode('http://www.w3.org/ns/sosa/resultTime')
-            )
-        );
-
-        //numberOfSamples
-        quads.push(
-            quad(
-                blankNode('createdWith'),
-                namedNode('http://example.org/numberOfSamples'),
-                literal(sortedMap.length)
-            )
-        );
-
-        //ex:duration
-        quads.push(
-            quad(
-                blankNode('createdWith'),
-                namedNode('http://example.org/duration'),
-                literal('P24:00')
-            )
-        );
-
-        //resultParameterPath
-        quads.push(
-            quad(
-                blankNode('createdWith'),
-                namedNode('http://example.org/resultParameterPath'),
-                namedNode('GeenIdee')
-            )
-        );
-
-        //featureOfInterestParameterPath
-        quads.push(
-            quad(
-                blankNode('createdWith'),
-                namedNode('http://example.org/featureOfInterestParameterPath'),
-                namedNode('http://purl.org/dc/terms/isVersionOf')
-            )
         );
 
         //de tree:view
@@ -171,32 +108,60 @@ export class QuadTheCreator {
             )
         );
 
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        //hier ben ik gestopt
-        
+        //member
+
+        //  <A> a sosa:Observation, ifc:RegularTimeSeries;
+        quads.push(
+            quad(
+                blankNode('A'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('http://www.w3.org/ns/sosa/Observation')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('A'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcRegularTimeSeries')
+            )
+        );
+
+        //  sosa:hasfeatureOfInterest <https://blue-bike.be/stations/103>;
+        quads.push(
+            quad(
+                blankNode('A'),
+                namedNode('http://www.w3.org/ns/sosa/hasFeatureOfInterest'),
+                namedNode(keeperOfTheObservations.featureOfInterests.get(idLocation))
+            )
+        );
+
+        //  sosa:observedProperty <https://w3id.org/gbfs#docks_in_use>;
+        quads.push(
+            quad(
+                blankNode('A'),
+                namedNode('http://www.w3.org/ns/sosa/observedProperty'),
+                namedNode(idSimpleValue)
+            )
+        );
+        //  ifc:timeStep [
+        //   a ifc:IfcTimeMeasure;
+        //   time:seconds "3".
+        //   ];
+        //  ifc:startTime [
+        //   a ifc:ifcDateTime;
+        //   ifcSimpleValue "2017-04-15T00:00:00+00:00".
+        //   ];
+        //  ifc:endTime [
+        //   a ifc:ifcDateTime;
+        //   ifc:ifcSimpleValue "2017-04-16T00:00:00+00:00".
+        //   ];
+        //  ifc:values [
+        //   a ifc:ifcTimeSeriesList;
+        //   <http://purl.org/co/size> "2";
+        //   ifc:IfcValue ("12", "11", "23", "459", ... ).
+        //  ].
+
+
 
         for (let key of sortedMap.keys()) {
             let starturl: string = "https://blue-bike.be/observations/" + key;
