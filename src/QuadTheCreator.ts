@@ -160,7 +160,7 @@ export class QuadTheCreator {
             quad(
                 blankNode('seconds'),
                 namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-                namedNode(' https://w3id.org/ifc/IFC4_ADD1#IfcTimeMeasure')
+                namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcTimeMeasure')
             )
         );
         //   time:seconds "3".
@@ -262,7 +262,7 @@ export class QuadTheCreator {
                 quad(
                     blankNode(key.toString()),
                     namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-                    namedNode(' https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue')
+                    namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue')
                 )
             );
 
