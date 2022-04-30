@@ -33,7 +33,6 @@ const run = async () => {
 		'-m',
 		msg + '\nCreated/changed files:\n- ' + body,
 	]);
-	await exec('git',['pull']);
 	await exec('git', ['push']);
 	core.info(`Pushed!`);
 	core.exportVariable('HAS_RUN_POST_JOB', 'true');

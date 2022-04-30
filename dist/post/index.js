@@ -69,7 +69,6 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         '-m',
         msg + '\nCreated/changed files:\n- ' + body,
     ]);
-    yield (0, exec_1.exec)('git', ['pull']);
     yield (0, exec_1.exec)('git', ['push']);
     core.info(`Pushed!`);
     core.exportVariable('HAS_RUN_POST_JOB', 'true');
