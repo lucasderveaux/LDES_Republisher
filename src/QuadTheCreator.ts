@@ -67,7 +67,7 @@ export class QuadTheCreator {
     }
 
     public createObservation(keeperOfTheObservations: ObservationKeeper, idSimpleValue: string, day: string, idLocation: string, quads: RDF.Quad[], baseURL: string): void {
-        let sortedMap = keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation);
+        let sortedMap:SortedMap = keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation);
 
         //specifications ldes
         quads.push(
@@ -295,12 +295,28 @@ export class QuadTheCreator {
 
             quads.push(
                 quad(
-                    namedNode('value' + i),
+                    blankNode('value' + i),
                     namedNode(idSimpleValue),
                     literal(sortedMap.get(key).toString())
                 )
             );
             vorige = 'list' + Math.round(key).toString();
         }
+
+        quads.push(
+            quad(
+                blankNode(vorige),
+                namedNode('https://w3id.org/list#isFollowedBy'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')
+            )
+        )
+        
+        quads.push(
+            quad(
+                blankNode('timeSeriesList'),
+                namedNode('https://w3id.org/list#hasNext'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')
+            )
+        );
     }
 }
