@@ -245,36 +245,62 @@ export class QuadTheCreator {
             )
         );
         //   ifc:IfcValue ("12", "11", "23", "459", ... ).
+        let i = 0;
+        let vorige: string;
 
         for (let key of sortedMap.keys()) {
-            let starturl: string = "https://blue-bike.be/observations/" + key;
-
+            //is de eerste in de rij
+            if (i != 0) {
+                quads.push(
+                    quad(
+                        blankNode(vorige),
+                        namedNode('https://w3id.org/list#isFollowedBy'),
+                        blankNode('list' + Math.round(key).toString())
+                    )
+                )
+                i++;
+            }
+            i++;
+            //anders
             quads.push(
                 quad(
                     blankNode('timeSeriesList'),
-                    namedNode('https://w3id.org/list#hasContents'),
-                    blankNode(key.toString())
+                    namedNode('https://w3id.org/list#hasNext'),
+                    blankNode('list' + Math.round(key).toString())
+                )
+            );
+
+            quads.push(
+                quad(
+                    blankNode('list' + Math.round(key).toString()),
+                    namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                    namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List')
                 )
             );
             quads.push(
                 quad(
-                    blankNode(key.toString()),
+                    blankNode('list' + Math.round(key).toString()),
+                    namedNode('https://w3id.org/list#hasContents'),
+                    blankNode('value' + i)
+                )
+            );
+
+            quads.push(
+                quad(
+                    blankNode('value' + i),
                     namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
                     namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue')
                 )
             );
 
-           
             quads.push(
                 quad(
-                    namedNode(key.toString()),
+                    namedNode('value' + i),
                     namedNode(idSimpleValue),
                     literal(sortedMap.get(key).toString())
                 )
             );
+            vorige = 'list' + Math.round(key).toString();
         }
-        //  ].
-
-
     }
 }
