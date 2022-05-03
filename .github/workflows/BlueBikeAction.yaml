@@ -38,6 +38,7 @@ jobs:
           literal_values: '["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use", "https://w3id.org/gbfs#capacity"]'
           url_timestamp: 'http://purl.org/dc/terms/created'
           url_feature_of_interest: 'http://purl.org/dc/terms/isVersionOf'
+          token: ${{ secrets.GITHUB_TOKEN }}
     # This workflow contains a single job called "build"
   CS:
     # The type of runner that the job will run on
