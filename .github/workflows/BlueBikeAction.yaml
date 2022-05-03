@@ -19,9 +19,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       
-      - uses: mktcode/consecutive-workflow-action@e2e008186aa210faacd68ec30f6ac236f7e2f435
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
       # Runs a single command using the runners shell
       - name: Fetch and write data blueBike
         uses: lucasderveaux/LinkedDataExtractor@main
