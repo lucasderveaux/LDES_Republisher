@@ -18,6 +18,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
+      - uses: mktcode/consecutive-workflow-action@e2e008186aa210faacd68ec30f6ac236f7e2f435
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
@@ -29,7 +33,6 @@ jobs:
           literal_values: '["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use", "https://w3id.org/gbfs#capacity"]'
           url_timestamp: 'http://purl.org/dc/terms/created'
           url_feature_of_interest: 'http://purl.org/dc/terms/isVersionOf'
-          token: ${{ secrets.GITHUB_TOKEN }}
          
   CS:
     # The type of runner that the job will run on
@@ -50,4 +53,3 @@ jobs:
           literal_values: '["http://www.w3.org/ns/sosa/hasSimpleResult"]'
           url_timestamp: 'http://www.w3.org/ns/sosa/resultTime'
           url_feature_of_interest: 'http://www.w3.org/ns/sosa/hasFeatureOfInterest'
-          token: ${{ secrets.GITHUB_TOKEN }}
