@@ -1,16 +1,16 @@
-import {Data} from "./data";
-import {IConfig,getConfig} from "./config";
-import {SortedMap} from "collections/sorted-map";
+import { Data } from "./data";
+import { IConfig, getConfig } from "./config";
+import { SortedMap } from "collections/sorted-map";
 
 const run = async (): Promise<void> => {
     console.log("at least it's starting...");
 
-    // let data_fetcher = new Data(getConfig());
-    // await data_fetcher.fetchData();
-    // await data_fetcher.convertData();
+    let data_fetcher = new Data(getConfig());
+    await data_fetcher.fetchData();
+    await data_fetcher.convertData();
 
 
-    //await data_fetcher.writeData(null);
+    await data_fetcher.writeData();
 
     // let sortedMap = new SortedMap();
 
@@ -40,7 +40,7 @@ const run = async (): Promise<void> => {
     // console.log(sortedMap.keys().next().value);
 
     let test = "http://www.w3.org/ns/sosa/hasSimpleResult";
-    test = test.substring(test.lastIndexOf('/')+1);
+    test = test.substring(test.lastIndexOf('/') + 1);
 
     console.log(test);
 

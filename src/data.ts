@@ -1,8 +1,5 @@
 import { IConfig } from "./config";
 import { ObservationKeeper } from "./Objects/ObservationKeeper"
-import { BlueBikeExample } from "./sources/BlueBikeExample";
-import { ISource } from "./sources/ISource";
-import { existsSync, mkdirSync } from 'fs';
 import { QuadTheCreator } from "./QuadTheCreator";
 import { GeneralExtractor } from "./sources/GeneralExtractor";
 import { PAAConverter } from "./PAAConverter";
@@ -10,7 +7,7 @@ import { PAAConverter } from "./PAAConverter";
 export class Data {
     private readonly config: IConfig;
     private keeperOfTheObservations: ObservationKeeper;
-    private source: ISource;
+    private source: GeneralExtractor;
     private creatorOfTheQuads: QuadTheCreator;
     private PAA: PAAConverter;
 

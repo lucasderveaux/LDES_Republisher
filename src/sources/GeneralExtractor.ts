@@ -1,15 +1,15 @@
-import { Page } from '../Objects/Page';
-import { ASource } from './ASource';
+
 import { IConfig } from '../config';
 import { ObservationKeeper } from '../Objects/ObservationKeeper';
 import { newEngine } from '@treecg/actor-init-ldes-client';
 import type * as RDF from 'rdf-js';
-import { Observation } from '../Objects/Observation';
 
 
-export class GeneralExtractor extends ASource {
+
+export class GeneralExtractor {
     private config: IConfig;
     private literal_values: string[];
+    private keeperOfTheObservations:ObservationKeeper;
 
     //test
     // private url: string;
@@ -18,7 +18,7 @@ export class GeneralExtractor extends ASource {
     //test
 
     constructor(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
-        super(keeperOfTheObservations);
+        this.keeperOfTheObservations=keeperOfTheObservations;
         this.config = config;
         this.literal_values = JSON.parse(this.config.literal_values);
 
@@ -161,7 +161,5 @@ export class GeneralExtractor extends ASource {
     }
 
 
-    public getPage(id: any): Page {
-        throw new Error('Method not implemented.');
-    }
+  
 }

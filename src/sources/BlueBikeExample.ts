@@ -1,19 +1,15 @@
 import type * as RDF from 'rdf-js';
-import { ASource } from './ASource';
-import { Page } from "../Objects/Page";
 import { newEngine } from '@treecg/actor-init-ldes-client';
-import { Observation } from '../Objects/Observation';
-import { FeatureOfInterest } from '../Objects/FeatureOfInterest';
 import { ObservationKeeper } from '../Objects/ObservationKeeper';
 var fs = require('fs');
 
-export class BlueBikeExample extends ASource {
+export class BlueBikeExample {
     //private triples: RDF.Quad[];
-    //private metadata:RDF.Quad[];   
+    //private metadata:RDF.Quad[];  
+    private keeperOfTheObservations: ObservationKeeper;
 
     constructor(keeperOfTheObservations: ObservationKeeper) {
-        super(keeperOfTheObservations);
-        
+        this.keeperOfTheObservations = keeperOfTheObservations;
         //Hier zou nog vanalles kunnen komen in het verband met triples en metadat.
         //Misschien moet ik terug met Pages werken want eigenlijk was dat wel een goed systeem.
         //Ja ik ga dat doen dat is super logisch.
@@ -21,10 +17,6 @@ export class BlueBikeExample extends ASource {
     }
 
 
-
-    getPage(): Page {
-        return null;
-    }
 
     public async getData(): Promise<void> {
         //let url ="https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T075514.ttl";
@@ -127,20 +119,20 @@ export class BlueBikeExample extends ASource {
                     //controleren of de featureOfInterest al bestaat
                     if (!this.keeperOfTheObservations.featureOfInterests.has(name)) {
                         //heeft de key nog niet
-                        let feature = await new FeatureOfInterest(longitude, latitude, name);
+                        // let feature = await new FeatureOfInterest(longitude, latitude, name);
                         //werkt neit meer -> this.keeperOfTheObservations.addFeatureOfInterest(feature);
 
                     }
 
                     //dit wil zeggen dat de FeatureOfInterest dus wel al bestaat
-                    let availableObservation = new Observation(created, available);
-                    let inUseObservation = new Observation(created, inUse);
-                    if (availableObservation.isUsable()) {
-                       // this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#bikes_available", name, availableObservation);
-                    }
-                    if (inUseObservation.isUsable()) {
-                      //  this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#docks_in_use", name, inUseObservation);
-                    }
+                    // let availableObservation = new Observation(created, available);
+                    //let inUseObservation = new Observation(created, inUse);
+                    // if (availableObservation.isUsable()) {
+                    // this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#bikes_available", name, availableObservation);
+                    //  }
+                    // if (inUseObservation.isUsable()) {
+                    //  this.keeperOfTheObservations.addSimpleValue("https://w3id.org/gbfs#docks_in_use", name, inUseObservation);
+                    //  }
                 }
 
                 return resolve();

@@ -1,7 +1,5 @@
 import { ObservationKeeper } from "./Objects/ObservationKeeper";
 import * as RDF from 'rdf-js';
-import { FeatureOfInterest } from "./Objects/FeatureOfInterest";
-import { Observation } from "./Objects/Observation";
 import { literal, namedNode, quad, blankNode } from '@rdfjs/data-model';
 import * as fs from "fs";
 import { IConfig } from "./config";

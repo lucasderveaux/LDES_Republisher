@@ -1,5 +1,4 @@
-import { FeatureOfInterest } from "./FeatureOfInterest";
-import { Observation } from "./Observation";
+
 import {SortedMap} from "collections/sorted-map";
 
 
