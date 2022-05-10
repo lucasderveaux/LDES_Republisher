@@ -5,12 +5,12 @@ import { SortedMap } from "collections/sorted-map";
 const run = async (): Promise<void> => {
     console.log("at least it's starting...");
 
-    let data_fetcher = new Data(getConfig());
-    await data_fetcher.fetchData();
-    await data_fetcher.convertData();
+    // let data_fetcher = new Data(getConfig());
+    // await data_fetcher.fetchData();
+    // await data_fetcher.convertData();
 
 
-    await data_fetcher.writeData();
+    // await data_fetcher.writeData();
 
     // let sortedMap = new SortedMap();
 
@@ -39,11 +39,14 @@ const run = async (): Promise<void> => {
 
     // console.log(sortedMap.keys().next().value);
 
-    let test = "http://www.w3.org/ns/sosa/hasSimpleResult";
-    test = test.substring(test.lastIndexOf('/') + 1);
+    let test = "https://production.crowdscan.be/feed/public/gent_langemunt/v1/1";
+    
+    let nieuw = test.match(/\.[a-zA-z]+\/(.*)/);
+    
 
-    console.log(test);
+    console.log(nieuw[1]);
 
+    
 }
 run().catch((error) => {
     console.log(error.message)

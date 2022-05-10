@@ -19,12 +19,23 @@ export class QuadTheCreator {
 
         for (let idSimpleValue of keeperOfTheObservations.simpleValues.keys()) {
             let simpleValueID = idSimpleValue.substring(idSimpleValue.lastIndexOf('/') + 1);
+            simpleValueID = simpleValueID.replace(/#/g,"");
             for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
                     quads = [];
-                    let idLocationFile = idLocation.substring(idLocation.lastIndexOf('/') + 1);
-                    idLocationFile = await idLocation.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "");
-                    let dayFile = await day.replace(/ /g, "_");
+
+                    let idLocationFile = "";
+
+                    //if idlocation is an url
+                    let urlTESt = idLocation.match(/\.[a-zA-z]+\/(.*)/);
+                    if (urlTESt != null) {
+                        idLocationFile = urlTESt[1];
+                    } else {
+                        idLocationFile = idLocation.substring(idLocation.lastIndexOf('\.[a-zAz]/') + 1);
+                    }
+
+                    idLocationFile = await idLocationFile.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "").replace(/#/g,"");
+                    let dayFile = await day.replace(/ /g, "_").replace(/#/g,"");
 
 
 
