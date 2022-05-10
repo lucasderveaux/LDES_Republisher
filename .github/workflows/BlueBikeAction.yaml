@@ -11,7 +11,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  blueBike:
+  Bluebike:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -19,7 +19,7 @@ jobs:
       
       - uses: actions/checkout@v3
       # Runs a single command using the runners shell
-      - name: Fetch and write data blueBike
+      - name: Fetch and write data Bluebike
         uses: lucasderveaux/LinkedDataExtractor@main
         with:
           url: "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T080327.ttl"
