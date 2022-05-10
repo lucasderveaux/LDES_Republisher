@@ -1,0 +1,22 @@
+name: Crowdscan
+on:
+  push:
+    branches:
+      - main
+jobs:
+  CS:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      # Runs a single command using the runners shell
+      - name: Fetch and write data crowdscan
+        uses: lucasderveaux/LinkedDataExtractor@main
+        with:
+          url: "https://production.crowdscan.be/feed/public/gent_langemunt/v1/1"
+          storage: CS
+          literal_values: '["http://www.w3.org/ns/sosa/hasSimpleResult"]'
+          url_timestamp: 'http://www.w3.org/ns/sosa/resultTime'
+          url_feature_of_interest: 'http://www.w3.org/ns/sosa/hasFeatureOfInterest'
