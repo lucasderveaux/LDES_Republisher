@@ -8,8 +8,6 @@ on:
   push:
     branches:
       - main
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch: null
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,7 +22,7 @@ jobs:
       - name: Fetch and write data blueBike
         uses: lucasderveaux/LinkedDataExtractor@main
         with:
-          url: "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl"
+          url: "https://w3id.org/tree#node> <https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T080327.ttl"
           storage: BB
           literal_values: '["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use", "https://w3id.org/gbfs#capacity"]'
           url_timestamp: 'http://purl.org/dc/terms/created'
