@@ -21,11 +21,6 @@ jobs:
       
       - uses: actions/checkout@v3
       # Runs a single command using the runners shell
-      - env:
-          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-        run: |
-          gh issue edit $ISSUE_URL --add-label "triage"
       - name: Fetch and write data blueBike
         uses: lucasderveaux/LinkedDataExtractor@main
         with:
