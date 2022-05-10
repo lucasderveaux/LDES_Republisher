@@ -333,7 +333,7 @@ export class QuadTheCreator {
         //    a fno:Function;
         quads.push(
             quad(
-                namedNode(baseURL),
+                namedNode(this.config.gh_repository),
                 namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
                 namedNode('fno:FUNCTION')
             )

@@ -54,6 +54,7 @@ runs:
         INPUT_LITERAL_VALUES: ${{ inputs.literal_values }}
         INPUT_URL_FEATURE_OF_INTEREST: ${{ inputs.url_feature_of_interest }}
         INPUT_URL_TIMESTAMP: ${{ inputs.url_timestamp }}
+        INPUT_GH_REPOSITORY: ${{ inputs.gh_repository}}
     - name: Run post script
       run: node ${{ github.action_path }}/dist/post/index.js
       shell: bash
