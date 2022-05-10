@@ -67,7 +67,7 @@ export class QuadTheCreator {
     }
 
     public createObservation(keeperOfTheObservations: ObservationKeeper, idSimpleValue: string, day: string, idLocation: string, quads: RDF.Quad[], baseURL: string): void {
-        let sortedMap:SortedMap = keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation);
+        let sortedMap: SortedMap = keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation);
 
         //specifications ldes
         quads.push(
@@ -310,7 +310,7 @@ export class QuadTheCreator {
                 namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')
             )
         )
-        
+
         quads.push(
             quad(
                 blankNode('timeSeriesList'),
@@ -318,5 +318,22 @@ export class QuadTheCreator {
                 namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')
             )
         );
+        // <https://github.com/lucasderveaux/LinkedDataExtractor>
+        //    a fno:Function;
+        quads.push(
+            quad(
+                namedNode(baseURL),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('fno:FUNCTION')
+            )
+        );
+        //    dcterms:description "This function.....";
+        //    fno:expects (
+        //           [fno:predicate sosa:observedProperty; fno:type xsd:anyURI; fno:required true]
+        //           [fno:predicate sosa:hasFeatureOfInterest; fno:type xsd:anyURI; fno:required true]
+        //           [fno:predicate pav:derivedFrom; fno:type xsd:anyURI; fno:required true]
+        //           );
+        //    fno:implements _AlgorithmPAA;
     }
 }
+

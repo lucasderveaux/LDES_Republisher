@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: BlueBike
+name: Bluebike
 
 # Controls when the workflow will run
 on:
@@ -22,7 +22,7 @@ jobs:
       - name: Fetch and write data blueBike
         uses: lucasderveaux/LinkedDataExtractor@main
         with:
-          url: "https://w3id.org/tree#node> <https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T080327.ttl"
+          url: "https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/20220315T080327.ttl"
           storage: BB
           literal_values: '["https://w3id.org/gbfs#bikes_available", "https://w3id.org/gbfs#docks_in_use", "https://w3id.org/gbfs#capacity"]'
           url_timestamp: 'http://purl.org/dc/terms/created'

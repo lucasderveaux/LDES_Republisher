@@ -1,0 +1,45 @@
+
+<https://lucasderveaux.github.io/LinkedDataExtractor/BB/gbfs#bikes_available/StationTielt/Fri_Apr_01_2022>
+       a ldes:EventStream ;
+       pav:derivedFrom <https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl> ;
+       pav:createdWith <https://github.com/lucasderveaux/LinkedDataExtractor>
+       tree:view <?page=1> ;
+       tree:member <A> .
+
+<A> a sosa:Observation, ifc:RegularTimeSeries;
+       sosa:hasfeatureOfInterest <https://blue-bike.be/stations/128>;
+       sosa:observedProperty <https://w3id.org/gbfs#docks_in_use>;
+       ifc:timeStep [
+              a ifc:IfcTimeMeasure;
+              time:seconds "3".
+              ];
+       ifc:startTime [
+              a ifc:ifcDateTime;
+              ifc:SimpleValue "2017-04-15T00:00:00+00:00".
+              ];
+       ifc:endTime [
+              a ifc:ifcDateTime;
+              ifc:ifcSimpleValue "2017-04-16T00:00:00+00:00".
+              ];
+       ifc:values [
+              a ifc:ifcTimeSeriesList;
+              <http://purl.org/co/size> "2";
+              ifc:IfcValue ("12", "11", "23", "459", ... ).
+              ].
+
+
+<https://github.com/lucasderveaux/LinkedDataExtractor>
+       a fno:Function;
+       dcterms:description "This function.....";
+       fno:expects (
+              [fno:predicate sosa:observedProperty; fno:type xsd:anyURI; fno:required true]
+              [fno:predicate sosa:hasFeatureOfInterest; fno:type xsd:anyURI; fno:required true]
+              [fno:predicate pav:derivedFrom; fno:type xsd:anyURI; fno:required true]
+              );
+       fno:implements _AlgorithmPAA;
+
+
+_AlgorithmPAA
+       a fno:Algortihm;
+       fno:name "Piecewise Aggregate Approximation"^^xsd:string;
+       fno:description "vanalles"^^xsd:string.

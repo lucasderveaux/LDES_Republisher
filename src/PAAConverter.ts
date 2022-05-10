@@ -42,7 +42,7 @@ export class PAAConverter {
 
                 //in milliseconds
                 // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 100 miliseconds in a second
-                let divider = (24 * 60 * 60 * 100) / sortedMap.length;
+                let divider = Math.round((24 * 60 * 60 * 100) / sortedMap.length);
 
                 let beginInterval = 0;
                 let endInterval = divider;
