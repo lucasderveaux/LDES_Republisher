@@ -17,7 +17,7 @@ const run = async (): Promise<void> => {
 
 	core.startGroup('Delete output folder');
 	// Delete output folder to have a clean start, no symlinks, no old data
-	rmdirSync(config.storage, { recursive: true });
+	rmdirSync(`public/${config.storage}`, { recursive: true });
 	core.endGroup();
 
 	core.startGroup('Fetch and write data');

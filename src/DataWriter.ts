@@ -40,25 +40,25 @@ export class DataWriter {
 
 
                     // check if directory does not exist
-                    if (!fs.existsSync(`${config.storage}`)) {
+                    if (!fs.existsSync(`public/${config.storage}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        await fs.mkdirSync(`${config.storage}`);
+                        await fs.mkdirSync(`public/${config.storage}`);
                     }
-                    if (!fs.existsSync(`${config.storage}/${simpleValueID}`)) {
+                    if (!fs.existsSync(`public/${config.storage}/${simpleValueID}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        await fs.mkdirSync(`${config.storage}/${simpleValueID}`);
+                        await fs.mkdirSync(`public/${config.storage}/${simpleValueID}`);
                     }
-                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}`)) {
+                    if (!fs.existsSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        await fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}`);
+                        await fs.mkdirSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}`);
                     }
-                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`)) {
+                    if (!fs.existsSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        await fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
+                        await fs.mkdirSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
                     }
 
                     let baseURL = `${config.gh_pages_url}${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`;

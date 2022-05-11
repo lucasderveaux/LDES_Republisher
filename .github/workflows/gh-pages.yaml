@@ -2,7 +2,7 @@ name: GitHub Pages
 
 on:
   workflow_run:
-    workflows: [Crowdscan]
+    workflows: [Bluebike]
     types: [failed, completed]
 
 jobs:
@@ -29,4 +29,4 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./CS
+          publish_dir: ./public
