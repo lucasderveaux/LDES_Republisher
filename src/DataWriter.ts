@@ -19,7 +19,7 @@ export class DataWriter {
 
         for (let idSimpleValue of keeperOfTheObservations.simpleValues.keys()) {
             let simpleValueID = idSimpleValue.substring(idSimpleValue.lastIndexOf('/') + 1);
-            simpleValueID = simpleValueID.replace(/#/g,"");
+            simpleValueID = simpleValueID.replace(/#/g, "");
             for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
                     quads = [];
@@ -34,8 +34,8 @@ export class DataWriter {
                         idLocationFile = idLocation.substring(idLocation.lastIndexOf('\.[a-zAz]/') + 1);
                     }
 
-                    idLocationFile = await idLocationFile.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "").replace(/#/g,"");
-                    let dayFile = await day.replace(/ /g, "_").replace(/#/g,"");
+                    idLocationFile = await idLocationFile.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "").replace(/#/g, "");
+                    let dayFile = await day.replace(/ /g, "_").replace(/#/g, "");
 
 
 
@@ -69,7 +69,7 @@ export class DataWriter {
 
                     let baseURL = `${config.gh_pages_url}${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`;
 
-                    this.createObservation(keeperOfTheObservations, idSimpleValue, day, idLocation, quads, baseURL,config);
+                    this.createObservation(keeperOfTheObservations, idSimpleValue, day, idLocation, quads, baseURL, config);
                     // check if file not exists
                     if (!fs.existsSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
                         // make file where we will store newly fetched data     
@@ -83,7 +83,7 @@ export class DataWriter {
         }
     }
 
-    private createObservation(keeperOfTheObservations: ObservationKeeper, idSimpleValue: string, day: string, idLocation: string, quads: RDF.Quad[], baseURL: string,config:IConfig): void {
+    private createObservation(keeperOfTheObservations: ObservationKeeper, idSimpleValue: string, day: string, idLocation: string, quads: RDF.Quad[], baseURL: string, config: IConfig): void {
         let sortedMap: SortedMap = keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation);
 
         //specifications ldes
@@ -241,7 +241,7 @@ export class DataWriter {
         quads.push(
             quad(
                 blankNode('A'),
-                namedNode('https://w3id.org/ifc/IFC4_ADD1#values_IfcStructuralLoadConfiguration'),
+                namedNode('https://w3id.org/ifc/IFC4_ADD1#values_IfcRegularTimeSeries'),
                 blankNode('timeSeriesList')
             )
         );
@@ -345,12 +345,195 @@ export class DataWriter {
             )
         );
         //    dcterms:description "This function.....";
+        quads.push(
+            quad(
+                namedNode(config.gh_repository),
+                namedNode('http://purl.org/dc/terms/description'),
+                literal('This function...')
+            )
+        );
         //    fno:expects (
+        quads.push(
+            quad(
+                namedNode(config.gh_repository),
+                namedNode('https://w3id.org/function/ontology#expects'),
+                blankNode('expects')
+            )
+        );
         //           [fno:predicate sosa:observedProperty; fno:type xsd:anyURI; fno:required true]
+        quads.push(
+            quad(
+                blankNode('expects'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                blankNode('https://w3id.org/list#OWLList')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('expects'),
+                namedNode('https://w3id.org/list#hasNext'),
+                blankNode('parameter1')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter1'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('https://w3id.org/function/ontology#Parameter')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter1'),
+                namedNode('https://w3id.org/function/ontology#predicate'),
+                namedNode('http://www.w3.org/ns/sosa/observedProperty')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter1'),
+                namedNode('https://w3id.org/function/ontology#type'),
+                namedNode('https://www.w3.org/2001/XMLSchema#anyURI')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter1'),
+                namedNode('https://w3id.org/function/ontology#required'),
+                literal('true', 'https://www.w3.org/2001/XMLSchema#boolean')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter1'),
+                namedNode('https://w3id.org/list#isFollowedBy'),
+                blankNode('parameter2')
+            )
+        );
         //           [fno:predicate sosa:hasFeatureOfInterest; fno:type xsd:anyURI; fno:required true]
+
+        quads.push(
+            quad(
+                blankNode('expects'),
+                namedNode('https://w3id.org/list#hasNext'),
+                blankNode('parameter2')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter2'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('https://w3id.org/function/ontology#Parameter')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter2'),
+                namedNode('https://w3id.org/function/ontology#predicate'),
+                namedNode('http://www.w3.org/ns/sosa/hasFeatureOfInterest')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter2'),
+                namedNode('https://w3id.org/function/ontology#type'),
+                namedNode('https://www.w3.org/2001/XMLSchema#anyURI')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter2'),
+                namedNode('https://w3id.org/function/ontology#required'),
+                literal('true', 'https://www.w3.org/2001/XMLSchema#boolean')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter2'),
+                namedNode('https://w3id.org/list#isFollowedBy'),
+                blankNode('parameter3')
+            )
+        );
         //           [fno:predicate pav:derivedFrom; fno:type xsd:anyURI; fno:required true]
+        quads.push(
+            quad(
+                blankNode('expects'),
+                namedNode('https://w3id.org/list#hasNext'),
+                blankNode('parameter3')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter3'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('https://w3id.org/function/ontology#Parameter')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter3'),
+                namedNode('https://w3id.org/function/ontology#predicate'),
+                namedNode('http://purl.org/pav/derivedFrom')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter3'),
+                namedNode('https://w3id.org/function/ontology#type'),
+                namedNode('https://www.w3.org/2001/XMLSchema#anyURI')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter3'),
+                namedNode('https://w3id.org/function/ontology#required'),
+                literal('true', 'https://www.w3.org/2001/XMLSchema#boolean')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter3'),
+                namedNode('https://w3id.org/list#isFollowedBy'),
+                blankNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')
+            )
+        );
         //           );
         //    fno:implements _AlgorithmPAA;
+        quads.push(
+            quad(
+                namedNode(config.gh_repository),
+                namedNode('https://w3id.org/function/ontology#implements'),
+                blankNode('AlgorithmPAA')
+            )
+        );
+
+
+        // _AlgorithmPAA
+        //     a fno: Algortihm;
+        quads.push(
+            quad(
+                blankNode('AlgorithmPAA'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('https://w3id.org/function/ontology#Algorithm')
+            )
+        );
+        //     fno:name "Piecewise Aggregate Approximation" ^^ xsd: string;
+        quads.push(
+            quad(
+                blankNode('AlgorithmPAA'),
+                namedNode('https://w3id.org/function/ontology#name'),
+                literal('Piecewise Aggregate Approximation','https://www.w3.org/2001/XMLSchema#string')
+            )
+        );
+        //     fno:description "vanalles" ^^ xsd: string.
+        quads.push(
+            quad(
+                blankNode('AlgorithmPAA'),
+                namedNode('https://w3id.org/function/ontology#description'),
+                literal('Vanalles...','https://www.w3.org/2001/XMLSchema#string')
+            )
+        );
+
     }
 }
 
