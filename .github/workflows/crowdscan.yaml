@@ -1,8 +1,8 @@
 name: Crowdscan
 on:
-  workflow_run:
-    workflows: [Bluebike]
-    types: [failed, completed]
+  push:
+     branches:
+       - main
 jobs:
   CS:
     # The type of runner that the job will run on
