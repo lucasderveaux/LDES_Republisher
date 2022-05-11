@@ -1,6 +1,5 @@
 import { ObservationKeeper } from "./Objects/ObservationKeeper";
 import { SortedMap } from "collections/sorted-map";
-import { resolve } from "path";
 
 export class PAAConverter {
     constructor() {
@@ -33,7 +32,7 @@ export class PAAConverter {
 
     
 
-    public convertOne(sortedMap: SortedMap): Promise<SortedMap> {
+    private convertOne(sortedMap: SortedMap): Promise<SortedMap> {
         return new Promise<SortedMap>(async (resolve, reject) => {
             try {
                 //amound of milliseconds since January 1, 1970, 00:00:00

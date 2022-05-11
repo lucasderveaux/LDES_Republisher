@@ -4,7 +4,7 @@ import {SortedMap} from "collections/sorted-map";
 
 export class ObservationKeeper {
     simpleValues: Map<string, Map<string, Map<string, SortedMap>>>;
-    simplevalues
+    //simplevalues
     // - type
     // -   - dag
     // -   -   -observation

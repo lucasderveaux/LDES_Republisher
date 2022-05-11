@@ -1,6 +1,6 @@
 import { IConfig } from "./config";
 import { ObservationKeeper } from "./Objects/ObservationKeeper"
-import { QuadTheCreator } from "./QuadTheCreator";
+import { DataWriter } from "./DataWriter";
 import { GeneralExtractor } from "./sources/GeneralExtractor";
 import { PAAConverter } from "./PAAConverter";
 
@@ -8,7 +8,7 @@ export class Data {
     private readonly config: IConfig;
     private keeperOfTheObservations: ObservationKeeper;
     private source: GeneralExtractor;
-    private creatorOfTheQuads: QuadTheCreator;
+    private dataWriter: DataWriter;
     private PAA: PAAConverter;
 
 
@@ -16,7 +16,7 @@ export class Data {
         this.config = config;
         this.keeperOfTheObservations = new ObservationKeeper();
         this.source = new GeneralExtractor(this.keeperOfTheObservations, this.config);
-        this.creatorOfTheQuads = new QuadTheCreator(this.config);
+        this.dataWriter = new DataWriter();
         this.PAA = new PAAConverter();
     }
 
@@ -35,7 +35,7 @@ export class Data {
     public async writeData(): Promise<void> {
         return new Promise<void>(async (resolve, reject) => {
             try {
-                await this.creatorOfTheQuads.writeData(this.keeperOfTheObservations, this.config);
+                await this.dataWriter.writeData(this.keeperOfTheObservations, this.config);
                 return resolve();
             } catch (e) {
                 console.error(e);

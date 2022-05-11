@@ -1,56 +1,60 @@
 @startuml
-
 class ObservationKeeper{
-    - simpleValues: Map<string,Map<string,Array<Observation>>>
-    - featureOfInterests: Map<String,FeatureOfInterest>
-    - createNewSimpleValue(idSimpleValue:string):void
-    - createNewLocationID(idSimpleValue:string,idLocation:string):void
-    + addSimpleValue(idSimpleValue:string,idLocation:string,simpleValue:Observation)
-    + addFeatureOfInterest(feature:FeatureOfInterest)
+    - simpleValues: Map<string, Map<string, Map<string, SortedMap>>>;
+    - featureOfInterests: Map<string, string>;
+    - createNewSimpleValue(typeOfSimpleValue):void
+    - createNewLocationID(typeOfSimpleValue,day,idLocation):void
+    - createNewDay(typeOfsimpleValue,day,idLocation)
+    + addSimpleValue(typeOfSimpleValue,idLocation,timestamp,simpleValue)
+    + addFeatureOfInterest(IdLocation,versionOf)
 }
 
-class FeatureOfInterest{
-    - longitude:number
-    - latitude:number
-    - id: string
-
-    +getLongitude():number
-    +getLatitude():number
-    +getId():string
+class GeneralExtractor{
+    - config:IConfig
+    - keeperOfTheObservations: ObservationKeeper
+    + getData(): Promise<void>
+    - private analyseData(RDF.quad[]): Promise<void>
 }
 
-class Observation{
-    - timestamp:Date
-    - value: number
+class IConfig
+
+class Data {
+    - config:IConfig
+    - keeperOfTheObservations: ObservationKeeper
+    - souce: GeneralExtractor
+    - dataWriter: DataWriter
+    + fetchData():Promise<void>
+    + convertData():Promise<void>
+    + writeData(): Promise<void>
 }
 
-interface ISource{
-    +getData():Promise<Obseration[]>
-    +getPage(id:any):Page
+class DataWriter {
+    + writeData(ObservationKeeper,IConfig)
+    - createObservation(keeperOfTheObservations,idSimplevalue,day,idLocation,quads,baseURL)
 }
 
-abstract ASource implements ISource{
-    - keeperOfTheObservations:ObservationKeeper
-    +schrijfWeg():void
-    +controleerGrootte():void
-    +createPage():Page
-    + publishData()
-}
-
-class Page{
-    - triples: RDF.Quad[]
-    - metadata: RDF.Quad[]
-    + getMetadata():RDF.Quad[]
-    + getTriples():RDF.Quad[]
+class main{
 
 }
 
-class BlueBikeExample extends ASource{
+class PAAConverter {
+    + convertAll(ObservationKeeper)
+    - convertOne(SortedMap):Promise<SortedMap>
 }
 
-Observation - ObservationKeeper
-ObservationKeeper -- FeatureOfInterest
-ObservationKeeper - ASource
-ASource - Page
+Data - DataWriter
+Data -down- GeneralExtractor
+Data -down- PAAConverter
 
+ObservationKeeper -down- DataWriter
+ObservationKeeper -down- GeneralExtractor 
+ObservationKeeper - PAAConverter
+
+ObservationKeeper -up- Data
+
+main - Data
+Data -down- IConfig
+IConfig -down- GeneralExtractor
+
+IConfig -up- main
 @enduml

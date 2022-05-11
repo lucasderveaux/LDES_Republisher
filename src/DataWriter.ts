@@ -6,10 +6,10 @@ import { IConfig } from "./config";
 import { SortedMap } from "collections/sorted-map";
 const N3 = require('n3');
 
-export class QuadTheCreator {
-    private config: IConfig;
-    constructor(config: IConfig) {
-        this.config = config;
+export class DataWriter {
+
+    constructor() {
+
     }
 
 
@@ -40,44 +40,44 @@ export class QuadTheCreator {
 
 
                     // check if directory does not exist
-                    if (!fs.existsSync(`${this.config.storage}`)) {
+                    if (!fs.existsSync(`${config.storage}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        await fs.mkdirSync(`${this.config.storage}`);
+                        await fs.mkdirSync(`${config.storage}`);
                     }
-                    if (!fs.existsSync(`${this.config.storage}/${simpleValueID}`)) {
+                    if (!fs.existsSync(`${config.storage}/${simpleValueID}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        await fs.mkdirSync(`${this.config.storage}/${simpleValueID}`);
+                        await fs.mkdirSync(`${config.storage}/${simpleValueID}`);
                     }
-                    if (!fs.existsSync(`${this.config.storage}/${simpleValueID}/${idLocationFile}`)) {
+                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        await fs.mkdirSync(`${this.config.storage}/${simpleValueID}/${idLocationFile}`);
+                        await fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}`);
                     }
-                    if (!fs.existsSync(`${this.config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`)) {
+                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
-                        await fs.mkdirSync(`${this.config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
+                        await fs.mkdirSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
                     }
 
-                    let baseURL = `${this.config.gh_pages_url}${this.config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`;
+                    let baseURL = `${config.gh_pages_url}${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`;
 
-                    this.createObservation(keeperOfTheObservations, idSimpleValue, day, idLocation, quads, baseURL);
+                    this.createObservation(keeperOfTheObservations, idSimpleValue, day, idLocation, quads, baseURL,config);
                     // check if file not exists
-                    if (!fs.existsSync(`${this.config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
+                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
                         // make file where we will store newly fetched data     
 
                         let serialised = await writer.quadsToString(quads);
 
-                        await fs.writeFileSync(`${this.config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
+                        await fs.writeFileSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
                     }
                 }
             }
         }
     }
 
-    public createObservation(keeperOfTheObservations: ObservationKeeper, idSimpleValue: string, day: string, idLocation: string, quads: RDF.Quad[], baseURL: string): void {
+    private createObservation(keeperOfTheObservations: ObservationKeeper, idSimpleValue: string, day: string, idLocation: string, quads: RDF.Quad[], baseURL: string,config:IConfig): void {
         let sortedMap: SortedMap = keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation);
 
         //specifications ldes
@@ -94,7 +94,7 @@ export class QuadTheCreator {
             quad(
                 namedNode(baseURL),
                 namedNode('http://purl.org/pav/derivedFrom'),
-                namedNode(this.config.url)
+                namedNode(config.url)
             )
         );
 
@@ -103,7 +103,7 @@ export class QuadTheCreator {
             quad(
                 namedNode(baseURL),
                 namedNode('http://purl.org/pav/createdWith'),
-                namedNode(this.config.gh_repository)
+                namedNode(config.gh_repository)
             )
         );
 
@@ -333,7 +333,7 @@ export class QuadTheCreator {
         //    a fno:Function;
         quads.push(
             quad(
-                namedNode(this.config.gh_repository),
+                namedNode(config.gh_repository),
                 namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
                 namedNode('fno:FUNCTION')
             )
