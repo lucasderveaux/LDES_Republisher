@@ -14,7 +14,7 @@ inputs:
   gh_repository:
     description: 'Repository used to convert the data'
     required: false
-    default: 'https://${{ github.repository_owner }}/${{ github.event.repository.name }}'
+    default: 'https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}'
   git_username:
     description: 'Git username that makes the commits'
     required: false
