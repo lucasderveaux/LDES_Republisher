@@ -15,7 +15,7 @@ _:startTime <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> "Fri May 06 2022"^^<
 _:A <https://w3id.org/ifc/IFC4_ADD1#startTime_IfcWorkControl> _:endTime .
 _:endTime <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcDateTime> .
 _:endTime <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> "Fri May 06 2022"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-_:A <https://w3id.org/ifc/IFC4_ADD1#values_IfcStructuralLoadConfiguration> _:timeSeriesList .
+_:A <https://w3id.org/ifc/IFC4_ADD1#values_IfcRegularTimeSeries> _:timeSeriesList .
 _:timeSeriesList <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
 _:timeSeriesList <http://purl.org/co/size> "146"^^<https://www.w3.org/2001/XMLSchema#integer> .
 _:timeSeriesList <https://w3id.org/list#hasNext> _:list0 .
@@ -896,3 +896,28 @@ _:value291 <https://w3id.org/gbfs#docks_in_use> "3" .
 _:list85860000 <https://w3id.org/list#isFollowedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 _:timeSeriesList <https://w3id.org/list#hasNext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <https://github.com/lucasderveaux/LinkedDataExtractor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <fno:FUNCTION> .
+<https://github.com/lucasderveaux/LinkedDataExtractor> <http://purl.org/dc/terms/description> "This function..." .
+<https://github.com/lucasderveaux/LinkedDataExtractor> <https://w3id.org/function/ontology#expects> _:expects .
+_:expects <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> _:https://w3id.org/list#OWLList .
+_:expects <https://w3id.org/list#hasNext> _:parameter1 .
+_:parameter1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
+_:parameter1 <https://w3id.org/function/ontology#predicate> <http://www.w3.org/ns/sosa/observedProperty> .
+_:parameter1 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
+_:parameter1 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
+_:parameter1 <https://w3id.org/list#isFollowedBy> _:parameter2 .
+_:expects <https://w3id.org/list#hasNext> _:parameter2 .
+_:parameter2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
+_:parameter2 <https://w3id.org/function/ontology#predicate> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+_:parameter2 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
+_:parameter2 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
+_:parameter2 <https://w3id.org/list#isFollowedBy> _:parameter3 .
+_:expects <https://w3id.org/list#hasNext> _:parameter3 .
+_:parameter3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
+_:parameter3 <https://w3id.org/function/ontology#predicate> <http://purl.org/pav/derivedFrom> .
+_:parameter3 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
+_:parameter3 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
+_:parameter3 <https://w3id.org/list#isFollowedBy> _:http://www.w3.org/1999/02/22-rdf-syntax-ns#nil .
+<https://github.com/lucasderveaux/LinkedDataExtractor> <https://w3id.org/function/ontology#implements> _:AlgorithmPAA .
+_:AlgorithmPAA <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Algorithm> .
+_:AlgorithmPAA <https://w3id.org/function/ontology#name> "Piecewise Aggregate Approximation"^^<https://www.w3.org/2001/XMLSchema#string> .
+_:AlgorithmPAA <https://w3id.org/function/ontology#description> "Vanalles..."^^<https://www.w3.org/2001/XMLSchema#string> .
