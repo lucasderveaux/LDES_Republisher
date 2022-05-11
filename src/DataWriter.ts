@@ -71,12 +71,12 @@ export class DataWriter {
 
                     this.createObservation(keeperOfTheObservations, idSimpleValue, day, idLocation, quads, baseURL,config);
                     // check if file not exists
-                    if (!fs.existsSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
+                    if (!fs.existsSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
                         // make file where we will store newly fetched data     
 
                         let serialised = await writer.quadsToString(quads);
 
-                        await fs.writeFileSync(`${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
+                        await fs.writeFileSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
                     }
                 }
             }
