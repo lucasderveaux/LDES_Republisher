@@ -40,6 +40,12 @@ export class DataWriter {
 
 
                     // check if directory does not exist
+                    if (!fs.existsSync(`public`)) {
+                        //console.log('Directory not existing!');
+                        // make directory where we will store newly fetched data
+                        await fs.mkdirSync(`public`);
+                    }
+                    // check if directory does not exist
                     if (!fs.existsSync(`public/${config.storage}`)) {
                         //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
