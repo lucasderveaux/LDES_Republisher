@@ -1,7 +1,7 @@
-<https://lucasderveaux.github.io/LinkedDataExtractor/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ldes#EventStream> .
-<https://lucasderveaux.github.io/LinkedDataExtractor/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> <http://purl.org/pav/derivedFrom> <https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl> .
-<https://lucasderveaux.github.io/LinkedDataExtractor/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> <http://purl.org/pav/createdWith> <https://github.com/lucasderveaux/LinkedDataExtractor> .
-<https://lucasderveaux.github.io/LinkedDataExtractor/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> <https://w3id.org/tree#view> <https://lucasderveaux.github.io/LinkedDataExtractor/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> .
+<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ldes#EventStream> .
+<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> <http://purl.org/pav/derivedFrom> <https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl> .
+<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> <http://purl.org/pav/createdWith> <https://github.com/lucasderveaux/LDES_Republisher> .
+<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> <https://w3id.org/tree#view> <https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsbikes_available/StationTongeren/Tue_Apr_19_2022/StationTongeren.ttl> .
 _:A <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/sosa/Observation> .
 _:A <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcRegularTimeSeries> .
 _:A <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://blue-bike.be/stations/115> .
@@ -847,9 +847,9 @@ _:value275 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i
 _:value275 <https://w3id.org/gbfs#bikes_available> "6" .
 _:list85711721 <https://w3id.org/list#isFollowedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 _:timeSeriesList <https://w3id.org/list#hasNext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://github.com/lucasderveaux/LinkedDataExtractor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <fno:FUNCTION> .
-<https://github.com/lucasderveaux/LinkedDataExtractor> <http://purl.org/dc/terms/description> "This function..." .
-<https://github.com/lucasderveaux/LinkedDataExtractor> <https://w3id.org/function/ontology#expects> _:expects .
+<https://github.com/lucasderveaux/LDES_Republisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <fno:FUNCTION> .
+<https://github.com/lucasderveaux/LDES_Republisher> <http://purl.org/dc/terms/description> "This function..." .
+<https://github.com/lucasderveaux/LDES_Republisher> <https://w3id.org/function/ontology#expects> _:expects .
 _:expects <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> _:https://w3id.org/list#OWLList .
 _:expects <https://w3id.org/list#hasNext> _:parameter1 .
 _:parameter1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
@@ -869,7 +869,7 @@ _:parameter3 <https://w3id.org/function/ontology#predicate> <http://purl.org/pav
 _:parameter3 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
 _:parameter3 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
 _:parameter3 <https://w3id.org/list#isFollowedBy> _:http://www.w3.org/1999/02/22-rdf-syntax-ns#nil .
-<https://github.com/lucasderveaux/LinkedDataExtractor> <https://w3id.org/function/ontology#implements> _:AlgorithmPAA .
+<https://github.com/lucasderveaux/LDES_Republisher> <https://w3id.org/function/ontology#implements> _:AlgorithmPAA .
 _:AlgorithmPAA <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Algorithm> .
 _:AlgorithmPAA <https://w3id.org/function/ontology#name> "Piecewise Aggregate Approximation"^^<https://www.w3.org/2001/XMLSchema#string> .
 _:AlgorithmPAA <https://w3id.org/function/ontology#description> "Vanalles..."^^<https://www.w3.org/2001/XMLSchema#string> .
