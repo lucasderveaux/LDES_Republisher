@@ -1,0 +1,18 @@
+@startuml
+main ->data:hello
+Data -> Config: GetConfig()
+Data -> ObservationKeeper: create
+Data -> DataWriter: create
+Data -> GeneralExtractor: create
+Data -> PAAConverter: create
+
+Data -> GeneralExtractor: fetchData(ObservationKeeper)
+GernealExtractor -> ObservationKeeper: extract, fragment, map data
+
+Data -> PAAConverter: ConvertAll(ObservationKeeper)
+PAAConverter -> ObservationKeeper: change SortedMAP
+
+Data -> DataWriter: Write Data
+
+
+@enduml

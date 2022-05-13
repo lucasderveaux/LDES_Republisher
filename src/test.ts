@@ -39,12 +39,16 @@ const run = async (): Promise<void> => {
 
     // console.log(sortedMap.keys().next().value);
 
-    let test = "https://production.crowdscan.be/feed/public/gent_langemunt/v1/1";
+    // let test = "https://production.crowdscan.be/feed/public/gent_langemunt/v1/1";
     
-    let nieuw = test.match(/\.[a-zA-z]+\/(.*)/);
+    // let nieuw = test.match(/\.[a-zA-z]+\/(.*)/);
     
 
-    console.log(nieuw[1]);
+
+    let probeersel = 'lalalalalala';
+    console.log(probeersel.lastIndexOf('/'));
+    let test = probeersel.substring(0);
+    console.log(test);
 
     
 }
