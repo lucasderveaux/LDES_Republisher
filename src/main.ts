@@ -12,7 +12,7 @@ const run = async (): Promise<void> => {
 	const config: IConfig = getConfig();
 	await exec('git', ['config', 'user.name', config.git_username]);
 	await exec('git', ['config', 'user.email', `${config.git_email}`]);
-	console.log(config.url_feature_of_interest);
+	console.log(config.uri_feature_of_interest);
 	core.endGroup();
 
 	core.startGroup('Delete output folder');

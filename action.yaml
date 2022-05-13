@@ -26,10 +26,10 @@ inputs:
   literal_values:
     description: 'The different litteral values that need to be extracted and need to be divided and grouped in 24h'
     required: true
-  url_feature_of_interest:
+  uri_feature_of_interest:
     description: 'url that defines the feature of interest of the observation'
     required: true
-  url_timestamp:
+  uri_timestamp:
     description: 'url that defines the timestamp'
     required: true
 outputs:
@@ -52,8 +52,8 @@ runs:
         INPUT_GIT_USERNAME: ${{ inputs.git_username }}
         INPUT_GIT_EMAIL: ${{ inputs.git_email }}
         INPUT_LITERAL_VALUES: ${{ inputs.literal_values }}
-        INPUT_URL_FEATURE_OF_INTEREST: ${{ inputs.url_feature_of_interest }}
-        INPUT_URL_TIMESTAMP: ${{ inputs.url_timestamp }}
+        INPUT_URI_FEATURE_OF_INTEREST: ${{ inputs.uri_feature_of_interest }}
+        INPUT_URI_TIMESTAMP: ${{ inputs.uri_timestamp }}
         INPUT_GH_REPOSITORY: ${{ inputs.gh_repository}}
     - name: Run post script
       run: node ${{ github.action_path }}/dist/post/index.js

@@ -4,7 +4,7 @@ on:
      branches:
        - main
 jobs:
-  CS:
+  Crowdscan:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -18,5 +18,5 @@ jobs:
           url: "https://production.crowdscan.be/feed/public/gent_langemunt/v1/1"
           storage: CS
           literal_values: '["http://www.w3.org/ns/sosa/hasSimpleResult"]'
-          url_timestamp: 'http://www.w3.org/ns/sosa/resultTime'
-          url_feature_of_interest: 'http://www.w3.org/ns/sosa/hasFeatureOfInterest'
+          uri_timestamp: 'http://www.w3.org/ns/sosa/resultTime'
+          uri_feature_of_interest: 'http://www.w3.org/ns/sosa/hasFeatureOfInterest'

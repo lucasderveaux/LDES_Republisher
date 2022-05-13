@@ -87,7 +87,7 @@ export class GeneralExtractor {
                         observations.set(triple.predicate.value, parseFloat(triple.object.value));
                     } else {
                         switch (triple.predicate.value) {
-                            case this.config.url_feature_of_interest: {
+                            case this.config.uri_feature_of_interest: {
                                 //console.log("interest on:\t" + triple.object.value);
                                 version = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
@@ -98,7 +98,7 @@ export class GeneralExtractor {
                                 name = triple.object.value;
                                 break;
                             }
-                            case this.config.url_timestamp: {
+                            case this.config.uri_timestamp: {
                                 //console.log("created on:\t" + triple.object.value);
                                 created = triple.object.value;
                                 //console.log("dubbelcheck on the date:\t" + created.toString());
