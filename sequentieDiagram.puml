@@ -1,18 +1,48 @@
 @startuml
-main ->data:hello
-Data -> Config: GetConfig()
+participant main
+participant Config
+participant Data
+participant GeneralExtractor
+participant PAAConverter
+participant DataWriter
+collections ObservationKeeper
+
+activate main
+main-> Config: GetConfig
+activate Config
+Config --> main: create configuration
+main ->Data
+activate Data
+
 Data -> ObservationKeeper: create
-Data -> DataWriter: create
+activate ObservationKeeper
+
 Data -> GeneralExtractor: create
+activate GeneralExtractor
+Data -> GeneralExtractor: fetch data
+GeneralExtractor -> ObservationKeeper: fragment, map data
+GeneralExtractor --> Data: Finished Extraction
+deactivate GeneralExtractor
+
 Data -> PAAConverter: create
+activate PAAConverter
+Data -> PAAConverter: Piecewise aggregate approximation on timeseries
+PAAConverter -> ObservationKeeper: GetData
+ObservationKeeper --> PAAConverter: Data
+PAAConverter -> ObservationKeeper: Changed TimeSeries
+PAAConverter --> Data: timeseries converted
+deactivate PAAConverter
 
-Data -> GeneralExtractor: fetchData(ObservationKeeper)
-GernealExtractor -> ObservationKeeper: extract, fragment, map data
-
-Data -> PAAConverter: ConvertAll(ObservationKeeper)
-PAAConverter -> ObservationKeeper: change SortedMAP
-
+Data -> DataWriter: create
+activate DataWriter
 Data -> DataWriter: Write Data
-
-
+DataWriter -> ObservationKeeper: GetData
+ObservationKeeper --> DataWriter: Data
+deactivate ObservationKeeper
+DataWriter --> Data: Linked Data Event Stream created
+deactivate DataWriter
+Data --> main: Files created
+deactivate Data
+deactivate Config
+deactivate main
 @enduml

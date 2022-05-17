@@ -7,23 +7,17 @@ import { PAAConverter } from "./PAAConverter";
 export class Data {
     private readonly config: IConfig;
     private keeperOfTheObservations: ObservationKeeper;
-    private source: GeneralExtractor;
-    private dataWriter: DataWriter;
-    private PAA: PAAConverter;
-
 
     public constructor(config: IConfig) {
         this.config = config;
         this.keeperOfTheObservations = new ObservationKeeper();
-        this.source = new GeneralExtractor(this.keeperOfTheObservations, this.config);
-        this.dataWriter = new DataWriter();
-        this.PAA = new PAAConverter();
     }
 
     public async fetchData(): Promise<void> {
+        let source = new GeneralExtractor(this.keeperOfTheObservations, this.config);
         return new Promise<void>(async (resolve, reject) => {
             try {
-                await this.source.getData();
+                await source.getData();
                 return resolve();
             } catch (e) {
                 console.error(e);
@@ -33,9 +27,10 @@ export class Data {
     }
 
     public async writeData(): Promise<void> {
+        let dataWriter = new DataWriter();
         return new Promise<void>(async (resolve, reject) => {
             try {
-                await this.dataWriter.writeData(this.keeperOfTheObservations, this.config);
+                await dataWriter.writeData(this.keeperOfTheObservations, this.config);
                 return resolve();
             } catch (e) {
                 console.error(e);
@@ -45,9 +40,10 @@ export class Data {
     }
 
     public async convertData(): Promise<void> {
+        let PAA = new PAAConverter();
         return new Promise<void>(async (resolve, reject) => {
             try {
-                await this.PAA.ConvertAll(this.keeperOfTheObservations);
+                await PAA.ConvertAll(this.keeperOfTheObservations);
                 return resolve();
             } catch (e) {
                 console.error(e);

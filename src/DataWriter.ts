@@ -365,7 +365,7 @@ export class DataWriter {
             quad(
                 blankNode('expects'),
                 namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-                blankNode('https://w3id.org/list#OWLList')
+                namedNode('https://w3id.org/list#OWLList')
             )
         );
         quads.push(
@@ -494,7 +494,7 @@ export class DataWriter {
             quad(
                 blankNode('parameter3'),
                 namedNode('https://w3id.org/list#isFollowedBy'),
-                blankNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')
             )
         );
         //           );
