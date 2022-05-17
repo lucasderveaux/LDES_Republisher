@@ -820,7 +820,7 @@ _:timeSeriesList <https://w3id.org/list#hasNext> <http://www.w3.org/1999/02/22-r
 <https://github.com/lucasderveaux/LDES_Republisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <fno:FUNCTION> .
 <https://github.com/lucasderveaux/LDES_Republisher> <http://purl.org/dc/terms/description> "This function..." .
 <https://github.com/lucasderveaux/LDES_Republisher> <https://w3id.org/function/ontology#expects> _:expects .
-_:expects <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> _:https://w3id.org/list#OWLList .
+_:expects <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/list#OWLList> .
 _:expects <https://w3id.org/list#hasNext> _:parameter1 .
 _:parameter1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
 _:parameter1 <https://w3id.org/function/ontology#predicate> <http://www.w3.org/ns/sosa/observedProperty> .
@@ -838,7 +838,7 @@ _:parameter3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org
 _:parameter3 <https://w3id.org/function/ontology#predicate> <http://purl.org/pav/derivedFrom> .
 _:parameter3 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
 _:parameter3 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
-_:parameter3 <https://w3id.org/list#isFollowedBy> _:http://www.w3.org/1999/02/22-rdf-syntax-ns#nil .
+_:parameter3 <https://w3id.org/list#isFollowedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 <https://github.com/lucasderveaux/LDES_Republisher> <https://w3id.org/function/ontology#implements> _:AlgorithmPAA .
 _:AlgorithmPAA <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Algorithm> .
 _:AlgorithmPAA <https://w3id.org/function/ontology#name> "Piecewise Aggregate Approximation"^^<https://www.w3.org/2001/XMLSchema#string> .
