@@ -1,8 +1,8 @@
 name: Crowdscan
 on:
-  push:
-     branches:
-       - main
+  workflow_run:
+    workflows: [Blue-bike]
+    types: [failed, completed]
 jobs:
   Crowdscan:
     # The type of runner that the job will run on
