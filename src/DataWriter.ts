@@ -341,7 +341,7 @@ export class DataWriter {
             quad(
                 namedNode(config.gh_repository),
                 namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-                namedNode('fno:FUNCTION')
+                namedNode('https://w3id.org/function/ontology#function')
             )
         );
         //    dcterms:description "This function.....";
