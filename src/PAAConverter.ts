@@ -53,6 +53,7 @@ export class PAAConverter {
                 //in milliseconds
                 // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 100 miliseconds in a second
                 let divider = Math.round((24 * 60 * 60 * 100) / number_of_observations);
+                console.log("divider is:"+divider);
 
                 let beginInterval = 0;
                 let endInterval = divider;
@@ -129,6 +130,7 @@ export class PAAConverter {
                     endMap.set(key, avg);
 
                 }
+                console.log("endmap heeft "+endMap.length);
 
                 resolve(endMap);
             } catch (e) {
