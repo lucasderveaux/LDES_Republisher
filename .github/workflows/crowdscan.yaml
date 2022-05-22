@@ -1,8 +1,8 @@
 name: Crowdscan
 on:
-  workflow_run:
-    workflows: [Github Pages]
-    types: [failed, completed]
+  push:
+     branches:
+       - main
 jobs:
   Crowdscan:
     # The type of runner that the job will run on
