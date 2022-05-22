@@ -183,7 +183,7 @@ export class DataWriter {
             quad(
                 blankNode('seconds'),
                 namedNode('https://www.w3.org/2006/time#seconds'),
-                literal(seconds.toString(), "https://www.w3.org/2001/XMLSchema#float")
+                literal(config.number_of_observations.toString(), "https://www.w3.org/2001/XMLSchema#float")
             )
         );
         //   ];
@@ -258,7 +258,7 @@ export class DataWriter {
             quad(
                 blankNode('timeSeriesList'),
                 namedNode('http://purl.org/co/size'),
-                literal(config.number_of_observations.toString(), 'https://www.w3.org/2001/XMLSchema#integer')
+                literal(size, 'https://www.w3.org/2001/XMLSchema#integer')
             )
         );
         //   ifc:IfcValue ("12", "11", "23", "459", ... ).
