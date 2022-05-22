@@ -42,9 +42,12 @@ export class PAAConverter {
 
                 let number_of_observations = sortedMap.length;
 
+                console.log("number_of_observations is "+this.config.number_of_observations);
+
                 if (this.config.number_of_observations != 0) {
                     if (this.config.number_of_observations < number_of_observations) {
                         number_of_observations = this.config.number_of_observations;
+                        console.log("number of observations is aangepast");
                     }else{
                         console.log("requested number of observations cannot be provided")
                     }
@@ -84,7 +87,7 @@ export class PAAConverter {
 
 
                     //op dit punt zijn de arrays gemaakt en zitten we in de juiste interval
-                    //er zijn twee opties ofwle zitten we in het juiste interval 
+                    //er zijn twee opties ofwel zitten we in het juiste interval 
                     //ofwel op de grens en zitten we in beide
 
                     //zit in beide
