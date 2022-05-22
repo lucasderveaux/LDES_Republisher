@@ -34,7 +34,7 @@ export class PAAConverter {
 
 
 
-    private convertOne(sortedMap: SortedMap): Promise<SortedMap> {
+    public convertOne(sortedMap: SortedMap): Promise<SortedMap> {
         return new Promise<SortedMap>(async (resolve, reject) => {
             try {
                 //amound of milliseconds since January 1, 1970, 00:00:00
@@ -42,34 +42,33 @@ export class PAAConverter {
 
                 let number_of_observations = sortedMap.length;
 
-                console.log("number_of_observations is "+this.config.number_of_observations);
+                // console.log("number_of_observations is "+this.config.number_of_observations);
 
                 if (this.config.number_of_observations != 0) {
                     if (this.config.number_of_observations < number_of_observations) {
                         number_of_observations = this.config.number_of_observations;
-                        console.log("number of observations is aangepast");
-                    }else{
+                    } else {
                         console.log("requested number of observations cannot be provided")
                     }
                 }
+              
 
                 //in milliseconds
-                // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 100 miliseconds in a second
-                let divider = Math.round((24 * 60 * 60 * 100) / number_of_observations);
-                console.log("divider is:"+divider);
+                // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 1000 miliseconds in a second
+                let divider = Math.round((24*60*60 * 1000) / number_of_observations);
+                console.log("divider is:" + divider);
 
-                let beginInterval = 0;
-                let endInterval = divider;
+                let beginInterval = min;
+                let endInterval = beginInterval + divider;
 
                 let map = new Map<number, Array<number>>();
 
                 for (let key of sortedMap.keys()) {
 
-                    let toTest = key - min;
                     //kijken of het überhaupt kan
                     //eigenlijk moet ik overal evenveel observaties hebben.
                     //nee nee losse punten
-                    while (toTest > endInterval) {
+                    while (key > endInterval) {
                         //dit kan eigenlijk niet meer dan 1 keer voorkomen
                         //maar in voorzorg wordt dit er wel ingestoken
                         //you never know
@@ -80,8 +79,8 @@ export class PAAConverter {
                         endInterval += divider;
                     }
 
-                    if (!map.has(beginInterval)) {
-                        map.set(beginInterval, new Array<number>());
+                    if (!map.has(beginInterval+divider/2)) {
+                        map.set(beginInterval+(divider/2), new Array<number>());
 
                     }
 
@@ -91,24 +90,24 @@ export class PAAConverter {
                     //ofwel op de grens en zitten we in beide
 
                     //zit in beide
-                    if (toTest == endInterval) {
-                        map.get(beginInterval).push(sortedMap.get(key));
-                        if (!map.has(endInterval)) {
-                            map.set(endInterval, new Array<number>());
+                    if (key == endInterval) {
+                        map.get((beginInterval+divider/2)).push(sortedMap.get(key));
+                        if (!map.has((endInterval+divider/2))) {
+                            map.set((endInterval+divider/2), new Array<number>());
                         }
-                        map.get(endInterval).push(sortedMap.get(key));
+                        map.get((endInterval+divider/2)).push(sortedMap.get(key));
                     }
 
-                    if (toTest > beginInterval && toTest < endInterval) {
-                        map.get(beginInterval).push(sortedMap.get(key));
+                    if (key > beginInterval && key < endInterval) {
+                        map.get((beginInterval+divider/2)).push(sortedMap.get(key));
                     } else {
                         //dit kan eigenlijk niet
                         //er is iets mis gegaan met de volgorde van de iterator van de sortedMap
-                        while (toTest < beginInterval) {
+                        while (key < beginInterval) {
                             endInterval = beginInterval;
                             beginInterval = endInterval - divider;
                         }
-                        map.get(beginInterval).push(sortedMap.get(key))
+                        map.get((beginInterval+divider/2)).push(sortedMap.get(key))
                     }
                 }
 
@@ -133,7 +132,7 @@ export class PAAConverter {
                     endMap.set(key, avg);
 
                 }
-                console.log("endmap heeft "+endMap.length);
+                console.log("endmap heeft " + endMap.length);
 
                 resolve(endMap);
             } catch (e) {
