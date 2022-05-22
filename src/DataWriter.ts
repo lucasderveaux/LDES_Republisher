@@ -180,8 +180,8 @@ export class DataWriter {
         //   time:seconds "3".
         let iterator = sortedMap.keys();
         let key1 = iterator.next().value
-        let key2=iterator.next().value;
-        let seconds=(key2-key1)/1000;
+        let key2 = iterator.next().value;
+        let seconds = (key2 - key1) / 1000;
 
         quads.push(
             quad(
@@ -208,11 +208,16 @@ export class DataWriter {
             )
         );
         //   ifcSimpleValue "2017-04-15T00:00:00+00:00".
+        let date = Date.parse(day);
+        let date2 = date + 24 * 60 * 60 * 1000;
+        let stringDate = new Date(date);
+        let stringDate2 = new Date(date2);
+
         quads.push(
             quad(
                 blankNode('startTime'),
                 namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue'),
-                literal(day, 'http://www.w3.org/2001/XMLSchema#dateTime')
+                literal(stringDate.toLocaleString(), 'http://www.w3.org/2001/XMLSchema#dateTime')
             )
         );
         //   ];
@@ -237,7 +242,7 @@ export class DataWriter {
             quad(
                 blankNode('endTime'),
                 namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue'),
-                literal(day, 'http://www.w3.org/2001/XMLSchema#dateTime')
+                literal(stringDate2.toLocaleString(), 'http://www.w3.org/2001/XMLSchema#dateTime')
             )
         );
         //   ];
@@ -353,7 +358,7 @@ export class DataWriter {
             quad(
                 namedNode(config.gh_repository),
                 namedNode('http://purl.org/dc/terms/description'),
-                literal('This function...')
+                literal('This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation and feature of interest and type of observation.')
             )
         );
         //    fno:expects (
@@ -498,6 +503,92 @@ export class DataWriter {
             quad(
                 blankNode('parameter3'),
                 namedNode('https://w3id.org/list#isFollowedBy'),
+                blankNode('parameter4')
+            )
+        );
+        //parameter4
+        quads.push(
+            quad(
+                blankNode('expects'),
+                namedNode('https://w3id.org/list#hasNext'),
+                blankNode('parameter4')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter4'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('https://w3id.org/function/ontology#Parameter')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter4'),
+                namedNode('https://w3id.org/function/ontology#predicate'),
+                namedNode(config.uri_timestamp)
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter4'),
+                namedNode('https://w3id.org/function/ontology#type'),
+                namedNode('https://www.w3.org/2001/XMLSchema#anyURI')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter4'),
+                namedNode('https://w3id.org/function/ontology#required'),
+                literal('true', 'https://www.w3.org/2001/XMLSchema#boolean')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter4'),
+                namedNode('https://w3id.org/list#isFollowedBy'),
+                blankNode('parameter5')
+            )
+        );
+        //parameter5
+        quads.push(
+            quad(
+                blankNode('expects'),
+                namedNode('https://w3id.org/list#hasNext'),
+                blankNode('parameter5')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter5'),
+                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                namedNode('https://w3id.org/function/ontology#Parameter')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter5'),
+                namedNode('https://w3id.org/function/ontology#predicate'),
+                namedNode('http://purl.org/co/size')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter5'),
+                namedNode('https://w3id.org/function/ontology#type'),
+                namedNode('https://www.w3.org/2001/XMLSchema#anyURI')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter5'),
+                namedNode('https://w3id.org/function/ontology#required'),
+                literal('false', 'https://www.w3.org/2001/XMLSchema#boolean')
+            )
+        );
+        quads.push(
+            quad(
+                blankNode('parameter5'),
+                namedNode('https://w3id.org/list#isFollowedBy'),
                 namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#nil')
             )
         );
@@ -526,7 +617,7 @@ export class DataWriter {
             quad(
                 blankNode('AlgorithmPAA'),
                 namedNode('https://w3id.org/function/ontology#name'),
-                literal('Piecewise Aggregate Approximation','https://www.w3.org/2001/XMLSchema#string')
+                literal('Piecewise Aggregate Approximation', 'https://www.w3.org/2001/XMLSchema#string')
             )
         );
         //     fno:description "vanalles" ^^ xsd: string.
@@ -534,7 +625,7 @@ export class DataWriter {
             quad(
                 blankNode('AlgorithmPAA'),
                 namedNode('https://w3id.org/function/ontology#description'),
-                literal('Vanalles...','https://www.w3.org/2001/XMLSchema#string')
+                literal('Piecewise Aggregate Approximation (PAA) is a very simple dimensionality reduction method for time series mining. It minimizes dimensionality by the mean values of equal sized frames.', 'https://www.w3.org/2001/XMLSchema#string')
             )
         );
 

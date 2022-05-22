@@ -42,6 +42,7 @@ export class PAAConverter {
                 let date = new Date(sortedMap.keys().next().value);
                 let betweenDate = date.toDateString()+" 00:00:00";
                 let min: number = Date.parse(betweenDate);
+                
 
                 let number_of_observations = sortedMap.length;
 
