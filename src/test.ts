@@ -35,7 +35,7 @@ const run = async (): Promise<void> => {
     timestamps.set(Date.parse("2019-01-16 00:10:52"), 8);
     timestamps.set(Date.parse("2019-01-16 00:11:39"), 4);
 
-
+    
     let i = 0;
     for (let x of timestamps.keys()) {
         if ((x - i) > 17500) {
@@ -58,6 +58,11 @@ const run = async (): Promise<void> => {
 
         console.log(date.toLocaleTimeString()+" "+test.get(x));
     }
+    
+   let iterator = test.keys();
+   let key1 = iterator.next().value;
+   let key2= iterator.next().value;
+   console.log(key2-key1);
 
 
 }

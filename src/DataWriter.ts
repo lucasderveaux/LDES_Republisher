@@ -178,11 +178,16 @@ export class DataWriter {
             )
         );
         //   time:seconds "3".
+        let iterator = sortedMap.keys();
+        let key1 = iterator.next().value
+        let key2=iterator.next().value;
+        let seconds=(key2-key1)/1000;
+
         quads.push(
             quad(
                 blankNode('seconds'),
                 namedNode('https://www.w3.org/2006/time#seconds'),
-                literal(config.number_of_observations.toString(), "https://www.w3.org/2001/XMLSchema#float")
+                literal(seconds.toString(), "https://www.w3.org/2001/XMLSchema#float")
             )
         );
         //   ];
