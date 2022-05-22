@@ -24,16 +24,16 @@ const run = async (): Promise<void> => {
     let timestamps = new Map<number, number>();
     timestamps.set(Date.parse("2019-01-16 00:00:10"), 7);
     timestamps.set(Date.parse("2019-01-16 00:01:52"), 13);
-    timestamps.set(Date.parse("2019-01-16 00:02:55"), 1);
+    timestamps.set(Date.parse("2019-01-16 00:02:54"), 1);
     timestamps.set(Date.parse("2019-01-16 00:03:08"), 8);
     timestamps.set(Date.parse("2019-01-16 00:04:00"), 20);
-    timestamps.set(Date.parse("2019-01-16 00:05:50"), 8);
+    timestamps.set(Date.parse("2019-01-16 00:05:49"), 8);
     timestamps.set(Date.parse("2019-01-16 00:07:02"), 13);
     timestamps.set(Date.parse("2019-01-16 00:07:42"), 10);
     timestamps.set(Date.parse("2019-01-16 00:08:20"), 16);
     timestamps.set(Date.parse("2019-01-16 00:10:01"), 15);
     timestamps.set(Date.parse("2019-01-16 00:10:52"), 8);
-    timestamps.set(Date.parse("2019-01-16 00:11:40"), 4);
+    timestamps.set(Date.parse("2019-01-16 00:11:39"), 4);
 
 
     let i = 0;
@@ -54,7 +54,8 @@ const run = async (): Promise<void> => {
             console.log(x - i);
         }
         i = x;
-        let date = new Date(x);
+        let date = new Date(x);    
+
         console.log(date.toLocaleTimeString()+" "+test.get(x));
     }
 

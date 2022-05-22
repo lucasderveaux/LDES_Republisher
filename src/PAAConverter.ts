@@ -38,7 +38,10 @@ export class PAAConverter {
         return new Promise<SortedMap>(async (resolve, reject) => {
             try {
                 //amound of milliseconds since January 1, 1970, 00:00:00
-                let min: number = sortedMap.keys().next().value;
+                
+                let date = new Date(sortedMap.keys().next().value);
+                let betweenDate = date.toDateString()+" 00:00:00";
+                let min: number = Date.parse(betweenDate);
 
                 let number_of_observations = sortedMap.length;
 
@@ -53,6 +56,7 @@ export class PAAConverter {
                     }
                 }
               
+       
 
                 //in milliseconds
                 // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 1000 miliseconds in a second
@@ -80,8 +84,8 @@ export class PAAConverter {
                         endInterval += divider;
                     }
 
-                    if (!map.has(beginInterval+divider/2)) {
-                        map.set(beginInterval+(divider/2), new Array<number>());
+                    if (!map.has(beginInterval)) {
+                        map.set(beginInterval, new Array<number>());
 
                     }
 
@@ -92,15 +96,17 @@ export class PAAConverter {
 
                     //zit in beide
                     if (key == endInterval) {
-                        map.get((beginInterval+divider/2)).push(sortedMap.get(key));
-                        if (!map.has((endInterval+divider/2))) {
-                            map.set((endInterval+divider/2), new Array<number>());
+                        console.log("in beide");
+                        map.get((beginInterval)).push(sortedMap.get(key));
+                        if (!map.has((endInterval))) {
+                            map.set((endInterval), new Array<number>());
                         }
-                        map.get((endInterval+divider/2)).push(sortedMap.get(key));
+                        map.get((endInterval)).push(sortedMap.get(key));
                     }
 
                     if (key > beginInterval && key < endInterval) {
-                        map.get((beginInterval+divider/2)).push(sortedMap.get(key));
+                        map.get(beginInterval).push(sortedMap.get(key));
+                        console.log("in 1");
                     } else {
                         //dit kan eigenlijk niet
                         //er is iets mis gegaan met de volgorde van de iterator van de sortedMap
@@ -108,7 +114,7 @@ export class PAAConverter {
                             endInterval = beginInterval;
                             beginInterval = endInterval - divider;
                         }
-                        map.get((beginInterval+divider/2)).push(sortedMap.get(key))
+                        map.get(beginInterval).push(sortedMap.get(key))
                     }
                 }
 
