@@ -258,7 +258,7 @@ export class DataWriter {
             quad(
                 blankNode('timeSeriesList'),
                 namedNode('http://purl.org/co/size'),
-                literal(size, 'https://www.w3.org/2001/XMLSchema#integer')
+                literal(config.number_of_observations.toString(), 'https://www.w3.org/2001/XMLSchema#integer')
             )
         );
         //   ifc:IfcValue ("12", "11", "23", "459", ... ).
