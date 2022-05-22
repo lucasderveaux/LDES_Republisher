@@ -97,7 +97,6 @@ export class PAAConverter {
 
                     //zit in beide
                     if (key == endInterval) {
-                        console.log("in beide");
                         map.get((beginInterval)).push(sortedMap.get(key));
                         if (!map.has((endInterval))) {
                             map.set((endInterval), new Array<number>());
@@ -107,7 +106,6 @@ export class PAAConverter {
 
                     if (key > beginInterval && key < endInterval) {
                         map.get(beginInterval).push(sortedMap.get(key));
-                        console.log("in 1");
                     } else {
                         //dit kan eigenlijk niet
                         //er is iets mis gegaan met de volgorde van de iterator van de sortedMap

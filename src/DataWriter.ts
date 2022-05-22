@@ -160,7 +160,6 @@ export class DataWriter {
         );
 
         let size = sortedMap.length;
-        let seconds = (24 * 60 * 60) / size;
 
         //  ifc:timeStep [
         quads.push(
