@@ -32,6 +32,10 @@ inputs:
   uri_timestamp:
     description: 'url that defines the timestamp'
     required: true
+  number_of_observations:
+    description: 'requested number of observations requested for PAA-converter'
+    required: false
+    default: '0'
 outputs:
   delta_bytes: # size of changed data
     description: 'The overall number of bytes changed in the output data this run (current size - previous size)'
@@ -55,6 +59,7 @@ runs:
         INPUT_URI_FEATURE_OF_INTEREST: ${{ inputs.uri_feature_of_interest }}
         INPUT_URI_TIMESTAMP: ${{ inputs.uri_timestamp }}
         INPUT_GH_REPOSITORY: ${{ inputs.gh_repository}}
+        INPUT_NUMBER_OF_OBSERVATIONS: ${{ inputs.number_of_observations }}
     - name: Run post script
       run: node ${{ github.action_path }}/dist/post/index.js
       shell: bash

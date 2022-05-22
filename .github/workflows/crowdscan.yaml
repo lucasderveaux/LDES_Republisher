@@ -1,7 +1,7 @@
 name: Crowdscan
 on:
   workflow_run:
-    workflows: [Blue-bike]
+    workflows: [Github Pages]
     types: [failed, completed]
 jobs:
   Crowdscan:

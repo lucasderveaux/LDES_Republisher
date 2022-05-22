@@ -11,6 +11,7 @@ export interface IConfig {
 	gh_repository: string;
 	uri_feature_of_interest:string;
 	uri_timestamp: string;
+	number_of_observations: number;
 }
 
 export function getConfig(): IConfig {
@@ -24,6 +25,7 @@ export function getConfig(): IConfig {
 		literal_values: core.getInput('literal_values'),
 		uri_feature_of_interest: core.getInput('uri_feature_of_interest'),
 		uri_timestamp:core.getInput('uri_timestamp'),
-		gh_repository:core.getInput('gh_repository')
+		gh_repository:core.getInput('gh_repository'),
+		number_of_observations:parseInt(core.getInput('number_of_observations'))
 	};
 }

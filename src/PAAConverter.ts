@@ -1,9 +1,11 @@
 import { ObservationKeeper } from "./Objects/ObservationKeeper";
 import { SortedMap } from "collections/sorted-map";
+import { IConfig } from "./config";
 
 export class PAAConverter {
-    constructor() {
-
+    private readonly config: IConfig;
+    constructor(config: IConfig) {
+        this.config = config;
     }
 
     /*
@@ -30,7 +32,7 @@ export class PAAConverter {
         }
     }
 
-    
+
 
     private convertOne(sortedMap: SortedMap): Promise<SortedMap> {
         return new Promise<SortedMap>(async (resolve, reject) => {
@@ -38,10 +40,19 @@ export class PAAConverter {
                 //amound of milliseconds since January 1, 1970, 00:00:00
                 let min: number = sortedMap.keys().next().value;
 
+                let number_of_observations = sortedMap.length;
+
+                if (this.config.number_of_observations != 0) {
+                    if (this.config.number_of_observations < number_of_observations) {
+                        number_of_observations = this.config.number_of_observations;
+                    }else{
+                        console.log("requested number of observations cannot be provided")
+                    }
+                }
 
                 //in milliseconds
                 // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 100 miliseconds in a second
-                let divider = Math.round((24 * 60 * 60 * 100) / sortedMap.length);
+                let divider = Math.round((24 * 60 * 60 * 100) / number_of_observations);
 
                 let beginInterval = 0;
                 let endInterval = divider;
@@ -49,7 +60,7 @@ export class PAAConverter {
                 let map = new Map<number, Array<number>>();
 
                 for (let key of sortedMap.keys()) {
-                    
+
                     let toTest = key - min;
                     //kijken of het überhaupt kan
                     //eigenlijk moet ik overal evenveel observaties hebben.
@@ -67,9 +78,9 @@ export class PAAConverter {
 
                     if (!map.has(beginInterval)) {
                         map.set(beginInterval, new Array<number>());
-                        
+
                     }
-                    
+
 
                     //op dit punt zijn de arrays gemaakt en zitten we in de juiste interval
                     //er zijn twee opties ofwle zitten we in het juiste interval 
@@ -78,7 +89,7 @@ export class PAAConverter {
                     //zit in beide
                     if (toTest == endInterval) {
                         map.get(beginInterval).push(sortedMap.get(key));
-                        if(!map.has(endInterval)){
+                        if (!map.has(endInterval)) {
                             map.set(endInterval, new Array<number>());
                         }
                         map.get(endInterval).push(sortedMap.get(key));
@@ -108,15 +119,15 @@ export class PAAConverter {
                     let div: number = map.get(key).length;
                     if (map.get(key).length != 0) {
                         for (let n of map.get(key)) {
-                           
+
                             avg += n;
 
                         }
                     }
                     avg = avg / div;
-                   
-                        endMap.set(key, avg);
-                    
+
+                    endMap.set(key, avg);
+
                 }
 
                 resolve(endMap);

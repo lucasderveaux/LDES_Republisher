@@ -40,7 +40,7 @@ export class Data {
     }
 
     public async convertData(): Promise<void> {
-        let PAA = new PAAConverter();
+        let PAA = new PAAConverter(this.config);
         return new Promise<void>(async (resolve, reject) => {
             try {
                 await PAA.ConvertAll(this.keeperOfTheObservations);
