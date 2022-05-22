@@ -47,6 +47,7 @@ export class PAAConverter {
                 if (this.config.number_of_observations != 0) {
                     if (this.config.number_of_observations < number_of_observations) {
                         number_of_observations = this.config.number_of_observations;
+                        console.log("divider is veranderd")
                     } else {
                         console.log("requested number of observations cannot be provided")
                     }
