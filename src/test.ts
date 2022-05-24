@@ -10,7 +10,6 @@ import { literal, namedNode, quad, blankNode } from '@rdfjs/data-model';
 const N3 = require('n3');
 
 const run = async (): Promise<void> => {
-    console.log("at least it's starting...");
 
     // let data_fetcher = new Data(getConfig());
     // await data_fetcher.fetchData();
@@ -78,52 +77,6 @@ const run = async (): Promise<void> => {
 // console.log(datE.toLocaleString());
 // console.log(datE2.toLocaleString());
 
-const writer = new N3.Writer();
-let quads: RDF.Quad[]=[];
-
-quads.push(
-    quad(
-        blankNode('A'),
-        namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-        namedNode('http://www.w3.org/ns/sosa/Observation')
-    )
-);
-quads.push(
-    quad(
-        blankNode('A'),
-        namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-        namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcRegularTimeSeries')
-    )
-);
-
-writer.addQuads(quads);
-let tekst = "";
-writer.end((error, result) => {
-    tekst = result;
-    //console.log(result);
-  });
-console.log(tekst);
-
-quads.push(
-    quad(
-        blankNode('B'),
-        namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-        namedNode('http://www.w3.org/ns/sosa/Observation')
-    )
-);
-quads.push(
-    quad(
-        blankNode('B'),
-        namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-        namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcRegularTimeSeries')
-    )
-);
-writer.addQuads(quads);
-writer.end((error, result) => {
-    tekst = result;
-    //console.log(result);
-  });
-  console.log(tekst);
 
 }
 run().catch((error) => {

@@ -78,7 +78,7 @@ export class DataWriter {
                         let writer = new N3.Writer();
                         writer.addQuads(quads);
                         let final = "";
-                        writer.end((error, result) => {
+                        await writer.end((error, result) => {
                             final = result;
                           });
 
