@@ -1,167 +1,166 @@
-<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/StationDiest/Wed_Mar_30_2022/StationDiest.ttl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ldes#EventStream> .
-<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/StationDiest/Wed_Mar_30_2022/StationDiest.ttl> <http://purl.org/pav/derivedFrom> <https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl> .
-<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/StationDiest/Wed_Mar_30_2022/StationDiest.ttl> <http://purl.org/pav/createdWith> <https://github.com/lucasderveaux/LDES_Republisher> .
-<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/StationDiest/Wed_Mar_30_2022/StationDiest.ttl> <https://w3id.org/tree#view> <https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/StationDiest/Wed_Mar_30_2022/StationDiest.ttl> .
-_:A <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/sosa/Observation> .
-_:A <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcRegularTimeSeries> .
-_:A <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://blue-bike.be/stations/92> .
-_:A <http://www.w3.org/ns/sosa/observedProperty> <https://w3id.org/gbfs#docks_in_use> .
-_:A <https://w3id.org/ifc/IFC4_ADD1#timeStep_IfcRegularTimeSeries> _:seconds .
-_:seconds <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeMeasure> .
-_:seconds <https://www.w3.org/2006/time#seconds> "3600"^^<https://www.w3.org/2001/XMLSchema#float> .
-_:A <https://w3id.org/ifc/IFC4_ADD1#startTime_IfcWorkControl> _:startTime .
-_:startTime <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcDateTime> .
-_:startTime <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> "3/30/2022, 12:00:00 AM"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-_:A <https://w3id.org/ifc/IFC4_ADD1#startTime_IfcWorkControl> _:endTime .
-_:endTime <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcDateTime> .
-_:endTime <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> "3/31/2022, 12:00:00 AM"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-_:A <https://w3id.org/ifc/IFC4_ADD1#values_IfcRegularTimeSeries> _:timeSeriesList .
-_:timeSeriesList <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:timeSeriesList <http://purl.org/co/size> "18"^^<https://www.w3.org/2001/XMLSchema#integer> .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648620000000 .
-_:list1648620000000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648620000000 <https://w3id.org/list#hasContents> _:value1 .
-_:value1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value1 <https://w3id.org/gbfs#docks_in_use> "1" .
-_:list1648620000000 <https://w3id.org/list#isFollowedBy> _:list1648623600000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648623600000 .
-_:list1648623600000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648623600000 <https://w3id.org/list#hasContents> _:value3 .
-_:value3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value3 <https://w3id.org/gbfs#docks_in_use> "3.857142857142857" .
-_:list1648623600000 <https://w3id.org/list#isFollowedBy> _:list1648627200000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648627200000 .
-_:list1648627200000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648627200000 <https://w3id.org/list#hasContents> _:value5 .
-_:value5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value5 <https://w3id.org/gbfs#docks_in_use> "4" .
-_:list1648627200000 <https://w3id.org/list#isFollowedBy> _:list1648630800000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648630800000 .
-_:list1648630800000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648630800000 <https://w3id.org/list#hasContents> _:value7 .
-_:value7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value7 <https://w3id.org/gbfs#docks_in_use> "4" .
-_:list1648630800000 <https://w3id.org/list#isFollowedBy> _:list1648634400000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648634400000 .
-_:list1648634400000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648634400000 <https://w3id.org/list#hasContents> _:value9 .
-_:value9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value9 <https://w3id.org/gbfs#docks_in_use> "4" .
-_:list1648634400000 <https://w3id.org/list#isFollowedBy> _:list1648638000000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648638000000 .
-_:list1648638000000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648638000000 <https://w3id.org/list#hasContents> _:value11 .
-_:value11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value11 <https://w3id.org/gbfs#docks_in_use> "4.75" .
-_:list1648638000000 <https://w3id.org/list#isFollowedBy> _:list1648641600000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648641600000 .
-_:list1648641600000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648641600000 <https://w3id.org/list#hasContents> _:value13 .
-_:value13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value13 <https://w3id.org/gbfs#docks_in_use> "5.857142857142857" .
-_:list1648641600000 <https://w3id.org/list#isFollowedBy> _:list1648645200000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648645200000 .
-_:list1648645200000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648645200000 <https://w3id.org/list#hasContents> _:value15 .
-_:value15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value15 <https://w3id.org/gbfs#docks_in_use> "6" .
-_:list1648645200000 <https://w3id.org/list#isFollowedBy> _:list1648648800000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648648800000 .
-_:list1648648800000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648648800000 <https://w3id.org/list#hasContents> _:value17 .
-_:value17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value17 <https://w3id.org/gbfs#docks_in_use> "6.75" .
-_:list1648648800000 <https://w3id.org/list#isFollowedBy> _:list1648652400000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648652400000 .
-_:list1648652400000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648652400000 <https://w3id.org/list#hasContents> _:value19 .
-_:value19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value19 <https://w3id.org/gbfs#docks_in_use> "7.142857142857143" .
-_:list1648652400000 <https://w3id.org/list#isFollowedBy> _:list1648656000000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648656000000 .
-_:list1648656000000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648656000000 <https://w3id.org/list#hasContents> _:value21 .
-_:value21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value21 <https://w3id.org/gbfs#docks_in_use> "5" .
-_:list1648656000000 <https://w3id.org/list#isFollowedBy> _:list1648659600000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648659600000 .
-_:list1648659600000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648659600000 <https://w3id.org/list#hasContents> _:value23 .
-_:value23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value23 <https://w3id.org/gbfs#docks_in_use> "3" .
-_:list1648659600000 <https://w3id.org/list#isFollowedBy> _:list1648663200000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648663200000 .
-_:list1648663200000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648663200000 <https://w3id.org/list#hasContents> _:value25 .
-_:value25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value25 <https://w3id.org/gbfs#docks_in_use> "2" .
-_:list1648663200000 <https://w3id.org/list#isFollowedBy> _:list1648666800000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648666800000 .
-_:list1648666800000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648666800000 <https://w3id.org/list#hasContents> _:value27 .
-_:value27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value27 <https://w3id.org/gbfs#docks_in_use> "1.4285714285714286" .
-_:list1648666800000 <https://w3id.org/list#isFollowedBy> _:list1648670400000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648670400000 .
-_:list1648670400000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648670400000 <https://w3id.org/list#hasContents> _:value29 .
-_:value29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value29 <https://w3id.org/gbfs#docks_in_use> "1" .
-_:list1648670400000 <https://w3id.org/list#isFollowedBy> _:list1648674000000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648674000000 .
-_:list1648674000000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648674000000 <https://w3id.org/list#hasContents> _:value31 .
-_:value31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value31 <https://w3id.org/gbfs#docks_in_use> "1" .
-_:list1648674000000 <https://w3id.org/list#isFollowedBy> _:list1648677600000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648677600000 .
-_:list1648677600000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648677600000 <https://w3id.org/list#hasContents> _:value33 .
-_:value33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value33 <https://w3id.org/gbfs#docks_in_use> "1" .
-_:list1648677600000 <https://w3id.org/list#isFollowedBy> _:list1648681200000 .
-_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648681200000 .
-_:list1648681200000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List> .
-_:list1648681200000 <https://w3id.org/list#hasContents> _:value35 .
-_:value35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> .
-_:value35 <https://w3id.org/gbfs#docks_in_use> "1" .
-_:list1648681200000 <https://w3id.org/list#isFollowedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:timeSeriesList <https://w3id.org/list#hasNext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://github.com/lucasderveaux/LDES_Republisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#function> .
-<https://github.com/lucasderveaux/LDES_Republisher> <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation and feature of interest and type of observation." .
-<https://github.com/lucasderveaux/LDES_Republisher> <https://w3id.org/function/ontology#expects> _:expects .
-_:expects <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/list#OWLList> .
-_:expects <https://w3id.org/list#hasNext> _:parameter1 .
-_:parameter1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
-_:parameter1 <https://w3id.org/function/ontology#predicate> <http://www.w3.org/ns/sosa/observedProperty> .
-_:parameter1 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
-_:parameter1 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
-_:parameter1 <https://w3id.org/list#isFollowedBy> _:parameter2 .
-_:expects <https://w3id.org/list#hasNext> _:parameter2 .
-_:parameter2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
-_:parameter2 <https://w3id.org/function/ontology#predicate> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
-_:parameter2 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
-_:parameter2 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
-_:parameter2 <https://w3id.org/list#isFollowedBy> _:parameter3 .
-_:expects <https://w3id.org/list#hasNext> _:parameter3 .
-_:parameter3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
-_:parameter3 <https://w3id.org/function/ontology#predicate> <http://purl.org/pav/derivedFrom> .
-_:parameter3 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
-_:parameter3 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
-_:parameter3 <https://w3id.org/list#isFollowedBy> _:parameter4 .
-_:expects <https://w3id.org/list#hasNext> _:parameter4 .
-_:parameter4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
-_:parameter4 <https://w3id.org/function/ontology#predicate> <http://purl.org/dc/terms/created> .
-_:parameter4 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
-_:parameter4 <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean> .
-_:parameter4 <https://w3id.org/list#isFollowedBy> _:parameter5 .
-_:expects <https://w3id.org/list#hasNext> _:parameter5 .
-_:parameter5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Parameter> .
-_:parameter5 <https://w3id.org/function/ontology#predicate> <http://purl.org/co/size> .
-_:parameter5 <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI> .
-_:parameter5 <https://w3id.org/function/ontology#required> "false"^^<https://www.w3.org/2001/XMLSchema#boolean> .
-_:parameter5 <https://w3id.org/list#isFollowedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://github.com/lucasderveaux/LDES_Republisher> <https://w3id.org/function/ontology#implements> _:AlgorithmPAA .
-_:AlgorithmPAA <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/function/ontology#Algorithm> .
-_:AlgorithmPAA <https://w3id.org/function/ontology#name> "Piecewise Aggregate Approximation"^^<https://www.w3.org/2001/XMLSchema#string> .
-_:AlgorithmPAA <https://w3id.org/function/ontology#description> "Piecewise Aggregate Approximation (PAA) is a very simple dimensionality reduction method for time series mining. It minimizes dimensionality by the mean values of equal sized frames."^^<https://www.w3.org/2001/XMLSchema#string> .
+<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/StationDiest/Wed_Mar_30_2022/StationDiest.ttl> a <https://w3id.org/ldes#EventStream>;
+    <http://purl.org/pav/derivedFrom> <https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl>;
+    <http://purl.org/pav/createdWith> <https://github.com/lucasderveaux/LDES_Republisher>;
+    <https://w3id.org/tree#view> <https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/StationDiest/Wed_Mar_30_2022/StationDiest.ttl>.
+_:A a <http://www.w3.org/ns/sosa/Observation>, <https://w3id.org/ifc/IFC4_ADD1#IfcRegularTimeSeries>;
+    <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://blue-bike.be/stations/92>;
+    <http://www.w3.org/ns/sosa/observedProperty> <https://w3id.org/gbfs#docks_in_use>;
+    <https://w3id.org/ifc/IFC4_ADD1#timeStep_IfcRegularTimeSeries> _:seconds.
+_:seconds a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeMeasure>;
+    <https://www.w3.org/2006/time#seconds> "3600"^^<https://www.w3.org/2001/XMLSchema#float>.
+_:A <https://w3id.org/ifc/IFC4_ADD1#startTime_IfcWorkControl> _:startTime.
+_:startTime a <https://w3id.org/ifc/IFC4_ADD1#IfcDateTime>;
+    <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> "3/30/2022, 12:00:00 AM"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+_:A <https://w3id.org/ifc/IFC4_ADD1#startTime_IfcWorkControl> _:endTime.
+_:endTime a <https://w3id.org/ifc/IFC4_ADD1#IfcDateTime>;
+    <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue> "3/31/2022, 12:00:00 AM"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+_:A <https://w3id.org/ifc/IFC4_ADD1#values_IfcRegularTimeSeries> _:timeSeriesList.
+_:timeSeriesList a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <http://purl.org/co/size> "18"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    <https://w3id.org/list#hasNext> _:list1648620000000.
+_:list1648620000000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value1.
+_:value1 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "1".
+_:list1648620000000 <https://w3id.org/list#isFollowedBy> _:list1648623600000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648623600000.
+_:list1648623600000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value3.
+_:value3 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "3.857142857142857".
+_:list1648623600000 <https://w3id.org/list#isFollowedBy> _:list1648627200000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648627200000.
+_:list1648627200000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value5.
+_:value5 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "4".
+_:list1648627200000 <https://w3id.org/list#isFollowedBy> _:list1648630800000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648630800000.
+_:list1648630800000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value7.
+_:value7 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "4".
+_:list1648630800000 <https://w3id.org/list#isFollowedBy> _:list1648634400000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648634400000.
+_:list1648634400000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value9.
+_:value9 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "4".
+_:list1648634400000 <https://w3id.org/list#isFollowedBy> _:list1648638000000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648638000000.
+_:list1648638000000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value11.
+_:value11 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "4.75".
+_:list1648638000000 <https://w3id.org/list#isFollowedBy> _:list1648641600000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648641600000.
+_:list1648641600000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value13.
+_:value13 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "5.857142857142857".
+_:list1648641600000 <https://w3id.org/list#isFollowedBy> _:list1648645200000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648645200000.
+_:list1648645200000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value15.
+_:value15 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "6".
+_:list1648645200000 <https://w3id.org/list#isFollowedBy> _:list1648648800000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648648800000.
+_:list1648648800000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value17.
+_:value17 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "6.75".
+_:list1648648800000 <https://w3id.org/list#isFollowedBy> _:list1648652400000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648652400000.
+_:list1648652400000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value19.
+_:value19 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "7.142857142857143".
+_:list1648652400000 <https://w3id.org/list#isFollowedBy> _:list1648656000000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648656000000.
+_:list1648656000000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value21.
+_:value21 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "5".
+_:list1648656000000 <https://w3id.org/list#isFollowedBy> _:list1648659600000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648659600000.
+_:list1648659600000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value23.
+_:value23 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "3".
+_:list1648659600000 <https://w3id.org/list#isFollowedBy> _:list1648663200000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648663200000.
+_:list1648663200000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value25.
+_:value25 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "2".
+_:list1648663200000 <https://w3id.org/list#isFollowedBy> _:list1648666800000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648666800000.
+_:list1648666800000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value27.
+_:value27 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "1.4285714285714286".
+_:list1648666800000 <https://w3id.org/list#isFollowedBy> _:list1648670400000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648670400000.
+_:list1648670400000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value29.
+_:value29 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "1".
+_:list1648670400000 <https://w3id.org/list#isFollowedBy> _:list1648674000000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648674000000.
+_:list1648674000000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value31.
+_:value31 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "1".
+_:list1648674000000 <https://w3id.org/list#isFollowedBy> _:list1648677600000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648677600000.
+_:list1648677600000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value33.
+_:value33 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "1".
+_:list1648677600000 <https://w3id.org/list#isFollowedBy> _:list1648681200000.
+_:timeSeriesList <https://w3id.org/list#hasNext> _:list1648681200000.
+_:list1648681200000 a <https://w3id.org/ifc/IFC4_ADD1#IfcTimeSeriesValue_List>;
+    <https://w3id.org/list#hasContents> _:value35.
+_:value35 a <https://w3id.org/ifc/IFC4_ADD1#IfcSimpleValue>;
+    <https://w3id.org/gbfs#docks_in_use> "1".
+_:list1648681200000 <https://w3id.org/list#isFollowedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>.
+_:timeSeriesList <https://w3id.org/list#hasNext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>.
+<https://github.com/lucasderveaux/LDES_Republisher> a <https://w3id.org/function/ontology#function>;
+    <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
+    <https://w3id.org/function/ontology#expects> _:expects.
+_:expects a <https://w3id.org/list#OWLList>;
+    <https://w3id.org/list#hasNext> _:parameter1.
+_:parameter1 a <https://w3id.org/function/ontology#Parameter>;
+    <https://w3id.org/function/ontology#predicate> <http://www.w3.org/ns/sosa/observedProperty>;
+    <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI>;
+    <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    <https://w3id.org/list#isFollowedBy> _:parameter2.
+_:expects <https://w3id.org/list#hasNext> _:parameter2.
+_:parameter2 a <https://w3id.org/function/ontology#Parameter>;
+    <https://w3id.org/function/ontology#predicate> <http://www.w3.org/ns/sosa/hasFeatureOfInterest>;
+    <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI>;
+    <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    <https://w3id.org/list#isFollowedBy> _:parameter3.
+_:expects <https://w3id.org/list#hasNext> _:parameter3.
+_:parameter3 a <https://w3id.org/function/ontology#Parameter>;
+    <https://w3id.org/function/ontology#predicate> <http://purl.org/pav/derivedFrom>;
+    <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI>;
+    <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    <https://w3id.org/list#isFollowedBy> _:parameter4.
+_:expects <https://w3id.org/list#hasNext> _:parameter4.
+_:parameter4 a <https://w3id.org/function/ontology#Parameter>;
+    <https://w3id.org/function/ontology#predicate> <http://purl.org/dc/terms/created>;
+    <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI>;
+    <https://w3id.org/function/ontology#required> "true"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    <https://w3id.org/list#isFollowedBy> _:parameter5.
+_:expects <https://w3id.org/list#hasNext> _:parameter5.
+_:parameter5 a <https://w3id.org/function/ontology#Parameter>;
+    <https://w3id.org/function/ontology#predicate> <http://purl.org/co/size>;
+    <https://w3id.org/function/ontology#type> <https://www.w3.org/2001/XMLSchema#anyURI>;
+    <https://w3id.org/function/ontology#required> "false"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    <https://w3id.org/list#isFollowedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>.
+<https://github.com/lucasderveaux/LDES_Republisher> <https://w3id.org/function/ontology#implements> _:AlgorithmPAA.
+_:AlgorithmPAA a <https://w3id.org/function/ontology#Algorithm>;
+    <https://w3id.org/function/ontology#name> "Piecewise Aggregate Approximation"^^<https://www.w3.org/2001/XMLSchema#string>;
+    <https://w3id.org/function/ontology#description> "Piecewise Aggregate Approximation (PAA) is a very simple dimensionality reduction method for time series mining. It minimizes dimensionality by the mean values of equal sized frames."^^<https://www.w3.org/2001/XMLSchema#string>.
