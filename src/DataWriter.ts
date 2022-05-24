@@ -15,75 +15,83 @@ export class DataWriter {
 
     public async writeData(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         let quads: RDF.Quad[];
-        const writer = new N3.Writer({ format: 'N-Triples' });
+        
 
         for (let idSimpleValue of keeperOfTheObservations.simpleValues.keys()) {
+            // idSimpleValue is the type of the observation
+
+            //simpleValueID is the type of the observation, but only looks at the last wordt within the given predicate
             let simpleValueID = idSimpleValue.substring(idSimpleValue.lastIndexOf('/') + 1);
+
+            //simpleValueID without the character '#'
             simpleValueID = simpleValueID.replace(/#/g, "");
             for (let day of keeperOfTheObservations.simpleValues.get(idSimpleValue).keys()) {
+                // the key is the string of the day the observation is made
                 for (let idLocation of keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).keys()) {
+                    // the idLocation is the name of the feature of interest or the uri of the feature of interest
                     quads = [];
 
                     let idLocationFile = "";
 
-                    //if idlocation is an url
-                    let urlTESt = idLocation.match(/\.[a-zA-z]+\/(.*)/);
-                    if (urlTESt != null) {
-                        idLocationFile = urlTESt[1];
+                    //if idlocation is a uri
+                    let uriTESt = idLocation.match(/\.[a-zA-z]+\/(.*)/);
+                    if (uriTESt != null) {
+                        idLocationFile = uriTESt[1];
                     } else {
                         idLocationFile = idLocation.substring(idLocation.lastIndexOf('\.[a-zAz]/') + 1);
                     }
 
+                    //replace all characters that can potentially ruin file names
                     idLocationFile = await idLocationFile.replace(/ /g, "_").replace(/\//g, '_').replace(/[^a-zA-Z]/g, "").replace(/#/g, "");
                     let dayFile = await day.replace(/ /g, "_").replace(/#/g, "");
 
-
-
                     // check if directory does not exist
                     if (!fs.existsSync(`public`)) {
-                        //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
                         await fs.mkdirSync(`public`);
                     }
                     // check if directory does not exist
                     if (!fs.existsSync(`public/${config.storage}`)) {
-                        //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
                         await fs.mkdirSync(`public/${config.storage}`);
                     }
                     if (!fs.existsSync(`public/${config.storage}/${simpleValueID}`)) {
-                        //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
                         await fs.mkdirSync(`public/${config.storage}/${simpleValueID}`);
                     }
                     if (!fs.existsSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}`)) {
-                        //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
                         await fs.mkdirSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}`);
                     }
                     if (!fs.existsSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`)) {
-                        //console.log('Directory not existing!');
                         // make directory where we will store newly fetched data
                         await fs.mkdirSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}`);
                     }
 
+                    //create baseURL
                     let baseURL = `${config.gh_pages_url}${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`;
 
                     this.createObservation(keeperOfTheObservations, idSimpleValue, day, idLocation, quads, baseURL, config);
                     // check if file not exists
                     if (!fs.existsSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
                         // make file where we will store newly fetched data     
+                        let writer = new N3.Writer();
+                        writer.addQuads(quads);
+                        let final = "";
+                        writer.end((error, result) => {
+                            final = result;
+                          });
 
-                        let serialised = await writer.quadsToString(quads);
-
-                        await fs.writeFileSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, serialised);
+                        await fs.writeFileSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`, final);
                     }
                 }
             }
         }
     }
 
+    // function that creates an LDES out of a regular time series
     private createObservation(keeperOfTheObservations: ObservationKeeper, idSimpleValue: string, day: string, idLocation: string, quads: RDF.Quad[], baseURL: string, config: IConfig): void {
+        // the sortedMap is collected here because all of the keys needed to collect the sortedMap needs to be used in the new LDES anyway
         let sortedMap: SortedMap = keeperOfTheObservations.simpleValues.get(idSimpleValue).get(day).get(idLocation);
 
         //specifications ldes
@@ -114,7 +122,6 @@ export class DataWriter {
         );
 
         //de tree:view
-        //zeker opzoeken dit is fout
         quads.push(
             quad(
                 namedNode(baseURL),
@@ -124,8 +131,7 @@ export class DataWriter {
         );
 
         //member
-
-        //  <A> a sosa:Observation, ifc:RegularTimeSeries;
+        //  _A a sosa:Observation, ifc:RegularTimeSeries;
         quads.push(
             quad(
                 blankNode('A'),
@@ -160,36 +166,39 @@ export class DataWriter {
         );
 
         let size = sortedMap.length;
+        if (size > 1) {
+            //  ifc:timeStep [
+            quads.push(
+                quad(
+                    blankNode('A'),
+                    namedNode('https://w3id.org/ifc/IFC4_ADD1#timeStep_IfcRegularTimeSeries'),
+                    blankNode('seconds')
+                )
+            );
+            //   a ifc:IfcTimeMeasure;
+            quads.push(
+                quad(
+                    blankNode('seconds'),
+                    namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+                    namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcTimeMeasure')
+                )
+            );
 
-        //  ifc:timeStep [
-        quads.push(
-            quad(
-                blankNode('A'),
-                namedNode('https://w3id.org/ifc/IFC4_ADD1#timeStep_IfcRegularTimeSeries'),
-                blankNode('seconds')
-            )
-        );
-        //   a ifc:IfcTimeMeasure;
-        quads.push(
-            quad(
-                blankNode('seconds'),
-                namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-                namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcTimeMeasure')
-            )
-        );
-        //   time:seconds "3".
-        let iterator = sortedMap.keys();
-        let key1 = iterator.next().value
-        let key2 = iterator.next().value;
-        let seconds = (key2 - key1) / 1000;
 
-        quads.push(
-            quad(
-                blankNode('seconds'),
-                namedNode('https://www.w3.org/2006/time#seconds'),
-                literal(seconds.toString(), "https://www.w3.org/2001/XMLSchema#float")
-            )
-        );
+            //   time:seconds "3".
+            let iterator = sortedMap.keys();
+            let key1 = iterator.next().value
+            let key2 = iterator.next().value;
+            let seconds = (key2 - key1) / 1000;
+
+            quads.push(
+                quad(
+                    blankNode('seconds'),
+                    namedNode('https://www.w3.org/2006/time#seconds'),
+                    literal(seconds.toString(), "https://www.w3.org/2001/XMLSchema#float")
+                )
+            );
+        }
         //   ];
         //  ifc:startTime [
         quads.push(
@@ -358,7 +367,7 @@ export class DataWriter {
             quad(
                 namedNode(config.gh_repository),
                 namedNode('http://purl.org/dc/terms/description'),
-                literal('This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation and feature of interest and type of observation.')
+                literal('This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.')
             )
         );
         //    fno:expects (

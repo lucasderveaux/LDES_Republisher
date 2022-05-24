@@ -7,8 +7,11 @@ import type * as RDF from 'rdf-js';
 
 
 export class GeneralExtractor {
+    //configuration
     private config: IConfig;
+    // list of the literal_values that can be found in the given LDES
     private literal_values: string[];
+    
     private keeperOfTheObservations:ObservationKeeper;
 
     //test
@@ -20,7 +23,7 @@ export class GeneralExtractor {
     constructor(keeperOfTheObservations: ObservationKeeper, config: IConfig) {
         this.keeperOfTheObservations=keeperOfTheObservations;
         this.config = config;
-        this.literal_values = JSON.parse(this.config.literal_values);
+        this.literal_values = this.config.literal_values;
 
         //test
         //this.literal_values = ["http://www.w3.org/ns/sosa/hasSimpleResult"];
@@ -75,55 +78,48 @@ export class GeneralExtractor {
 
         return new Promise<void>(async (resolve, reject) => {
             try {
-                let version: string;
+                // feature_of_interest
+                let feature: string;
+                // potential name of the feature_of_interest or the observation
+                // if a name is given, it is only used as the name of the file and a key for the observationKeeper
                 let name: string;
-                let literal: number;
                 let created: string;
                 let observations = new Map<string, number>();
 
+                
                 member.forEach((triple) => {
-                    //console.log(triple.predicate.value);
                     if (this.literal_values.includes(triple.predicate.value)) {
                         observations.set(triple.predicate.value, parseFloat(triple.object.value));
                     } else {
                         switch (triple.predicate.value) {
                             case this.config.uri_feature_of_interest: {
-                                //console.log("interest on:\t" + triple.object.value);
-                                version = triple.object.value;
-                                //console.log("dubbelcheck on the date:\t" + created.toString());
+                                feature = triple.object.value;
                                 break;
                             }
                             case "http://schema.org/name": {
-                                //console.log("naam van het station:\t" + triple.object.value);
                                 name = triple.object.value;
                                 break;
                             }
                             case this.config.uri_timestamp: {
-                                //console.log("created on:\t" + triple.object.value);
                                 created = triple.object.value;
-                                //console.log("dubbelcheck on the date:\t" + created.toString());
                                 break;
                             }
                         }
                     }
                 });
-                if (version && created) {
+                if (feature && created) {
                     if (!name) {
-                        name = version;
+                        // if there is no other name given, the feature of interest is used as key
+                        name = feature;
                     }
 
 
                     for (let key of observations.keys()) {
-
                         if (observations.get(key)) {
-                            //console.log("observation toegevoegd");
                             this.keeperOfTheObservations.addSimpleValue(key, name, created, observations.get(key));
                         }
                     }
-
-                    this.keeperOfTheObservations.addFeatureOfInterest(name, version);
-
-
+                    this.keeperOfTheObservations.addFeatureOfInterest(name, feature);
                 }
 
                 return resolve();
@@ -136,25 +132,22 @@ export class GeneralExtractor {
 
     }
 
+    // The function used to test the observationKeeper class
     public controle(): void {
-        //console.log("huh");
-        //console.log(this.config.url_feature_of_interest);
-        //console.log(this.config.url_timestamp);
         for (let w of this.keeperOfTheObservations.simpleValues.keys()) {
-            // dit zijn de types
+            // the type of the observations
             console.log(w);
             for (let x of this.keeperOfTheObservations.simpleValues.get(w).keys()) {
-                //dit zijn de dagen
+                //The string of the day
                 console.log("\t-\t" + x);
                 for (let y of this.keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
-                    //dit zijn de stations
+                    // The feature of interest
                     console.log("\t\t\t" + y);
 
                     for (let z of this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).keys()) {
-                        //dit is de sortedMap
+                        //the sortedMap of the observations
                         console.log("\t\t\t\t" + z + ":\t" + this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).get(z));
                     }
-                    //console.log("\t\t\t\t"+this.keeperOfTheObservations.simpleValues.get(w).get(x).get(y).length);
                 }
             }
         }

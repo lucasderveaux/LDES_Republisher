@@ -1,13 +1,12 @@
-
-import {SortedMap} from "collections/sorted-map";
-
+import { SortedMap } from "collections/sorted-map";
 
 export class ObservationKeeper {
     simpleValues: Map<string, Map<string, Map<string, SortedMap>>>;
     //simplevalues
-    // - type
-    // -   - dag
-    // -   -   -observation
+    // - key is the string of the predicate of the type of the observation
+    // -   - key is the string of the day of the observations
+    // -   -   - key is the location of the observation
+    // -   -   -   - contains sortedMap with the milliseconds since January 1, 1970, 00:00:00 as priority key
     featureOfInterests: Map<string, string>;
     constructor() {
         this.simpleValues = new Map<string, Map<string, Map<string, SortedMap>>>();
@@ -29,9 +28,7 @@ export class ObservationKeeper {
     public addSimpleValue(typeOfSimpleValue: string, idLocation: string, timestamp: string, simpleValue: number) {
         let priority = Date.parse(timestamp);
         let day = new Date(timestamp).toDateString();
-        //console.log(day);
         if (!this.simpleValues.has(typeOfSimpleValue)) {
-            //console.log(typeOfSimpleValue + " besta niet");
             this.createNewSimpleValue(typeOfSimpleValue);
         }
 
@@ -40,18 +37,11 @@ export class ObservationKeeper {
         }
 
         if (!this.simpleValues.get(typeOfSimpleValue).get(day).has(idLocation)) {
-            //console.log(idLocation + "besta niet");
             this.createNewLocationId(typeOfSimpleValue, day, idLocation);
         }
         this.simpleValues.get(typeOfSimpleValue).get(day).get(idLocation).set(priority, simpleValue);
-        //console.log("simple value toegevoegd");
     }
 
-    /*    
-        public addFeatureOfInterest(feature: FeatureOfInterest) {
-            this.featureOfInterests.set(feature.getId(), feature);
-        }
-    */
     public addFeatureOfInterest(idLocation: string, versionOf: string) {
         if (!this.featureOfInterests.has(idLocation)) {
             this.featureOfInterests.set(idLocation, versionOf);

@@ -1,6 +1,6 @@
 import { ObservationKeeper } from "./Objects/ObservationKeeper";
-import { SortedMap } from "collections/sorted-map";
 import { IConfig } from "./config";
+import { SortedMap } from "collections/sorted-map";
 
 export class PAAConverter {
     private readonly config: IConfig;
@@ -37,7 +37,7 @@ export class PAAConverter {
     public convertOne(sortedMap: SortedMap): Promise<SortedMap> {
         return new Promise<SortedMap>(async (resolve, reject) => {
             try {
-                //amound of milliseconds since January 1, 1970, 00:00:00
+                //amount of milliseconds since January 1, 1970, 00:00:00
                 
                 let date = new Date(sortedMap.keys().next().value);
                 let betweenDate = date.toDateString()+" 00:00:00";

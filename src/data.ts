@@ -13,6 +13,9 @@ export class Data {
         this.keeperOfTheObservations = new ObservationKeeper();
     }
 
+    // creates the GeneralExtractor class that fetches the data
+    // The Generalextractor will give the right information to the ObservationKeeper class
+    // The observationKeeper class will store the observations correctly
     public async fetchData(): Promise<void> {
         let source = new GeneralExtractor(this.keeperOfTheObservations, this.config);
         return new Promise<void>(async (resolve, reject) => {
@@ -26,19 +29,8 @@ export class Data {
         });
     }
 
-    public async writeData(): Promise<void> {
-        let dataWriter = new DataWriter();
-        return new Promise<void>(async (resolve, reject) => {
-            try {
-                await dataWriter.writeData(this.keeperOfTheObservations, this.config);
-                return resolve();
-            } catch (e) {
-                console.error(e);
-                return reject(e);
-            }
-        })
-    }
-
+    // This function will create the PAAConverter
+    // The PAAConverter will convert all the time sereis in the observationKeeper to regular time series
     public async convertData(): Promise<void> {
         let PAA = new PAAConverter(this.config);
         return new Promise<void>(async (resolve, reject) => {
@@ -50,6 +42,21 @@ export class Data {
                 return reject(e);
             }
         });
+    }
+
+    // This function will create the DataWriter class
+    // creates all the files that contain the Linked Data Event Streams
+    public async writeData(): Promise<void> {
+        let dataWriter = new DataWriter();
+        return new Promise<void>(async (resolve, reject) => {
+            try {
+                await dataWriter.writeData(this.keeperOfTheObservations, this.config);
+                return resolve();
+            } catch (e) {
+                console.error(e);
+                return reject(e);
+            }
+        })
     }
 
 }

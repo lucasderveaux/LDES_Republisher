@@ -1,7 +1,13 @@
 import { Data } from "./data";
 import { IConfig, getConfig } from "./config";
-import { SortedMap } from "collections/sorted-map";
+
 import { PAAConverter } from "./PAAConverter";
+import type * as RDF from 'rdf-js';
+import * as RdfString from "rdf-string";
+import rdfSerializer from "rdf-serialize";
+import * as f from "@dexagod/rdf-retrieval";
+import { literal, namedNode, quad, blankNode } from '@rdfjs/data-model';
+const N3 = require('n3');
 
 const run = async (): Promise<void> => {
     console.log("at least it's starting...");
@@ -64,14 +70,60 @@ const run = async (): Promise<void> => {
 //    let key2= iterator.next().value;
 //    console.log(key2-key1);
 
-let string = "Thu Apr 28 2022"+" 00:00:00"
-let date = Date.parse(string);
-let date2 = date + 24*60*60*1000;
-let datE = new Date(date);
-let datE2 = new Date(date2);
-console.log(datE.toLocaleString());
-console.log(datE2.toLocaleString());
+// let string = "Thu Apr 28 2022"+" 00:00:00"
+// let date = Date.parse(string);
+// let date2 = date + 24*60*60*1000;
+// let datE = new Date(date);
+// let datE2 = new Date(date2);
+// console.log(datE.toLocaleString());
+// console.log(datE2.toLocaleString());
 
+const writer = new N3.Writer();
+let quads: RDF.Quad[]=[];
+
+quads.push(
+    quad(
+        blankNode('A'),
+        namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+        namedNode('http://www.w3.org/ns/sosa/Observation')
+    )
+);
+quads.push(
+    quad(
+        blankNode('A'),
+        namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+        namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcRegularTimeSeries')
+    )
+);
+
+writer.addQuads(quads);
+let tekst = "";
+writer.end((error, result) => {
+    tekst = result;
+    //console.log(result);
+  });
+console.log(tekst);
+
+quads.push(
+    quad(
+        blankNode('B'),
+        namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+        namedNode('http://www.w3.org/ns/sosa/Observation')
+    )
+);
+quads.push(
+    quad(
+        blankNode('B'),
+        namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+        namedNode('https://w3id.org/ifc/IFC4_ADD1#IfcRegularTimeSeries')
+    )
+);
+writer.addQuads(quads);
+writer.end((error, result) => {
+    tekst = result;
+    //console.log(result);
+  });
+  console.log(tekst);
 
 }
 run().catch((error) => {

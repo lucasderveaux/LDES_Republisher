@@ -7,11 +7,11 @@ export interface IConfig {
 	gh_pages_url: string; // URL of the GitHub Pages deployment
 	git_username: string; // GitHub username that makes the commits
 	git_email: string; // GitHub email that makes the commits
-	literal_values:string;
-	gh_repository: string;
-	uri_feature_of_interest:string;
-	uri_timestamp: string;
-	number_of_observations: number;
+	literal_values:string[]; // list that contains the predicates of the types of the observations within the given LDES
+	gh_repository: string; // Github Repository
+	uri_feature_of_interest:string; // the uri of the predicate that defines the feature of interest
+	uri_timestamp: string; // the uri of the predicate that defines the timestamp of the observation
+	number_of_observations: number; // the desired number of the observations if dimensionality reduction needs to be executed
 }
 
 export function getConfig(): IConfig {
@@ -22,7 +22,7 @@ export function getConfig(): IConfig {
 		gh_pages_url: core.getInput('gh_pages_url'),
 		git_username: core.getInput('git_username'),
 		git_email: core.getInput('git_email'),
-		literal_values: core.getInput('literal_values'),
+		literal_values: JSON.parse(core.getInput('literal_values')),
 		uri_feature_of_interest: core.getInput('uri_feature_of_interest'),
 		uri_timestamp:core.getInput('uri_timestamp'),
 		gh_repository:core.getInput('gh_repository'),
