@@ -75,7 +75,26 @@ export class DataWriter {
                     // check if file not exists
                     if (!fs.existsSync(`public/${config.storage}/${simpleValueID}/${idLocationFile}/${dayFile}/${idLocationFile}.ttl`)) {
                         // make file where we will store newly fetched data     
-                        let writer = new N3.Writer();
+                        let writer = new N3.Writer(
+                            {
+                                prefixes:
+                                {
+                                  rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
+                                  sosa: 'http://www.w3.org/ns/sosa/',
+                                  rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+                                  xsd: 'http://www.w3.org/2001/XMLSchema#',
+                                  time: 'http://www.w3.org/2006/time#',
+                                  LDES_Republisher:'https://lucasderveaux.github.io/LDES_Republisher/',
+                                  pav: 'http://purl.org/pav/',
+                                  tree: 'https://w3id.org/tree#',
+                                  ifc: 'https://w3id.org/ifc/IFC4_ADD1#',
+                                  purl: 'http://purl.org/co/',
+                                  list: 'https://w3id.org/list#',
+                                  fno: 'https://w3id.org/function/ontology#',
+                                  ldes: 'https://w3id.org/ldes#'
+                                }
+                            }
+                        );
                         writer.addQuads(quads);
                         let final = "";
                         await writer.end((error, result) => {
