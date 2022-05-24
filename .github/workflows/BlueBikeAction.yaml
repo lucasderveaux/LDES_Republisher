@@ -1,9 +1,10 @@
 name: Blue-bike
 
 on:
-  workflow_run:
-    workflows: [Github Pages]
-    types: [failed, completed]
+  push:
+     branches:
+       - main
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
