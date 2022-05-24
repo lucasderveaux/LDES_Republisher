@@ -8,19 +8,16 @@ export class PAAConverter {
         this.config = config;
     }
 
-    /*
-    Hier moet er opnieuw een mapping gebeuren die de array overloopt in twee stukken
-    */
-
     public async ConvertAll(keeperOfTheObservations: ObservationKeeper) {
         for (let w of keeperOfTheObservations.simpleValues.keys()) {
-            // dit zijn de types
+            // the type of the observation
             for (let x of keeperOfTheObservations.simpleValues.get(w).keys()) {
-                //dit zijn de dagen
+                // the string of the day
                 for (let y of keeperOfTheObservations.simpleValues.get(w).get(x).keys()) {
-                    //dit zijn de stations
+                    // the feature of intrest
                     try {
                         let endMap: SortedMap;
+                        // endMap  is the regular time series map
                         endMap = await this.convertOne(keeperOfTheObservations.simpleValues.get(w).get(x).get(y));
                         //overwrite SortedMap
                         keeperOfTheObservations.simpleValues.get(w).get(x).set(y, endMap);
@@ -46,22 +43,20 @@ export class PAAConverter {
 
                 let number_of_observations = sortedMap.length;
 
-                // console.log("number_of_observations is "+this.config.number_of_observations);
-
                 if (this.config.number_of_observations != 0) {
                     if (this.config.number_of_observations < number_of_observations) {
                         number_of_observations = this.config.number_of_observations;
-                        console.log("divider is veranderd")
                     } else {
+                        // In this case dimensionality reduction cannot be provided
                         console.log("requested number of observations cannot be provided")
                     }
                 }
+                
               
                 
                 //in milliseconds
                 // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 1000 miliseconds in a second
-                let divider = Math.round((24*60*60 * 1000) / number_of_observations);
-                console.log("divider is:" + divider);
+                let divider = Math.round((24*60*60*1000) / number_of_observations);
 
                 let beginInterval = min;
                 let endInterval = beginInterval + divider;
@@ -69,56 +64,48 @@ export class PAAConverter {
                 let map = new Map<number, Array<number>>();
 
                 for (let key of sortedMap.keys()) {
-
-                    //kijken of het überhaupt kan
-                    //eigenlijk moet ik overal evenveel observaties hebben.
-                    //nee nee losse punten
                     while (key > endInterval) {
-                        //dit kan eigenlijk niet meer dan 1 keer voorkomen
-                        //maar in voorzorg wordt dit er wel ingestoken
-                        //you never know
-                        //maar ja dan moet ik wel hier iets insteken
-                        //0 kan niet... misschien dan de waarde van de vorige?
-                        //nee eigenlijk is het beter niets
+                        // It shouldn't be possible that the interval changes more than once
+                        // but out of precaution the interval is moved.
+                        if (!map.has((beginInterval+divider/2))) {
+                            map.set((beginInterval+divider/2), new Array<number>());
+                            //a NaN is added because otherwise the RegularTimeSeries wouldn't be correct
+                            map.get((beginInterval+divider/2)).push(sortedMap.get(NaN));
+                        }
+                        
                         beginInterval = endInterval;
                         endInterval += divider;
                     }
 
-                    if (!map.has(beginInterval)) {
-                        map.set(beginInterval, new Array<number>());
+                    if (!map.has((beginInterval+divider/2))) {
+                        map.set((beginInterval+divider/2), new Array<number>());
 
                     }
 
-
-                    //op dit punt zijn de arrays gemaakt en zitten we in de juiste interval
-                    //er zijn twee opties ofwel zitten we in het juiste interval 
-                    //ofwel op de grens en zitten we in beide
-
-                    //zit in beide
+                    // The key is in both intervals
                     if (key == endInterval) {
-                        map.get((beginInterval)).push(sortedMap.get(key));
-                        if (!map.has((endInterval))) {
-                            map.set((endInterval), new Array<number>());
+                        map.get((beginInterval+divider/2)).push(sortedMap.get(key));
+                        if (!map.has((endInterval+divider/2))) {
+                            map.set((endInterval+divider/2), new Array<number>());
                         }
-                        map.get((endInterval)).push(sortedMap.get(key));
+                        map.get(((endInterval+divider/2))).push(sortedMap.get(key));
                     }
 
                     if (key > beginInterval && key < endInterval) {
-                        map.get(beginInterval).push(sortedMap.get(key));
+                        map.get((beginInterval+divider/2)).push(sortedMap.get(key));
                     } else {
-                        //dit kan eigenlijk niet
-                        //er is iets mis gegaan met de volgorde van de iterator van de sortedMap
+                        //this shouldn't be possible
+                        // but it is added becuase something went wrong with the used sorted-Map
                         while (key < beginInterval) {
                             endInterval = beginInterval;
                             beginInterval = endInterval - divider;
                         }
-                        map.get(beginInterval).push(sortedMap.get(key))
+                        map.get((beginInterval+divider/2)).push(sortedMap.get(key))
                     }
                 }
 
-                //hier hebben we dus de map<number,Array<number>>
-                //en map met als key het begin van de interval en als value een array waar we het gemiddelde van moeten nemen
-                //dus wat ik nu moet doen is de juiste sortedMap aanmaken met het gemiddelde van elke Array<number>
+                //At this point every interval has a map<number,Array<number>>
+                //the average of each array is calculated per interval
 
                 let endMap = new SortedMap();
                 for (let key of map.keys()) {
@@ -127,18 +114,12 @@ export class PAAConverter {
                     let div: number = map.get(key).length;
                     if (map.get(key).length != 0) {
                         for (let n of map.get(key)) {
-
                             avg += n;
-
                         }
                     }
                     avg = avg / div;
-
                     endMap.set(key, avg);
-
                 }
-                console.log("endmap heeft " + endMap.length);
-
                 resolve(endMap);
             } catch (e) {
                 console.error(e);

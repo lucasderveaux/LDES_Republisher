@@ -24,7 +24,7 @@ const run = async (): Promise<void> => {
     // sortedMap.set(4,"Maarten");
     // sortedMap.set(3,"lucas");
 
-    //let paa = new PAAConverter(null);
+//     let paa = new PAAConverter(null);
 
 //     let timestamps = new Map<number, number>();
 //     timestamps.set(Date.parse("2019-01-16 00:00:10"), 7);
@@ -43,7 +43,7 @@ const run = async (): Promise<void> => {
     
 //     let i = 0;
 //     for (let x of timestamps.keys()) {
-//         if ((x - i) > 17500) {
+//         if ((x - i) > 175000) {
 //             console.log(x - i);
 //         }
 //         i = x;
@@ -55,7 +55,7 @@ const run = async (): Promise<void> => {
 
 //     i = 0;
 //     for (let x of test.keys()) {
-//         if ((x - i) > 17500) {
+//         if ((x - i) > 175000) {
 //             console.log(x - i);
 //         }
 //         i = x;
