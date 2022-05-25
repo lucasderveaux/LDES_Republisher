@@ -20,6 +20,7 @@ export class Data {
         let source = new GeneralExtractor(this.keeperOfTheObservations, this.config);
         return new Promise<void>(async (resolve, reject) => {
             try {
+                console.log("Fetching Data");
                 await source.getData();
                 return resolve();
             } catch (e) {
@@ -35,6 +36,7 @@ export class Data {
         let PAA = new PAAConverter(this.config);
         return new Promise<void>(async (resolve, reject) => {
             try {
+                console.log("Starting PAA");
                 await PAA.ConvertAll(this.keeperOfTheObservations);
                 return resolve();
             } catch (e) {
@@ -50,6 +52,7 @@ export class Data {
         let dataWriter = new DataWriter();
         return new Promise<void>(async (resolve, reject) => {
             try {
+                console.log("Writing data");
                 await dataWriter.writeData(this.keeperOfTheObservations, this.config);
                 return resolve();
             } catch (e) {

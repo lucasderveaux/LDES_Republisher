@@ -54,7 +54,7 @@ const run = async (): Promise<void> => {
 
 
     console.log("\nnu paa\n");
-    let test = await paa.convertOne(timestamps);
+    let test = await paa.convertTwo(timestamps);
 
     i = 0;
     for (let x of test.keys()) {
@@ -67,10 +67,13 @@ const run = async (): Promise<void> => {
         console.log(date.toLocaleTimeString()+" "+test.get(x));
     }
     
-   let iterator = test.keys();
-   let key1 = iterator.next().value;
-   let key2= iterator.next().value;
-   console.log(key2-key1);
+//    let iterator = test.keys();
+//    let key1 = iterator.next().value;
+//    let key2= iterator.next().value;
+//    console.log(key2-key1);
+
+
+   console.log("dude");
 
 // let string = "Thu Apr 28 2022"+" 00:00:00"
 // let date = Date.parse(string);
