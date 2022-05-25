@@ -30,7 +30,7 @@ _:endTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "3/16/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
-    purl:size "13"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    purl:size "12"^^<https://www.w3.org/2001/XMLSchema#integer>;
     list:hasNext _:list1647304200000.
 _:list1647304200000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
@@ -102,13 +102,7 @@ _:list1647343800000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value23.
 _:value23 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1647343800000 list:isFollowedBy _:list1647347400000.
-_:timeSeriesList list:hasNext _:list1647347400000.
-_:list1647347400000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value25.
-_:value25 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1647347400000 list:isFollowedBy rdf:nil.
+_:list1647343800000 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
