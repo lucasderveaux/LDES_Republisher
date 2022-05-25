@@ -153,18 +153,20 @@ export class PAAConverter {
                 let betweenDate = date.toDateString() + " 00:00:00";
                 let min: number = Date.parse(betweenDate);
 
-                let divider = (24*60*60 * 1000) / sortedMap.length;
-                console.log("divider is: " + divider);
-                
+                let divider  = await this.findTimeStep(sortedMap);//Math.ceil((700*1000)/sortedMap.length);
 
-                if (this.config.number_of_observations != 0) {
-                    if (this.config.number_of_observations < sortedMap.length) {
-                        divider = Math.round((24 * 60 * 60 * 1000) / this.config.number_of_observations);
-                    } else {
-                        // In this case dimensionality reduction cannot be provided
-                        console.log("requested number of observations cannot be provided")
-                    }
-                }
+
+
+                // if (this.config.number_of_observations != 0) {
+                //     if (this.config.number_of_observations < sortedMap.length) {
+                //         divider = Math.round((24 * 60 * 60 * 1000) / this.config.number_of_observations);
+                //     } else {
+                //         // In this case dimensionality reduction cannot be provided
+                //         console.log("requested number of observations cannot be provided")
+                //     }
+                // }
+
+                
 
                 let beginInterval = min;
                 let endInterval = beginInterval + divider;
@@ -173,27 +175,40 @@ export class PAAConverter {
                 let num = 0;
 
                 for (let key of sortedMap.keys()) {
+                    //key Voor de Window
+                    //dit kan niet
+                    while (key < beginInterval) {
+                        endMap.set((beginInterval + divider / 2), NaN);
+                    }
+
+                    //key In de window
+                    if (key >= beginInterval && key < endInterval) {
+                        i++;
+                        num += sortedMap.get(key);
+                    }
 
                     // window schuift op
                     if (key > endInterval) {
                         if (i != 0) {
                             endMap.set((beginInterval + divider / 2), num / i);
+                            //anders verlies je een key
                             num = 0;
                             i = 0;
                             beginInterval = endInterval;
                             endInterval = endInterval + divider;
-                        } else {
-                            while (key > endInterval) {
-                                endMap.set((beginInterval + divider / 2), NaN);
-                                beginInterval = endInterval;
-                                endInterval = endInterval + divider;
-                            }
+                        } // else is de allereerste
+                        while (key > endInterval) {
+                            endMap.set((beginInterval + divider / 2), NaN);
+                            beginInterval = endInterval;
+                            endInterval = endInterval + divider;
                         }
+                        num = sortedMap.get(key);
+                        i = 1;
+
                     }
-                    
-                    //key is niet groter dan het interval
-                    i++;
-                    num += sortedMap.get(key);
+
+
+
                 }
                 if (i == 0) {
                     endMap.set((beginInterval + divider / 2), NaN);

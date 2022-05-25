@@ -58,9 +58,9 @@ const run = async (): Promise<void> => {
 
     i = 0;
     for (let x of test.keys()) {
-        if ((x - i) > 175000) {
-            console.log(x - i);
-        }
+        
+           // console.log(x - i);
+        
         i = x;
         let date = new Date(x);    
 
@@ -72,8 +72,6 @@ const run = async (): Promise<void> => {
 //    let key2= iterator.next().value;
 //    console.log(key2-key1);
 
-
-   console.log("dude");
 
 // let string = "Thu Apr 28 2022"+" 00:00:00"
 // let date = Date.parse(string);
