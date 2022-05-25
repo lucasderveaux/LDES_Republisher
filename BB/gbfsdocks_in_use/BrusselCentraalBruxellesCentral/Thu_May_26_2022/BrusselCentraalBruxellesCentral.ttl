@@ -1,0 +1,75 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sosa: <http://www.w3.org/ns/sosa/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix LDES_Republisher: <https://lucasderveaux.github.io/LDES_Republisher/>.
+@prefix pav: <http://purl.org/pav/>.
+@prefix tree: <https://w3id.org/tree#>.
+@prefix ifc: <https://w3id.org/ifc/IFC4_ADD1#>.
+@prefix purl: <http://purl.org/co/>.
+@prefix list: <https://w3id.org/list#>.
+@prefix fno: <https://w3id.org/function/ontology#>.
+@prefix ldes: <https://w3id.org/ldes#>.
+
+<https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/BrusselCentraalBruxellesCentral/Thu_May_26_2022/BrusselCentraalBruxellesCentral.ttl> a ldes:EventStream;
+    pav:derivedFrom <https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/root.ttl>;
+    pav:createdWith <https://github.com/lucasderveaux/LDES_Republisher>;
+    tree:view <https://lucasderveaux.github.io/LDES_Republisher/BB/gbfsdocks_in_use/BrusselCentraalBruxellesCentral/Thu_May_26_2022/BrusselCentraalBruxellesCentral.ttl>.
+_:A a sosa:Observation, ifc:IfcRegularTimeSeries;
+    sosa:hasFeatureOfInterest <https://blue-bike.be/stations/49>;
+    sosa:observedProperty <https://w3id.org/gbfs#docks_in_use>;
+    ifc:startTime_IfcWorkControl _:startTime.
+_:startTime a ifc:IfcDateTime;
+    ifc:IfcSimpleValue "5/26/2022, 12:00:00 AM"^^xsd:dateTime.
+_:A ifc:startTime_IfcWorkControl _:endTime.
+_:endTime a ifc:IfcDateTime;
+    ifc:IfcSimpleValue "5/27/2022, 12:00:00 AM"^^xsd:dateTime.
+_:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
+_:timeSeriesList a ifc:IfcTimeSeriesValue_List;
+    purl:size "1"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    list:hasNext _:list1653566400000.
+_:list1653566400000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value1.
+_:value1 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#docks_in_use> "2".
+_:list1653566400000 list:isFollowedBy rdf:nil.
+_:timeSeriesList list:hasNext rdf:nil.
+<https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
+    <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
+    fno:expects _:expects.
+_:expects a list:OWLList;
+    list:hasNext _:parameter1.
+_:parameter1 a fno:Parameter;
+    fno:predicate sosa:observedProperty;
+    fno:type <https://www.w3.org/2001/XMLSchema#anyURI>;
+    fno:required "true"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    list:isFollowedBy _:parameter2.
+_:expects list:hasNext _:parameter2.
+_:parameter2 a fno:Parameter;
+    fno:predicate sosa:hasFeatureOfInterest;
+    fno:type <https://www.w3.org/2001/XMLSchema#anyURI>;
+    fno:required "true"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    list:isFollowedBy _:parameter3.
+_:expects list:hasNext _:parameter3.
+_:parameter3 a fno:Parameter;
+    fno:predicate pav:derivedFrom;
+    fno:type <https://www.w3.org/2001/XMLSchema#anyURI>;
+    fno:required "true"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    list:isFollowedBy _:parameter4.
+_:expects list:hasNext _:parameter4.
+_:parameter4 a fno:Parameter;
+    fno:predicate <http://purl.org/dc/terms/created>;
+    fno:type <https://www.w3.org/2001/XMLSchema#anyURI>;
+    fno:required "true"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    list:isFollowedBy _:parameter5.
+_:expects list:hasNext _:parameter5.
+_:parameter5 a fno:Parameter;
+    fno:predicate purl:size;
+    fno:type <https://www.w3.org/2001/XMLSchema#anyURI>;
+    fno:required "false"^^<https://www.w3.org/2001/XMLSchema#boolean>;
+    list:isFollowedBy rdf:nil.
+<https://github.com/lucasderveaux/LDES_Republisher> fno:implements _:AlgorithmPAA.
+_:AlgorithmPAA a fno:Algorithm;
+    fno:name "Piecewise Aggregate Approximation"^^<https://www.w3.org/2001/XMLSchema#string>;
+    fno:description "Piecewise Aggregate Approximation (PAA) is a very simple dimensionality reduction method for time series mining. It minimizes dimensionality by the mean values of equal sized frames."^^<https://www.w3.org/2001/XMLSchema#string>.

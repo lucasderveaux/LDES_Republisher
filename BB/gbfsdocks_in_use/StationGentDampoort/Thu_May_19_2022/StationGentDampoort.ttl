@@ -21,7 +21,7 @@ _:A a sosa:Observation, ifc:IfcRegularTimeSeries;
     sosa:observedProperty <https://w3id.org/gbfs#docks_in_use>;
     ifc:timeStep_IfcRegularTimeSeries _:seconds.
 _:seconds a ifc:IfcTimeMeasure;
-    <https://www.w3.org/2006/time#seconds> "702.439"^^<https://www.w3.org/2001/XMLSchema#float>.
+    <https://www.w3.org/2006/time#seconds> "702.4390244140625"^^<https://www.w3.org/2001/XMLSchema#float>.
 _:A ifc:startTime_IfcWorkControl _:startTime.
 _:startTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "5/19/2022, 12:00:00 AM"^^xsd:dateTime.
@@ -30,7 +30,7 @@ _:endTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "5/20/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
-    purl:size "123"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    purl:size "120"^^<https://www.w3.org/2001/XMLSchema#integer>;
     list:hasNext _:list1652918751220.
 _:list1652918751220 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
@@ -41,7 +41,7 @@ _:timeSeriesList list:hasNext _:list1652919453659.
 _:list1652919453659 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value3.
 _:value3 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "7".
 _:list1652919453659 list:isFollowedBy _:list1652920156098.
 _:timeSeriesList list:hasNext _:list1652920156098.
 _:list1652920156098 a ifc:IfcTimeSeriesValue_List;
@@ -71,7 +71,7 @@ _:timeSeriesList list:hasNext _:list1652922965854.
 _:list1652922965854 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value13.
 _:value13 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "7".
 _:list1652922965854 list:isFollowedBy _:list1652923668293.
 _:timeSeriesList list:hasNext _:list1652923668293.
 _:list1652923668293 a ifc:IfcTimeSeriesValue_List;
@@ -83,25 +83,25 @@ _:timeSeriesList list:hasNext _:list1652924370732.
 _:list1652924370732 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value17.
 _:value17 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "7".
 _:list1652924370732 list:isFollowedBy _:list1652925073171.
 _:timeSeriesList list:hasNext _:list1652925073171.
 _:list1652925073171 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value19.
 _:value19 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "7".
+    <https://w3id.org/gbfs#docks_in_use> "5".
 _:list1652925073171 list:isFollowedBy _:list1652925775610.
 _:timeSeriesList list:hasNext _:list1652925775610.
 _:list1652925775610 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value21.
 _:value21 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "5".
 _:list1652925775610 list:isFollowedBy _:list1652926478049.
 _:timeSeriesList list:hasNext _:list1652926478049.
 _:list1652926478049 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value23.
 _:value23 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "5".
 _:list1652926478049 list:isFollowedBy _:list1652927180488.
 _:timeSeriesList list:hasNext _:list1652927180488.
 _:list1652927180488 a ifc:IfcTimeSeriesValue_List;
@@ -113,7 +113,7 @@ _:timeSeriesList list:hasNext _:list1652927882927.
 _:list1652927882927 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value27.
 _:value27 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "5".
 _:list1652927882927 list:isFollowedBy _:list1652928585366.
 _:timeSeriesList list:hasNext _:list1652928585366.
 _:list1652928585366 a ifc:IfcTimeSeriesValue_List;
@@ -125,7 +125,7 @@ _:timeSeriesList list:hasNext _:list1652929287805.
 _:list1652929287805 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value31.
 _:value31 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "5".
 _:list1652929287805 list:isFollowedBy _:list1652929990244.
 _:timeSeriesList list:hasNext _:list1652929990244.
 _:list1652929990244 a ifc:IfcTimeSeriesValue_List;
@@ -137,638 +137,620 @@ _:timeSeriesList list:hasNext _:list1652930692683.
 _:list1652930692683 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value35.
 _:value35 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "5".
 _:list1652930692683 list:isFollowedBy _:list1652931395122.
 _:timeSeriesList list:hasNext _:list1652931395122.
 _:list1652931395122 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value37.
 _:value37 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "6".
 _:list1652931395122 list:isFollowedBy _:list1652932097561.
 _:timeSeriesList list:hasNext _:list1652932097561.
 _:list1652932097561 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value39.
 _:value39 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "6".
 _:list1652932097561 list:isFollowedBy _:list1652932800000.
 _:timeSeriesList list:hasNext _:list1652932800000.
 _:list1652932800000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value41.
 _:value41 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "5".
+    <https://w3id.org/gbfs#docks_in_use> "6".
 _:list1652932800000 list:isFollowedBy _:list1652933502439.
 _:timeSeriesList list:hasNext _:list1652933502439.
 _:list1652933502439 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value43.
 _:value43 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "6".
 _:list1652933502439 list:isFollowedBy _:list1652934204878.
 _:timeSeriesList list:hasNext _:list1652934204878.
 _:list1652934204878 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value45.
 _:value45 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "6".
 _:list1652934204878 list:isFollowedBy _:list1652934907317.
 _:timeSeriesList list:hasNext _:list1652934907317.
 _:list1652934907317 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value47.
 _:value47 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "6".
 _:list1652934907317 list:isFollowedBy _:list1652935609756.
 _:timeSeriesList list:hasNext _:list1652935609756.
 _:list1652935609756 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value49.
 _:value49 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "5".
+    <https://w3id.org/gbfs#docks_in_use> "7".
 _:list1652935609756 list:isFollowedBy _:list1652936312195.
 _:timeSeriesList list:hasNext _:list1652936312195.
 _:list1652936312195 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value51.
 _:value51 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "7".
 _:list1652936312195 list:isFollowedBy _:list1652937014634.
 _:timeSeriesList list:hasNext _:list1652937014634.
 _:list1652937014634 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value53.
 _:value53 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "7".
 _:list1652937014634 list:isFollowedBy _:list1652937717073.
 _:timeSeriesList list:hasNext _:list1652937717073.
 _:list1652937717073 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value55.
 _:value55 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "5".
+    <https://w3id.org/gbfs#docks_in_use> "10".
 _:list1652937717073 list:isFollowedBy _:list1652938419512.
 _:timeSeriesList list:hasNext _:list1652938419512.
 _:list1652938419512 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value57.
 _:value57 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "11".
 _:list1652938419512 list:isFollowedBy _:list1652939121951.
 _:timeSeriesList list:hasNext _:list1652939121951.
 _:list1652939121951 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value59.
 _:value59 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "5".
+    <https://w3id.org/gbfs#docks_in_use> "11".
 _:list1652939121951 list:isFollowedBy _:list1652939824390.
 _:timeSeriesList list:hasNext _:list1652939824390.
 _:list1652939824390 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value61.
 _:value61 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "5".
+    <https://w3id.org/gbfs#docks_in_use> "16".
 _:list1652939824390 list:isFollowedBy _:list1652940526829.
 _:timeSeriesList list:hasNext _:list1652940526829.
 _:list1652940526829 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value63.
 _:value63 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "18".
 _:list1652940526829 list:isFollowedBy _:list1652941229268.
 _:timeSeriesList list:hasNext _:list1652941229268.
 _:list1652941229268 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value65.
 _:value65 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "5".
+    <https://w3id.org/gbfs#docks_in_use> "18".
 _:list1652941229268 list:isFollowedBy _:list1652941931707.
 _:timeSeriesList list:hasNext _:list1652941931707.
 _:list1652941931707 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value67.
 _:value67 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "6".
+    <https://w3id.org/gbfs#docks_in_use> "21".
 _:list1652941931707 list:isFollowedBy _:list1652942634146.
 _:timeSeriesList list:hasNext _:list1652942634146.
 _:list1652942634146 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value69.
 _:value69 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "6".
+    <https://w3id.org/gbfs#docks_in_use> "22".
 _:list1652942634146 list:isFollowedBy _:list1652943336585.
 _:timeSeriesList list:hasNext _:list1652943336585.
 _:list1652943336585 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value71.
 _:value71 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "6".
+    <https://w3id.org/gbfs#docks_in_use> "23".
 _:list1652943336585 list:isFollowedBy _:list1652944039024.
 _:timeSeriesList list:hasNext _:list1652944039024.
 _:list1652944039024 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value73.
 _:value73 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "6".
+    <https://w3id.org/gbfs#docks_in_use> "24".
 _:list1652944039024 list:isFollowedBy _:list1652944741463.
 _:timeSeriesList list:hasNext _:list1652944741463.
 _:list1652944741463 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value75.
 _:value75 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "6".
+    <https://w3id.org/gbfs#docks_in_use> "27".
 _:list1652944741463 list:isFollowedBy _:list1652945443902.
 _:timeSeriesList list:hasNext _:list1652945443902.
 _:list1652945443902 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value77.
 _:value77 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "6".
+    <https://w3id.org/gbfs#docks_in_use> "30".
 _:list1652945443902 list:isFollowedBy _:list1652946146341.
 _:timeSeriesList list:hasNext _:list1652946146341.
 _:list1652946146341 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value79.
 _:value79 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "7".
+    <https://w3id.org/gbfs#docks_in_use> "31".
 _:list1652946146341 list:isFollowedBy _:list1652946848780.
 _:timeSeriesList list:hasNext _:list1652946848780.
 _:list1652946848780 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value81.
 _:value81 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "7".
-_:list1652946848780 list:isFollowedBy _:list1652947551219.
-_:timeSeriesList list:hasNext _:list1652947551219.
-_:list1652947551219 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "32".
+_:list1652946848780 list:isFollowedBy _:list1652947551220.
+_:timeSeriesList list:hasNext _:list1652947551220.
+_:list1652947551220 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value83.
 _:value83 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "10".
-_:list1652947551219 list:isFollowedBy _:list1652948253658.
-_:timeSeriesList list:hasNext _:list1652948253658.
-_:list1652948253658 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652947551220 list:isFollowedBy _:list1652948253659.
+_:timeSeriesList list:hasNext _:list1652948253659.
+_:list1652948253659 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value85.
 _:value85 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "11".
-_:list1652948253658 list:isFollowedBy _:list1652948956097.
-_:timeSeriesList list:hasNext _:list1652948956097.
-_:list1652948956097 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652948253659 list:isFollowedBy _:list1652948956098.
+_:timeSeriesList list:hasNext _:list1652948956098.
+_:list1652948956098 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value87.
 _:value87 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652948956097 list:isFollowedBy _:list1652949658536.
-_:timeSeriesList list:hasNext _:list1652949658536.
-_:list1652949658536 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "35".
+_:list1652948956098 list:isFollowedBy _:list1652949658537.
+_:timeSeriesList list:hasNext _:list1652949658537.
+_:list1652949658537 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value89.
 _:value89 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "16".
-_:list1652949658536 list:isFollowedBy _:list1652950360975.
-_:timeSeriesList list:hasNext _:list1652950360975.
-_:list1652950360975 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "35".
+_:list1652949658537 list:isFollowedBy _:list1652950360976.
+_:timeSeriesList list:hasNext _:list1652950360976.
+_:list1652950360976 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value91.
 _:value91 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "18".
-_:list1652950360975 list:isFollowedBy _:list1652951063414.
-_:timeSeriesList list:hasNext _:list1652951063414.
-_:list1652951063414 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652950360976 list:isFollowedBy _:list1652951063415.
+_:timeSeriesList list:hasNext _:list1652951063415.
+_:list1652951063415 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value93.
 _:value93 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "21".
-_:list1652951063414 list:isFollowedBy _:list1652951765853.
-_:timeSeriesList list:hasNext _:list1652951765853.
-_:list1652951765853 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652951063415 list:isFollowedBy _:list1652951765854.
+_:timeSeriesList list:hasNext _:list1652951765854.
+_:list1652951765854 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value95.
 _:value95 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "22".
-_:list1652951765853 list:isFollowedBy _:list1652952468292.
-_:timeSeriesList list:hasNext _:list1652952468292.
-_:list1652952468292 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652951765854 list:isFollowedBy _:list1652952468293.
+_:timeSeriesList list:hasNext _:list1652952468293.
+_:list1652952468293 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value97.
 _:value97 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "23.5".
-_:list1652952468292 list:isFollowedBy _:list1652953170731.
-_:timeSeriesList list:hasNext _:list1652953170731.
-_:list1652953170731 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652952468293 list:isFollowedBy _:list1652953170732.
+_:timeSeriesList list:hasNext _:list1652953170732.
+_:list1652953170732 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value99.
 _:value99 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "28.5".
-_:list1652953170731 list:isFollowedBy _:list1652953873170.
-_:timeSeriesList list:hasNext _:list1652953873170.
-_:list1652953873170 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652953170732 list:isFollowedBy _:list1652953873171.
+_:timeSeriesList list:hasNext _:list1652953873171.
+_:list1652953873171 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value101.
 _:value101 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "31".
-_:list1652953873170 list:isFollowedBy _:list1652954575609.
-_:timeSeriesList list:hasNext _:list1652954575609.
-_:list1652954575609 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "35".
+_:list1652953873171 list:isFollowedBy _:list1652954575610.
+_:timeSeriesList list:hasNext _:list1652954575610.
+_:list1652954575610 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value103.
 _:value103 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "33".
-_:list1652954575609 list:isFollowedBy _:list1652955278048.
-_:timeSeriesList list:hasNext _:list1652955278048.
-_:list1652955278048 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "35".
+_:list1652954575610 list:isFollowedBy _:list1652955278049.
+_:timeSeriesList list:hasNext _:list1652955278049.
+_:list1652955278049 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value105.
 _:value105 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652955278048 list:isFollowedBy _:list1652955980487.
-_:timeSeriesList list:hasNext _:list1652955980487.
-_:list1652955980487 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652955278049 list:isFollowedBy _:list1652955980488.
+_:timeSeriesList list:hasNext _:list1652955980488.
+_:list1652955980488 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value107.
 _:value107 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652955980487 list:isFollowedBy _:list1652956682926.
-_:timeSeriesList list:hasNext _:list1652956682926.
-_:list1652956682926 a ifc:IfcTimeSeriesValue_List;
+_:list1652955980488 list:isFollowedBy _:list1652956682927.
+_:timeSeriesList list:hasNext _:list1652956682927.
+_:list1652956682927 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value109.
 _:value109 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "35".
-_:list1652956682926 list:isFollowedBy _:list1652957385365.
-_:timeSeriesList list:hasNext _:list1652957385365.
-_:list1652957385365 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652956682927 list:isFollowedBy _:list1652957385366.
+_:timeSeriesList list:hasNext _:list1652957385366.
+_:list1652957385366 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value111.
 _:value111 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "34.5".
-_:list1652957385365 list:isFollowedBy _:list1652958087804.
-_:timeSeriesList list:hasNext _:list1652958087804.
-_:list1652958087804 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652957385366 list:isFollowedBy _:list1652958087805.
+_:timeSeriesList list:hasNext _:list1652958087805.
+_:list1652958087805 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value113.
 _:value113 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652958087804 list:isFollowedBy _:list1652958790243.
-_:timeSeriesList list:hasNext _:list1652958790243.
-_:list1652958790243 a ifc:IfcTimeSeriesValue_List;
+_:list1652958087805 list:isFollowedBy _:list1652958790244.
+_:timeSeriesList list:hasNext _:list1652958790244.
+_:list1652958790244 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value115.
 _:value115 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652958790243 list:isFollowedBy _:list1652959492682.
-_:timeSeriesList list:hasNext _:list1652959492682.
-_:list1652959492682 a ifc:IfcTimeSeriesValue_List;
+_:list1652958790244 list:isFollowedBy _:list1652959492683.
+_:timeSeriesList list:hasNext _:list1652959492683.
+_:list1652959492683 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value117.
 _:value117 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652959492682 list:isFollowedBy _:list1652960195121.
-_:timeSeriesList list:hasNext _:list1652960195121.
-_:list1652960195121 a ifc:IfcTimeSeriesValue_List;
+_:list1652959492683 list:isFollowedBy _:list1652960195122.
+_:timeSeriesList list:hasNext _:list1652960195122.
+_:list1652960195122 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value119.
 _:value119 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "35".
-_:list1652960195121 list:isFollowedBy _:list1652960897560.
-_:timeSeriesList list:hasNext _:list1652960897560.
-_:list1652960897560 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652960195122 list:isFollowedBy _:list1652960897561.
+_:timeSeriesList list:hasNext _:list1652960897561.
+_:list1652960897561 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value121.
 _:value121 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "34.5".
-_:list1652960897560 list:isFollowedBy _:list1652961599999.
-_:timeSeriesList list:hasNext _:list1652961599999.
-_:list1652961599999 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652960897561 list:isFollowedBy _:list1652961600000.
+_:timeSeriesList list:hasNext _:list1652961600000.
+_:list1652961600000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value123.
 _:value123 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652961599999 list:isFollowedBy _:list1652962302438.
-_:timeSeriesList list:hasNext _:list1652962302438.
-_:list1652962302438 a ifc:IfcTimeSeriesValue_List;
+_:list1652961600000 list:isFollowedBy _:list1652962302439.
+_:timeSeriesList list:hasNext _:list1652962302439.
+_:list1652962302439 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value125.
 _:value125 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652962302438 list:isFollowedBy _:list1652963004877.
-_:timeSeriesList list:hasNext _:list1652963004877.
-_:list1652963004877 a ifc:IfcTimeSeriesValue_List;
+_:list1652962302439 list:isFollowedBy _:list1652963004878.
+_:timeSeriesList list:hasNext _:list1652963004878.
+_:list1652963004878 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value127.
 _:value127 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652963004877 list:isFollowedBy _:list1652963707316.
-_:timeSeriesList list:hasNext _:list1652963707316.
-_:list1652963707316 a ifc:IfcTimeSeriesValue_List;
+_:list1652963004878 list:isFollowedBy _:list1652963707317.
+_:timeSeriesList list:hasNext _:list1652963707317.
+_:list1652963707317 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value129.
 _:value129 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652963707316 list:isFollowedBy _:list1652964409755.
-_:timeSeriesList list:hasNext _:list1652964409755.
-_:list1652964409755 a ifc:IfcTimeSeriesValue_List;
+_:list1652963707317 list:isFollowedBy _:list1652964409756.
+_:timeSeriesList list:hasNext _:list1652964409756.
+_:list1652964409756 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value131.
 _:value131 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652964409755 list:isFollowedBy _:list1652965112194.
-_:timeSeriesList list:hasNext _:list1652965112194.
-_:list1652965112194 a ifc:IfcTimeSeriesValue_List;
+_:list1652964409756 list:isFollowedBy _:list1652965112195.
+_:timeSeriesList list:hasNext _:list1652965112195.
+_:list1652965112195 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value133.
 _:value133 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652965112194 list:isFollowedBy _:list1652965814633.
-_:timeSeriesList list:hasNext _:list1652965814633.
-_:list1652965814633 a ifc:IfcTimeSeriesValue_List;
+_:list1652965112195 list:isFollowedBy _:list1652965814634.
+_:timeSeriesList list:hasNext _:list1652965814634.
+_:list1652965814634 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value135.
 _:value135 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652965814633 list:isFollowedBy _:list1652966517072.
-_:timeSeriesList list:hasNext _:list1652966517072.
-_:list1652966517072 a ifc:IfcTimeSeriesValue_List;
+_:list1652965814634 list:isFollowedBy _:list1652966517073.
+_:timeSeriesList list:hasNext _:list1652966517073.
+_:list1652966517073 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value137.
 _:value137 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652966517072 list:isFollowedBy _:list1652967219511.
-_:timeSeriesList list:hasNext _:list1652967219511.
-_:list1652967219511 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "35".
+_:list1652966517073 list:isFollowedBy _:list1652967219512.
+_:timeSeriesList list:hasNext _:list1652967219512.
+_:list1652967219512 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value139.
 _:value139 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652967219511 list:isFollowedBy _:list1652967921950.
-_:timeSeriesList list:hasNext _:list1652967921950.
-_:list1652967921950 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "36".
+_:list1652967219512 list:isFollowedBy _:list1652967921951.
+_:timeSeriesList list:hasNext _:list1652967921951.
+_:list1652967921951 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value141.
 _:value141 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652967921950 list:isFollowedBy _:list1652968624389.
-_:timeSeriesList list:hasNext _:list1652968624389.
-_:list1652968624389 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "37".
+_:list1652967921951 list:isFollowedBy _:list1652968624390.
+_:timeSeriesList list:hasNext _:list1652968624390.
+_:list1652968624390 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value143.
 _:value143 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "34".
-_:list1652968624389 list:isFollowedBy _:list1652969326828.
-_:timeSeriesList list:hasNext _:list1652969326828.
-_:list1652969326828 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "37".
+_:list1652968624390 list:isFollowedBy _:list1652969326829.
+_:timeSeriesList list:hasNext _:list1652969326829.
+_:list1652969326829 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value145.
 _:value145 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "35".
-_:list1652969326828 list:isFollowedBy _:list1652970029267.
-_:timeSeriesList list:hasNext _:list1652970029267.
-_:list1652970029267 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "37".
+_:list1652969326829 list:isFollowedBy _:list1652970029268.
+_:timeSeriesList list:hasNext _:list1652970029268.
+_:list1652970029268 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value147.
 _:value147 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652970029267 list:isFollowedBy _:list1652970731706.
-_:timeSeriesList list:hasNext _:list1652970731706.
-_:list1652970731706 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "38".
+_:list1652970029268 list:isFollowedBy _:list1652970731707.
+_:timeSeriesList list:hasNext _:list1652970731707.
+_:list1652970731707 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value149.
 _:value149 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "36".
-_:list1652970731706 list:isFollowedBy _:list1652971434145.
-_:timeSeriesList list:hasNext _:list1652971434145.
-_:list1652971434145 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "38".
+_:list1652970731707 list:isFollowedBy _:list1652971434146.
+_:timeSeriesList list:hasNext _:list1652971434146.
+_:list1652971434146 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value151.
 _:value151 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "37".
-_:list1652971434145 list:isFollowedBy _:list1652972136584.
-_:timeSeriesList list:hasNext _:list1652972136584.
-_:list1652972136584 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "40".
+_:list1652971434146 list:isFollowedBy _:list1652972136585.
+_:timeSeriesList list:hasNext _:list1652972136585.
+_:list1652972136585 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value153.
 _:value153 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652972136584 list:isFollowedBy _:list1652972839023.
-_:timeSeriesList list:hasNext _:list1652972839023.
-_:list1652972839023 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "40".
+_:list1652972136585 list:isFollowedBy _:list1652972839024.
+_:timeSeriesList list:hasNext _:list1652972839024.
+_:list1652972839024 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value155.
 _:value155 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "37".
-_:list1652972839023 list:isFollowedBy _:list1652973541462.
-_:timeSeriesList list:hasNext _:list1652973541462.
-_:list1652973541462 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "38".
+_:list1652972839024 list:isFollowedBy _:list1652973541463.
+_:timeSeriesList list:hasNext _:list1652973541463.
+_:list1652973541463 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value157.
 _:value157 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "37".
-_:list1652973541462 list:isFollowedBy _:list1652974243901.
-_:timeSeriesList list:hasNext _:list1652974243901.
-_:list1652974243901 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "38".
+_:list1652973541463 list:isFollowedBy _:list1652974243902.
+_:timeSeriesList list:hasNext _:list1652974243902.
+_:list1652974243902 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value159.
 _:value159 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652974243901 list:isFollowedBy _:list1652974946340.
-_:timeSeriesList list:hasNext _:list1652974946340.
-_:list1652974946340 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "37".
+_:list1652974243902 list:isFollowedBy _:list1652974946341.
+_:timeSeriesList list:hasNext _:list1652974946341.
+_:list1652974946341 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value161.
 _:value161 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "38".
-_:list1652974946340 list:isFollowedBy _:list1652975648779.
-_:timeSeriesList list:hasNext _:list1652975648779.
-_:list1652975648779 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "36".
+_:list1652974946341 list:isFollowedBy _:list1652975648780.
+_:timeSeriesList list:hasNext _:list1652975648780.
+_:list1652975648780 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value163.
 _:value163 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "38".
-_:list1652975648779 list:isFollowedBy _:list1652976351218.
-_:timeSeriesList list:hasNext _:list1652976351218.
-_:list1652976351218 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "34".
+_:list1652975648780 list:isFollowedBy _:list1652976351220.
+_:timeSeriesList list:hasNext _:list1652976351220.
+_:list1652976351220 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value165.
 _:value165 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "40".
-_:list1652976351218 list:isFollowedBy _:list1652977053657.
-_:timeSeriesList list:hasNext _:list1652977053657.
-_:list1652977053657 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "32".
+_:list1652976351220 list:isFollowedBy _:list1652977053659.
+_:timeSeriesList list:hasNext _:list1652977053659.
+_:list1652977053659 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value167.
 _:value167 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "40".
-_:list1652977053657 list:isFollowedBy _:list1652977756096.
-_:timeSeriesList list:hasNext _:list1652977756096.
-_:list1652977756096 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "29".
+_:list1652977053659 list:isFollowedBy _:list1652977756098.
+_:timeSeriesList list:hasNext _:list1652977756098.
+_:list1652977756098 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value169.
 _:value169 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "38".
-_:list1652977756096 list:isFollowedBy _:list1652978458535.
-_:timeSeriesList list:hasNext _:list1652978458535.
-_:list1652978458535 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "28".
+_:list1652977756098 list:isFollowedBy _:list1652978458537.
+_:timeSeriesList list:hasNext _:list1652978458537.
+_:list1652978458537 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value171.
 _:value171 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "37.5".
-_:list1652978458535 list:isFollowedBy _:list1652979160974.
-_:timeSeriesList list:hasNext _:list1652979160974.
-_:list1652979160974 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "29".
+_:list1652978458537 list:isFollowedBy _:list1652979160976.
+_:timeSeriesList list:hasNext _:list1652979160976.
+_:list1652979160976 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value173.
 _:value173 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "35".
-_:list1652979160974 list:isFollowedBy _:list1652979863413.
-_:timeSeriesList list:hasNext _:list1652979863413.
-_:list1652979863413 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "28".
+_:list1652979160976 list:isFollowedBy _:list1652979863415.
+_:timeSeriesList list:hasNext _:list1652979863415.
+_:list1652979863415 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value175.
 _:value175 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "32".
-_:list1652979863413 list:isFollowedBy _:list1652980565852.
-_:timeSeriesList list:hasNext _:list1652980565852.
-_:list1652980565852 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "25".
+_:list1652979863415 list:isFollowedBy _:list1652980565854.
+_:timeSeriesList list:hasNext _:list1652980565854.
+_:list1652980565854 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value177.
 _:value177 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "29".
-_:list1652980565852 list:isFollowedBy _:list1652981268291.
-_:timeSeriesList list:hasNext _:list1652981268291.
-_:list1652981268291 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "23".
+_:list1652980565854 list:isFollowedBy _:list1652981268293.
+_:timeSeriesList list:hasNext _:list1652981268293.
+_:list1652981268293 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value179.
 _:value179 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "28".
-_:list1652981268291 list:isFollowedBy _:list1652981970730.
-_:timeSeriesList list:hasNext _:list1652981970730.
-_:list1652981970730 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "22".
+_:list1652981268293 list:isFollowedBy _:list1652981970732.
+_:timeSeriesList list:hasNext _:list1652981970732.
+_:list1652981970732 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value181.
 _:value181 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652981970730 list:isFollowedBy _:list1652982673169.
-_:timeSeriesList list:hasNext _:list1652982673169.
-_:list1652982673169 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "19".
+_:list1652981970732 list:isFollowedBy _:list1652982673171.
+_:timeSeriesList list:hasNext _:list1652982673171.
+_:list1652982673171 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value183.
 _:value183 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "29".
-_:list1652982673169 list:isFollowedBy _:list1652983375608.
-_:timeSeriesList list:hasNext _:list1652983375608.
-_:list1652983375608 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "15".
+_:list1652982673171 list:isFollowedBy _:list1652983375610.
+_:timeSeriesList list:hasNext _:list1652983375610.
+_:list1652983375610 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value185.
 _:value185 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "28".
-_:list1652983375608 list:isFollowedBy _:list1652984078047.
-_:timeSeriesList list:hasNext _:list1652984078047.
-_:list1652984078047 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "12".
+_:list1652983375610 list:isFollowedBy _:list1652984078049.
+_:timeSeriesList list:hasNext _:list1652984078049.
+_:list1652984078049 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value187.
 _:value187 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "25".
-_:list1652984078047 list:isFollowedBy _:list1652984780486.
-_:timeSeriesList list:hasNext _:list1652984780486.
-_:list1652984780486 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "13".
+_:list1652984078049 list:isFollowedBy _:list1652984780488.
+_:timeSeriesList list:hasNext _:list1652984780488.
+_:list1652984780488 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value189.
 _:value189 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652984780486 list:isFollowedBy _:list1652985482925.
-_:timeSeriesList list:hasNext _:list1652985482925.
-_:list1652985482925 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "16".
+_:list1652984780488 list:isFollowedBy _:list1652985482927.
+_:timeSeriesList list:hasNext _:list1652985482927.
+_:list1652985482927 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value191.
 _:value191 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "23".
-_:list1652985482925 list:isFollowedBy _:list1652986185364.
-_:timeSeriesList list:hasNext _:list1652986185364.
-_:list1652986185364 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "15".
+_:list1652985482927 list:isFollowedBy _:list1652986185366.
+_:timeSeriesList list:hasNext _:list1652986185366.
+_:list1652986185366 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value193.
 _:value193 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "22".
-_:list1652986185364 list:isFollowedBy _:list1652986887803.
-_:timeSeriesList list:hasNext _:list1652986887803.
-_:list1652986887803 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "16".
+_:list1652986185366 list:isFollowedBy _:list1652986887805.
+_:timeSeriesList list:hasNext _:list1652986887805.
+_:list1652986887805 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value195.
 _:value195 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652986887803 list:isFollowedBy _:list1652987590242.
-_:timeSeriesList list:hasNext _:list1652987590242.
-_:list1652987590242 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "16".
+_:list1652986887805 list:isFollowedBy _:list1652987590244.
+_:timeSeriesList list:hasNext _:list1652987590244.
+_:list1652987590244 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value197.
 _:value197 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652987590242 list:isFollowedBy _:list1652988292681.
-_:timeSeriesList list:hasNext _:list1652988292681.
-_:list1652988292681 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "16".
+_:list1652987590244 list:isFollowedBy _:list1652988292683.
+_:timeSeriesList list:hasNext _:list1652988292683.
+_:list1652988292683 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value199.
 _:value199 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "19".
-_:list1652988292681 list:isFollowedBy _:list1652988995120.
-_:timeSeriesList list:hasNext _:list1652988995120.
-_:list1652988995120 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "15".
+_:list1652988292683 list:isFollowedBy _:list1652988995122.
+_:timeSeriesList list:hasNext _:list1652988995122.
+_:list1652988995122 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value201.
 _:value201 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "15".
-_:list1652988995120 list:isFollowedBy _:list1652989697559.
-_:timeSeriesList list:hasNext _:list1652989697559.
-_:list1652989697559 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "14".
+_:list1652988995122 list:isFollowedBy _:list1652989697561.
+_:timeSeriesList list:hasNext _:list1652989697561.
+_:list1652989697561 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value203.
 _:value203 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652989697559 list:isFollowedBy _:list1652990399998.
-_:timeSeriesList list:hasNext _:list1652990399998.
-_:list1652990399998 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "14".
+_:list1652989697561 list:isFollowedBy _:list1652990400000.
+_:timeSeriesList list:hasNext _:list1652990400000.
+_:list1652990400000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value205.
 _:value205 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "12".
-_:list1652990399998 list:isFollowedBy _:list1652991102437.
-_:timeSeriesList list:hasNext _:list1652991102437.
-_:list1652991102437 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "14".
+_:list1652990400000 list:isFollowedBy _:list1652991102439.
+_:timeSeriesList list:hasNext _:list1652991102439.
+_:list1652991102439 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value207.
 _:value207 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "13".
-_:list1652991102437 list:isFollowedBy _:list1652991804876.
-_:timeSeriesList list:hasNext _:list1652991804876.
-_:list1652991804876 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "14".
+_:list1652991102439 list:isFollowedBy _:list1652991804878.
+_:timeSeriesList list:hasNext _:list1652991804878.
+_:list1652991804878 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value209.
 _:value209 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "16".
-_:list1652991804876 list:isFollowedBy _:list1652992507315.
-_:timeSeriesList list:hasNext _:list1652992507315.
-_:list1652992507315 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "13".
+_:list1652991804878 list:isFollowedBy _:list1652992507317.
+_:timeSeriesList list:hasNext _:list1652992507317.
+_:list1652992507317 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value211.
 _:value211 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "15".
-_:list1652992507315 list:isFollowedBy _:list1652993209754.
-_:timeSeriesList list:hasNext _:list1652993209754.
-_:list1652993209754 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "12".
+_:list1652992507317 list:isFollowedBy _:list1652993209756.
+_:timeSeriesList list:hasNext _:list1652993209756.
+_:list1652993209756 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value213.
 _:value213 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652993209754 list:isFollowedBy _:list1652993912193.
-_:timeSeriesList list:hasNext _:list1652993912193.
-_:list1652993912193 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "12".
+_:list1652993209756 list:isFollowedBy _:list1652993912195.
+_:timeSeriesList list:hasNext _:list1652993912195.
+_:list1652993912195 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value215.
 _:value215 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "16".
-_:list1652993912193 list:isFollowedBy _:list1652994614632.
-_:timeSeriesList list:hasNext _:list1652994614632.
-_:list1652994614632 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "12".
+_:list1652993912195 list:isFollowedBy _:list1652994614634.
+_:timeSeriesList list:hasNext _:list1652994614634.
+_:list1652994614634 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value217.
 _:value217 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "16".
-_:list1652994614632 list:isFollowedBy _:list1652995317071.
-_:timeSeriesList list:hasNext _:list1652995317071.
-_:list1652995317071 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "11".
+_:list1652994614634 list:isFollowedBy _:list1652995317073.
+_:timeSeriesList list:hasNext _:list1652995317073.
+_:list1652995317073 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value219.
 _:value219 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "14.5".
-_:list1652995317071 list:isFollowedBy _:list1652996019510.
-_:timeSeriesList list:hasNext _:list1652996019510.
-_:list1652996019510 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "11".
+_:list1652995317073 list:isFollowedBy _:list1652996019512.
+_:timeSeriesList list:hasNext _:list1652996019512.
+_:list1652996019512 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value221.
 _:value221 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "14".
-_:list1652996019510 list:isFollowedBy _:list1652996721949.
-_:timeSeriesList list:hasNext _:list1652996721949.
-_:list1652996721949 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "11".
+_:list1652996019512 list:isFollowedBy _:list1652996721951.
+_:timeSeriesList list:hasNext _:list1652996721951.
+_:list1652996721951 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value223.
 _:value223 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "14".
-_:list1652996721949 list:isFollowedBy _:list1652997424388.
-_:timeSeriesList list:hasNext _:list1652997424388.
-_:list1652997424388 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "11".
+_:list1652996721951 list:isFollowedBy _:list1652997424390.
+_:timeSeriesList list:hasNext _:list1652997424390.
+_:list1652997424390 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value225.
 _:value225 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "12.5".
-_:list1652997424388 list:isFollowedBy _:list1652998126827.
-_:timeSeriesList list:hasNext _:list1652998126827.
-_:list1652998126827 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "11".
+_:list1652997424390 list:isFollowedBy _:list1652998126829.
+_:timeSeriesList list:hasNext _:list1652998126829.
+_:list1652998126829 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value227.
 _:value227 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "12".
-_:list1652998126827 list:isFollowedBy _:list1652998829266.
-_:timeSeriesList list:hasNext _:list1652998829266.
-_:list1652998829266 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "11".
+_:list1652998126829 list:isFollowedBy _:list1652998829268.
+_:timeSeriesList list:hasNext _:list1652998829268.
+_:list1652998829268 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value229.
 _:value229 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "12".
-_:list1652998829266 list:isFollowedBy _:list1652999531705.
-_:timeSeriesList list:hasNext _:list1652999531705.
-_:list1652999531705 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "11".
+_:list1652998829268 list:isFollowedBy _:list1652999531707.
+_:timeSeriesList list:hasNext _:list1652999531707.
+_:list1652999531707 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value231.
 _:value231 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "11".
-_:list1652999531705 list:isFollowedBy _:list1653000234144.
-_:timeSeriesList list:hasNext _:list1653000234144.
-_:list1653000234144 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "8".
+_:list1652999531707 list:isFollowedBy _:list1653000234146.
+_:timeSeriesList list:hasNext _:list1653000234146.
+_:list1653000234146 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value233.
 _:value233 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "11".
-_:list1653000234144 list:isFollowedBy _:list1653000936583.
-_:timeSeriesList list:hasNext _:list1653000936583.
-_:list1653000936583 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "8".
+_:list1653000234146 list:isFollowedBy _:list1653000936585.
+_:timeSeriesList list:hasNext _:list1653000936585.
+_:list1653000936585 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value235.
 _:value235 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "11".
-_:list1653000936583 list:isFollowedBy _:list1653001639022.
-_:timeSeriesList list:hasNext _:list1653001639022.
-_:list1653001639022 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "8".
+_:list1653000936585 list:isFollowedBy _:list1653001639024.
+_:timeSeriesList list:hasNext _:list1653001639024.
+_:list1653001639024 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value237.
 _:value237 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "11".
-_:list1653001639022 list:isFollowedBy _:list1653002341461.
-_:timeSeriesList list:hasNext _:list1653002341461.
-_:list1653002341461 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#docks_in_use> "8".
+_:list1653001639024 list:isFollowedBy _:list1653002341463.
+_:timeSeriesList list:hasNext _:list1653002341463.
+_:list1653002341463 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value239.
 _:value239 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1653002341461 list:isFollowedBy _:list1653003043900.
-_:timeSeriesList list:hasNext _:list1653003043900.
-_:list1653003043900 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value241.
-_:value241 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "8".
-_:list1653003043900 list:isFollowedBy _:list1653003746339.
-_:timeSeriesList list:hasNext _:list1653003746339.
-_:list1653003746339 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value243.
-_:value243 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "8".
-_:list1653003746339 list:isFollowedBy _:list1653004448778.
-_:timeSeriesList list:hasNext _:list1653004448778.
-_:list1653004448778 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value245.
-_:value245 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "7".
-_:list1653004448778 list:isFollowedBy rdf:nil.
+_:list1653002341463 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";

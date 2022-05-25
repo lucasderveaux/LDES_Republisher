@@ -30,7 +30,7 @@ _:endTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "3/31/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
-    purl:size "19"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    purl:size "17"^^<https://www.w3.org/2001/XMLSchema#integer>;
     list:hasNext _:list1648600000000.
 _:list1648600000000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
@@ -119,32 +119,20 @@ _:timeSeriesList list:hasNext _:list1648644800000.
 _:list1648644800000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value29.
 _:value29 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "1".
 _:list1648644800000 list:isFollowedBy _:list1648648000000.
 _:timeSeriesList list:hasNext _:list1648648000000.
 _:list1648648000000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value31.
 _:value31 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
+    <https://w3id.org/gbfs#docks_in_use> "1".
 _:list1648648000000 list:isFollowedBy _:list1648651200000.
 _:timeSeriesList list:hasNext _:list1648651200000.
 _:list1648651200000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value33.
 _:value33 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1648651200000 list:isFollowedBy _:list1648654400000.
-_:timeSeriesList list:hasNext _:list1648654400000.
-_:list1648654400000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value35.
-_:value35 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1648654400000 list:isFollowedBy _:list1648657600000.
-_:timeSeriesList list:hasNext _:list1648657600000.
-_:list1648657600000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value37.
-_:value37 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1648657600000 list:isFollowedBy rdf:nil.
+_:list1648651200000 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
