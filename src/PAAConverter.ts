@@ -30,33 +30,46 @@ export class PAAConverter {
     }
 
 
+    //This functions finds the largest amount of time in between two observations
+    // This will be the timestep of the entire regular time series
+    private findTimeStep(sortedMap: SortedMap): Promise<number> {
+        return new Promise<number>((resolve,reject)=>{
+            let previousDate: number = sortedMap.keys().next().value;
+            let max: number = 0;
+            for (let x of sortedMap.keys()) {
+                if ((x - previousDate) > max) {
+                    max = x - previousDate;
+                }
+                previousDate = x;
+            }
+    
+            resolve(max);
+        });
+        
+    }
+
+
 
     public convertOne(sortedMap: SortedMap): Promise<SortedMap> {
         return new Promise<SortedMap>(async (resolve, reject) => {
             try {
                 //amount of milliseconds since January 1, 1970, 00:00:00
-
                 let date = new Date(sortedMap.keys().next().value);
                 let betweenDate = date.toDateString() + " 00:00:00";
                 let min: number = Date.parse(betweenDate);
 
-
-                let number_of_observations = sortedMap.length;
-
+                let divider:number = await this.findTimeStep(sortedMap);
+                //in milliseconds
+                // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 1000 miliseconds in a second
+                let number_of_observations = Math.floor((24 * 60 * 60 * 1000) /divider);
                 if (this.config.number_of_observations != 0) {
                     if (this.config.number_of_observations < number_of_observations) {
-                        number_of_observations = this.config.number_of_observations;
+                        divider = Math.round((24 * 60 * 60 * 1000) / this.config.number_of_observations);
                     } else {
                         // In this case dimensionality reduction cannot be provided
                         console.log("requested number of observations cannot be provided")
                     }
                 }
-
-
-
-                //in milliseconds
-                // 24 hours in a day, 60 minutes in an hour, 60 seconds in a minute, 1000 miliseconds in a second
-                let divider = Math.round((24 * 60 * 60 * 1000) / number_of_observations);
 
                 let beginInterval = min;
                 let endInterval = beginInterval + divider;
