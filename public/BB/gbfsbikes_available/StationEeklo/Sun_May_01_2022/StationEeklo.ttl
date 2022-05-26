@@ -21,7 +21,7 @@ _:A a sosa:Observation, ifc:IfcRegularTimeSeries;
     sosa:observedProperty <https://w3id.org/gbfs#bikes_available>;
     ifc:timeStep_IfcRegularTimeSeries _:seconds.
 _:seconds a ifc:IfcTimeMeasure;
-    <https://www.w3.org/2006/time#seconds> "617.1428571777344"^^<https://www.w3.org/2001/XMLSchema#float>.
+    <https://www.w3.org/2006/time#seconds> "1202"^^<https://www.w3.org/2001/XMLSchema#float>.
 _:A ifc:startTime_IfcWorkControl _:startTime.
 _:startTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "5/1/2022, 12:00:00 AM"^^xsd:dateTime.
@@ -30,841 +30,439 @@ _:endTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "5/2/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
-    purl:size "139"^^<https://www.w3.org/2001/XMLSchema#integer>;
-    list:hasNext _:list1651363508571.
-_:list1651363508571 a ifc:IfcTimeSeriesValue_List;
+    purl:size "72"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    list:hasNext _:list1651363801000.
+_:list1651363801000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
 _:value1 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651363508571 list:isFollowedBy _:list1651364125714.
-_:timeSeriesList list:hasNext _:list1651364125714.
-_:list1651364125714 a ifc:IfcTimeSeriesValue_List;
+_:list1651363801000 list:isFollowedBy _:list1651365003000.
+_:timeSeriesList list:hasNext _:list1651365003000.
+_:list1651365003000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value3.
 _:value3 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651364125714 list:isFollowedBy _:list1651364742857.
-_:timeSeriesList list:hasNext _:list1651364742857.
-_:list1651364742857 a ifc:IfcTimeSeriesValue_List;
+_:list1651365003000 list:isFollowedBy _:list1651366205000.
+_:timeSeriesList list:hasNext _:list1651366205000.
+_:list1651366205000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value5.
 _:value5 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651364742857 list:isFollowedBy _:list1651365360000.
-_:timeSeriesList list:hasNext _:list1651365360000.
-_:list1651365360000 a ifc:IfcTimeSeriesValue_List;
+_:list1651366205000 list:isFollowedBy _:list1651367407000.
+_:timeSeriesList list:hasNext _:list1651367407000.
+_:list1651367407000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value7.
 _:value7 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651365360000 list:isFollowedBy _:list1651365977143.
-_:timeSeriesList list:hasNext _:list1651365977143.
-_:list1651365977143 a ifc:IfcTimeSeriesValue_List;
+_:list1651367407000 list:isFollowedBy _:list1651368609000.
+_:timeSeriesList list:hasNext _:list1651368609000.
+_:list1651368609000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value9.
 _:value9 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651365977143 list:isFollowedBy _:list1651366594286.
-_:timeSeriesList list:hasNext _:list1651366594286.
-_:list1651366594286 a ifc:IfcTimeSeriesValue_List;
+_:list1651368609000 list:isFollowedBy _:list1651369811000.
+_:timeSeriesList list:hasNext _:list1651369811000.
+_:list1651369811000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value11.
 _:value11 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651366594286 list:isFollowedBy _:list1651367211429.
-_:timeSeriesList list:hasNext _:list1651367211429.
-_:list1651367211429 a ifc:IfcTimeSeriesValue_List;
+_:list1651369811000 list:isFollowedBy _:list1651371013000.
+_:timeSeriesList list:hasNext _:list1651371013000.
+_:list1651371013000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value13.
 _:value13 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651367211429 list:isFollowedBy _:list1651367828571.
-_:timeSeriesList list:hasNext _:list1651367828571.
-_:list1651367828571 a ifc:IfcTimeSeriesValue_List;
+_:list1651371013000 list:isFollowedBy _:list1651372215000.
+_:timeSeriesList list:hasNext _:list1651372215000.
+_:list1651372215000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value15.
 _:value15 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651367828571 list:isFollowedBy _:list1651368445714.
-_:timeSeriesList list:hasNext _:list1651368445714.
-_:list1651368445714 a ifc:IfcTimeSeriesValue_List;
+_:list1651372215000 list:isFollowedBy _:list1651373417000.
+_:timeSeriesList list:hasNext _:list1651373417000.
+_:list1651373417000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value17.
 _:value17 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651368445714 list:isFollowedBy _:list1651369062857.
-_:timeSeriesList list:hasNext _:list1651369062857.
-_:list1651369062857 a ifc:IfcTimeSeriesValue_List;
+_:list1651373417000 list:isFollowedBy _:list1651374619000.
+_:timeSeriesList list:hasNext _:list1651374619000.
+_:list1651374619000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value19.
 _:value19 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651369062857 list:isFollowedBy _:list1651369680000.
-_:timeSeriesList list:hasNext _:list1651369680000.
-_:list1651369680000 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#bikes_available> "NaN".
+_:list1651374619000 list:isFollowedBy _:list1651375821000.
+_:timeSeriesList list:hasNext _:list1651375821000.
+_:list1651375821000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value21.
 _:value21 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651369680000 list:isFollowedBy _:list1651370297143.
-_:timeSeriesList list:hasNext _:list1651370297143.
-_:list1651370297143 a ifc:IfcTimeSeriesValue_List;
+_:list1651375821000 list:isFollowedBy _:list1651377023000.
+_:timeSeriesList list:hasNext _:list1651377023000.
+_:list1651377023000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value23.
 _:value23 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651370297143 list:isFollowedBy _:list1651370914286.
-_:timeSeriesList list:hasNext _:list1651370914286.
-_:list1651370914286 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#bikes_available> "NaN".
+_:list1651377023000 list:isFollowedBy _:list1651378225000.
+_:timeSeriesList list:hasNext _:list1651378225000.
+_:list1651378225000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value25.
 _:value25 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651370914286 list:isFollowedBy _:list1651371531429.
-_:timeSeriesList list:hasNext _:list1651371531429.
-_:list1651371531429 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#bikes_available> "NaN".
+_:list1651378225000 list:isFollowedBy _:list1651379427000.
+_:timeSeriesList list:hasNext _:list1651379427000.
+_:list1651379427000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value27.
 _:value27 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651371531429 list:isFollowedBy _:list1651372148571.
-_:timeSeriesList list:hasNext _:list1651372148571.
-_:list1651372148571 a ifc:IfcTimeSeriesValue_List;
+_:list1651379427000 list:isFollowedBy _:list1651380629000.
+_:timeSeriesList list:hasNext _:list1651380629000.
+_:list1651380629000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value29.
 _:value29 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651372148571 list:isFollowedBy _:list1651372765714.
-_:timeSeriesList list:hasNext _:list1651372765714.
-_:list1651372765714 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#bikes_available> "NaN".
+_:list1651380629000 list:isFollowedBy _:list1651381831000.
+_:timeSeriesList list:hasNext _:list1651381831000.
+_:list1651381831000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value31.
 _:value31 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651372765714 list:isFollowedBy _:list1651373382857.
-_:timeSeriesList list:hasNext _:list1651373382857.
-_:list1651373382857 a ifc:IfcTimeSeriesValue_List;
+_:list1651381831000 list:isFollowedBy _:list1651383033000.
+_:timeSeriesList list:hasNext _:list1651383033000.
+_:list1651383033000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value33.
 _:value33 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651373382857 list:isFollowedBy _:list1651374000000.
-_:timeSeriesList list:hasNext _:list1651374000000.
-_:list1651374000000 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#bikes_available> "NaN".
+_:list1651383033000 list:isFollowedBy _:list1651384235000.
+_:timeSeriesList list:hasNext _:list1651384235000.
+_:list1651384235000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value35.
 _:value35 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651374000000 list:isFollowedBy _:list1651374617143.
-_:timeSeriesList list:hasNext _:list1651374617143.
-_:list1651374617143 a ifc:IfcTimeSeriesValue_List;
+_:list1651384235000 list:isFollowedBy _:list1651385437000.
+_:timeSeriesList list:hasNext _:list1651385437000.
+_:list1651385437000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value37.
 _:value37 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651374617143 list:isFollowedBy _:list1651375234286.
-_:timeSeriesList list:hasNext _:list1651375234286.
-_:list1651375234286 a ifc:IfcTimeSeriesValue_List;
+_:list1651385437000 list:isFollowedBy _:list1651386639000.
+_:timeSeriesList list:hasNext _:list1651386639000.
+_:list1651386639000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value39.
 _:value39 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651375234286 list:isFollowedBy _:list1651375851429.
-_:timeSeriesList list:hasNext _:list1651375851429.
-_:list1651375851429 a ifc:IfcTimeSeriesValue_List;
+_:list1651386639000 list:isFollowedBy _:list1651387841000.
+_:timeSeriesList list:hasNext _:list1651387841000.
+_:list1651387841000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value41.
 _:value41 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651375851429 list:isFollowedBy _:list1651376468571.
-_:timeSeriesList list:hasNext _:list1651376468571.
-_:list1651376468571 a ifc:IfcTimeSeriesValue_List;
+_:list1651387841000 list:isFollowedBy _:list1651389043000.
+_:timeSeriesList list:hasNext _:list1651389043000.
+_:list1651389043000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value43.
 _:value43 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651376468571 list:isFollowedBy _:list1651377085714.
-_:timeSeriesList list:hasNext _:list1651377085714.
-_:list1651377085714 a ifc:IfcTimeSeriesValue_List;
+_:list1651389043000 list:isFollowedBy _:list1651390245000.
+_:timeSeriesList list:hasNext _:list1651390245000.
+_:list1651390245000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value45.
 _:value45 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651377085714 list:isFollowedBy _:list1651377702857.
-_:timeSeriesList list:hasNext _:list1651377702857.
-_:list1651377702857 a ifc:IfcTimeSeriesValue_List;
+_:list1651390245000 list:isFollowedBy _:list1651391447000.
+_:timeSeriesList list:hasNext _:list1651391447000.
+_:list1651391447000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value47.
 _:value47 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651377702857 list:isFollowedBy _:list1651378320000.
-_:timeSeriesList list:hasNext _:list1651378320000.
-_:list1651378320000 a ifc:IfcTimeSeriesValue_List;
+_:list1651391447000 list:isFollowedBy _:list1651392649000.
+_:timeSeriesList list:hasNext _:list1651392649000.
+_:list1651392649000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value49.
 _:value49 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651378320000 list:isFollowedBy _:list1651378937143.
-_:timeSeriesList list:hasNext _:list1651378937143.
-_:list1651378937143 a ifc:IfcTimeSeriesValue_List;
+_:list1651392649000 list:isFollowedBy _:list1651393851000.
+_:timeSeriesList list:hasNext _:list1651393851000.
+_:list1651393851000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value51.
 _:value51 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651378937143 list:isFollowedBy _:list1651379554286.
-_:timeSeriesList list:hasNext _:list1651379554286.
-_:list1651379554286 a ifc:IfcTimeSeriesValue_List;
+_:list1651393851000 list:isFollowedBy _:list1651395053000.
+_:timeSeriesList list:hasNext _:list1651395053000.
+_:list1651395053000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value53.
 _:value53 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651379554286 list:isFollowedBy _:list1651380171429.
-_:timeSeriesList list:hasNext _:list1651380171429.
-_:list1651380171429 a ifc:IfcTimeSeriesValue_List;
+_:list1651395053000 list:isFollowedBy _:list1651396255000.
+_:timeSeriesList list:hasNext _:list1651396255000.
+_:list1651396255000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value55.
 _:value55 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651380171429 list:isFollowedBy _:list1651380788571.
-_:timeSeriesList list:hasNext _:list1651380788571.
-_:list1651380788571 a ifc:IfcTimeSeriesValue_List;
+_:list1651396255000 list:isFollowedBy _:list1651397457000.
+_:timeSeriesList list:hasNext _:list1651397457000.
+_:list1651397457000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value57.
 _:value57 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651380788571 list:isFollowedBy _:list1651381405714.
-_:timeSeriesList list:hasNext _:list1651381405714.
-_:list1651381405714 a ifc:IfcTimeSeriesValue_List;
+_:list1651397457000 list:isFollowedBy _:list1651398659000.
+_:timeSeriesList list:hasNext _:list1651398659000.
+_:list1651398659000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value59.
 _:value59 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651381405714 list:isFollowedBy _:list1651382022857.
-_:timeSeriesList list:hasNext _:list1651382022857.
-_:list1651382022857 a ifc:IfcTimeSeriesValue_List;
+_:list1651398659000 list:isFollowedBy _:list1651399861000.
+_:timeSeriesList list:hasNext _:list1651399861000.
+_:list1651399861000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value61.
 _:value61 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651382022857 list:isFollowedBy _:list1651382640000.
-_:timeSeriesList list:hasNext _:list1651382640000.
-_:list1651382640000 a ifc:IfcTimeSeriesValue_List;
+_:list1651399861000 list:isFollowedBy _:list1651401063000.
+_:timeSeriesList list:hasNext _:list1651401063000.
+_:list1651401063000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value63.
 _:value63 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651382640000 list:isFollowedBy _:list1651383257143.
-_:timeSeriesList list:hasNext _:list1651383257143.
-_:list1651383257143 a ifc:IfcTimeSeriesValue_List;
+_:list1651401063000 list:isFollowedBy _:list1651402265000.
+_:timeSeriesList list:hasNext _:list1651402265000.
+_:list1651402265000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value65.
 _:value65 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651383257143 list:isFollowedBy _:list1651383874286.
-_:timeSeriesList list:hasNext _:list1651383874286.
-_:list1651383874286 a ifc:IfcTimeSeriesValue_List;
+_:list1651402265000 list:isFollowedBy _:list1651403467000.
+_:timeSeriesList list:hasNext _:list1651403467000.
+_:list1651403467000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value67.
 _:value67 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651383874286 list:isFollowedBy _:list1651384491429.
-_:timeSeriesList list:hasNext _:list1651384491429.
-_:list1651384491429 a ifc:IfcTimeSeriesValue_List;
+_:list1651403467000 list:isFollowedBy _:list1651404669000.
+_:timeSeriesList list:hasNext _:list1651404669000.
+_:list1651404669000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value69.
 _:value69 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651384491429 list:isFollowedBy _:list1651385108571.
-_:timeSeriesList list:hasNext _:list1651385108571.
-_:list1651385108571 a ifc:IfcTimeSeriesValue_List;
+_:list1651404669000 list:isFollowedBy _:list1651405871000.
+_:timeSeriesList list:hasNext _:list1651405871000.
+_:list1651405871000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value71.
 _:value71 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651385108571 list:isFollowedBy _:list1651385725714.
-_:timeSeriesList list:hasNext _:list1651385725714.
-_:list1651385725714 a ifc:IfcTimeSeriesValue_List;
+_:list1651405871000 list:isFollowedBy _:list1651407073000.
+_:timeSeriesList list:hasNext _:list1651407073000.
+_:list1651407073000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value73.
 _:value73 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651385725714 list:isFollowedBy _:list1651386342857.
-_:timeSeriesList list:hasNext _:list1651386342857.
-_:list1651386342857 a ifc:IfcTimeSeriesValue_List;
+_:list1651407073000 list:isFollowedBy _:list1651408275000.
+_:timeSeriesList list:hasNext _:list1651408275000.
+_:list1651408275000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value75.
 _:value75 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651386342857 list:isFollowedBy _:list1651386960000.
-_:timeSeriesList list:hasNext _:list1651386960000.
-_:list1651386960000 a ifc:IfcTimeSeriesValue_List;
+_:list1651408275000 list:isFollowedBy _:list1651409477000.
+_:timeSeriesList list:hasNext _:list1651409477000.
+_:list1651409477000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value77.
 _:value77 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651386960000 list:isFollowedBy _:list1651387577143.
-_:timeSeriesList list:hasNext _:list1651387577143.
-_:list1651387577143 a ifc:IfcTimeSeriesValue_List;
+_:list1651409477000 list:isFollowedBy _:list1651410679000.
+_:timeSeriesList list:hasNext _:list1651410679000.
+_:list1651410679000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value79.
 _:value79 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651387577143 list:isFollowedBy _:list1651388194286.
-_:timeSeriesList list:hasNext _:list1651388194286.
-_:list1651388194286 a ifc:IfcTimeSeriesValue_List;
+_:list1651410679000 list:isFollowedBy _:list1651411881000.
+_:timeSeriesList list:hasNext _:list1651411881000.
+_:list1651411881000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value81.
 _:value81 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651388194286 list:isFollowedBy _:list1651388811429.
-_:timeSeriesList list:hasNext _:list1651388811429.
-_:list1651388811429 a ifc:IfcTimeSeriesValue_List;
+_:list1651411881000 list:isFollowedBy _:list1651413083000.
+_:timeSeriesList list:hasNext _:list1651413083000.
+_:list1651413083000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value83.
 _:value83 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651388811429 list:isFollowedBy _:list1651389428571.
-_:timeSeriesList list:hasNext _:list1651389428571.
-_:list1651389428571 a ifc:IfcTimeSeriesValue_List;
+_:list1651413083000 list:isFollowedBy _:list1651414285000.
+_:timeSeriesList list:hasNext _:list1651414285000.
+_:list1651414285000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value85.
 _:value85 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651389428571 list:isFollowedBy _:list1651390045714.
-_:timeSeriesList list:hasNext _:list1651390045714.
-_:list1651390045714 a ifc:IfcTimeSeriesValue_List;
+_:list1651414285000 list:isFollowedBy _:list1651415487000.
+_:timeSeriesList list:hasNext _:list1651415487000.
+_:list1651415487000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value87.
 _:value87 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651390045714 list:isFollowedBy _:list1651390662857.
-_:timeSeriesList list:hasNext _:list1651390662857.
-_:list1651390662857 a ifc:IfcTimeSeriesValue_List;
+_:list1651415487000 list:isFollowedBy _:list1651416689000.
+_:timeSeriesList list:hasNext _:list1651416689000.
+_:list1651416689000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value89.
 _:value89 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651390662857 list:isFollowedBy _:list1651391280000.
-_:timeSeriesList list:hasNext _:list1651391280000.
-_:list1651391280000 a ifc:IfcTimeSeriesValue_List;
+_:list1651416689000 list:isFollowedBy _:list1651417891000.
+_:timeSeriesList list:hasNext _:list1651417891000.
+_:list1651417891000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value91.
 _:value91 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651391280000 list:isFollowedBy _:list1651391897143.
-_:timeSeriesList list:hasNext _:list1651391897143.
-_:list1651391897143 a ifc:IfcTimeSeriesValue_List;
+_:list1651417891000 list:isFollowedBy _:list1651419093000.
+_:timeSeriesList list:hasNext _:list1651419093000.
+_:list1651419093000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value93.
 _:value93 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651391897143 list:isFollowedBy _:list1651392514286.
-_:timeSeriesList list:hasNext _:list1651392514286.
-_:list1651392514286 a ifc:IfcTimeSeriesValue_List;
+_:list1651419093000 list:isFollowedBy _:list1651420295000.
+_:timeSeriesList list:hasNext _:list1651420295000.
+_:list1651420295000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value95.
 _:value95 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651392514286 list:isFollowedBy _:list1651393131429.
-_:timeSeriesList list:hasNext _:list1651393131429.
-_:list1651393131429 a ifc:IfcTimeSeriesValue_List;
+_:list1651420295000 list:isFollowedBy _:list1651421497000.
+_:timeSeriesList list:hasNext _:list1651421497000.
+_:list1651421497000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value97.
 _:value97 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651393131429 list:isFollowedBy _:list1651393748571.
-_:timeSeriesList list:hasNext _:list1651393748571.
-_:list1651393748571 a ifc:IfcTimeSeriesValue_List;
+_:list1651421497000 list:isFollowedBy _:list1651422699000.
+_:timeSeriesList list:hasNext _:list1651422699000.
+_:list1651422699000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value99.
 _:value99 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651393748571 list:isFollowedBy _:list1651394365714.
-_:timeSeriesList list:hasNext _:list1651394365714.
-_:list1651394365714 a ifc:IfcTimeSeriesValue_List;
+_:list1651422699000 list:isFollowedBy _:list1651423901000.
+_:timeSeriesList list:hasNext _:list1651423901000.
+_:list1651423901000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value101.
 _:value101 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651394365714 list:isFollowedBy _:list1651394982857.
-_:timeSeriesList list:hasNext _:list1651394982857.
-_:list1651394982857 a ifc:IfcTimeSeriesValue_List;
+_:list1651423901000 list:isFollowedBy _:list1651425103000.
+_:timeSeriesList list:hasNext _:list1651425103000.
+_:list1651425103000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value103.
 _:value103 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651394982857 list:isFollowedBy _:list1651395600000.
-_:timeSeriesList list:hasNext _:list1651395600000.
-_:list1651395600000 a ifc:IfcTimeSeriesValue_List;
+_:list1651425103000 list:isFollowedBy _:list1651426305000.
+_:timeSeriesList list:hasNext _:list1651426305000.
+_:list1651426305000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value105.
 _:value105 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651395600000 list:isFollowedBy _:list1651396217143.
-_:timeSeriesList list:hasNext _:list1651396217143.
-_:list1651396217143 a ifc:IfcTimeSeriesValue_List;
+_:list1651426305000 list:isFollowedBy _:list1651427507000.
+_:timeSeriesList list:hasNext _:list1651427507000.
+_:list1651427507000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value107.
 _:value107 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651396217143 list:isFollowedBy _:list1651396834286.
-_:timeSeriesList list:hasNext _:list1651396834286.
-_:list1651396834286 a ifc:IfcTimeSeriesValue_List;
+_:list1651427507000 list:isFollowedBy _:list1651428709000.
+_:timeSeriesList list:hasNext _:list1651428709000.
+_:list1651428709000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value109.
 _:value109 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651396834286 list:isFollowedBy _:list1651397451429.
-_:timeSeriesList list:hasNext _:list1651397451429.
-_:list1651397451429 a ifc:IfcTimeSeriesValue_List;
+_:list1651428709000 list:isFollowedBy _:list1651429911000.
+_:timeSeriesList list:hasNext _:list1651429911000.
+_:list1651429911000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value111.
 _:value111 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651397451429 list:isFollowedBy _:list1651398068571.
-_:timeSeriesList list:hasNext _:list1651398068571.
-_:list1651398068571 a ifc:IfcTimeSeriesValue_List;
+_:list1651429911000 list:isFollowedBy _:list1651431113000.
+_:timeSeriesList list:hasNext _:list1651431113000.
+_:list1651431113000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value113.
 _:value113 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651398068571 list:isFollowedBy _:list1651398685714.
-_:timeSeriesList list:hasNext _:list1651398685714.
-_:list1651398685714 a ifc:IfcTimeSeriesValue_List;
+_:list1651431113000 list:isFollowedBy _:list1651432315000.
+_:timeSeriesList list:hasNext _:list1651432315000.
+_:list1651432315000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value115.
 _:value115 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651398685714 list:isFollowedBy _:list1651399302857.
-_:timeSeriesList list:hasNext _:list1651399302857.
-_:list1651399302857 a ifc:IfcTimeSeriesValue_List;
+_:list1651432315000 list:isFollowedBy _:list1651433517000.
+_:timeSeriesList list:hasNext _:list1651433517000.
+_:list1651433517000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value117.
 _:value117 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651399302857 list:isFollowedBy _:list1651399920000.
-_:timeSeriesList list:hasNext _:list1651399920000.
-_:list1651399920000 a ifc:IfcTimeSeriesValue_List;
+_:list1651433517000 list:isFollowedBy _:list1651434719000.
+_:timeSeriesList list:hasNext _:list1651434719000.
+_:list1651434719000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value119.
 _:value119 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651399920000 list:isFollowedBy _:list1651400537143.
-_:timeSeriesList list:hasNext _:list1651400537143.
-_:list1651400537143 a ifc:IfcTimeSeriesValue_List;
+_:list1651434719000 list:isFollowedBy _:list1651435921000.
+_:timeSeriesList list:hasNext _:list1651435921000.
+_:list1651435921000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value121.
 _:value121 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651400537143 list:isFollowedBy _:list1651401154286.
-_:timeSeriesList list:hasNext _:list1651401154286.
-_:list1651401154286 a ifc:IfcTimeSeriesValue_List;
+_:list1651435921000 list:isFollowedBy _:list1651437123000.
+_:timeSeriesList list:hasNext _:list1651437123000.
+_:list1651437123000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value123.
 _:value123 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651401154286 list:isFollowedBy _:list1651401771429.
-_:timeSeriesList list:hasNext _:list1651401771429.
-_:list1651401771429 a ifc:IfcTimeSeriesValue_List;
+_:list1651437123000 list:isFollowedBy _:list1651438325000.
+_:timeSeriesList list:hasNext _:list1651438325000.
+_:list1651438325000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value125.
 _:value125 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651401771429 list:isFollowedBy _:list1651402388571.
-_:timeSeriesList list:hasNext _:list1651402388571.
-_:list1651402388571 a ifc:IfcTimeSeriesValue_List;
+_:list1651438325000 list:isFollowedBy _:list1651439527000.
+_:timeSeriesList list:hasNext _:list1651439527000.
+_:list1651439527000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value127.
 _:value127 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651402388571 list:isFollowedBy _:list1651403005714.
-_:timeSeriesList list:hasNext _:list1651403005714.
-_:list1651403005714 a ifc:IfcTimeSeriesValue_List;
+_:list1651439527000 list:isFollowedBy _:list1651440729000.
+_:timeSeriesList list:hasNext _:list1651440729000.
+_:list1651440729000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value129.
 _:value129 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651403005714 list:isFollowedBy _:list1651403622857.
-_:timeSeriesList list:hasNext _:list1651403622857.
-_:list1651403622857 a ifc:IfcTimeSeriesValue_List;
+_:list1651440729000 list:isFollowedBy _:list1651441931000.
+_:timeSeriesList list:hasNext _:list1651441931000.
+_:list1651441931000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value131.
 _:value131 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651403622857 list:isFollowedBy _:list1651404240000.
-_:timeSeriesList list:hasNext _:list1651404240000.
-_:list1651404240000 a ifc:IfcTimeSeriesValue_List;
+_:list1651441931000 list:isFollowedBy _:list1651443133000.
+_:timeSeriesList list:hasNext _:list1651443133000.
+_:list1651443133000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value133.
 _:value133 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651404240000 list:isFollowedBy _:list1651404857143.
-_:timeSeriesList list:hasNext _:list1651404857143.
-_:list1651404857143 a ifc:IfcTimeSeriesValue_List;
+_:list1651443133000 list:isFollowedBy _:list1651444335000.
+_:timeSeriesList list:hasNext _:list1651444335000.
+_:list1651444335000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value135.
 _:value135 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651404857143 list:isFollowedBy _:list1651405474286.
-_:timeSeriesList list:hasNext _:list1651405474286.
-_:list1651405474286 a ifc:IfcTimeSeriesValue_List;
+_:list1651444335000 list:isFollowedBy _:list1651445537000.
+_:timeSeriesList list:hasNext _:list1651445537000.
+_:list1651445537000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value137.
 _:value137 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651405474286 list:isFollowedBy _:list1651406091429.
-_:timeSeriesList list:hasNext _:list1651406091429.
-_:list1651406091429 a ifc:IfcTimeSeriesValue_List;
+_:list1651445537000 list:isFollowedBy _:list1651446739000.
+_:timeSeriesList list:hasNext _:list1651446739000.
+_:list1651446739000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value139.
 _:value139 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651406091429 list:isFollowedBy _:list1651406708571.
-_:timeSeriesList list:hasNext _:list1651406708571.
-_:list1651406708571 a ifc:IfcTimeSeriesValue_List;
+_:list1651446739000 list:isFollowedBy _:list1651447941000.
+_:timeSeriesList list:hasNext _:list1651447941000.
+_:list1651447941000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value141.
 _:value141 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651406708571 list:isFollowedBy _:list1651407325714.
-_:timeSeriesList list:hasNext _:list1651407325714.
-_:list1651407325714 a ifc:IfcTimeSeriesValue_List;
+_:list1651447941000 list:isFollowedBy _:list1651449143000.
+_:timeSeriesList list:hasNext _:list1651449143000.
+_:list1651449143000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value143.
 _:value143 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651407325714 list:isFollowedBy _:list1651407942857.
-_:timeSeriesList list:hasNext _:list1651407942857.
-_:list1651407942857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value145.
-_:value145 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651407942857 list:isFollowedBy _:list1651408560000.
-_:timeSeriesList list:hasNext _:list1651408560000.
-_:list1651408560000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value147.
-_:value147 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651408560000 list:isFollowedBy _:list1651409177143.
-_:timeSeriesList list:hasNext _:list1651409177143.
-_:list1651409177143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value149.
-_:value149 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651409177143 list:isFollowedBy _:list1651409794286.
-_:timeSeriesList list:hasNext _:list1651409794286.
-_:list1651409794286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value151.
-_:value151 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651409794286 list:isFollowedBy _:list1651410411429.
-_:timeSeriesList list:hasNext _:list1651410411429.
-_:list1651410411429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value153.
-_:value153 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651410411429 list:isFollowedBy _:list1651411028571.
-_:timeSeriesList list:hasNext _:list1651411028571.
-_:list1651411028571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value155.
-_:value155 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651411028571 list:isFollowedBy _:list1651411645714.
-_:timeSeriesList list:hasNext _:list1651411645714.
-_:list1651411645714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value157.
-_:value157 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651411645714 list:isFollowedBy _:list1651412262857.
-_:timeSeriesList list:hasNext _:list1651412262857.
-_:list1651412262857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value159.
-_:value159 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651412262857 list:isFollowedBy _:list1651412880000.
-_:timeSeriesList list:hasNext _:list1651412880000.
-_:list1651412880000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value161.
-_:value161 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651412880000 list:isFollowedBy _:list1651413497143.
-_:timeSeriesList list:hasNext _:list1651413497143.
-_:list1651413497143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value163.
-_:value163 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651413497143 list:isFollowedBy _:list1651414114286.
-_:timeSeriesList list:hasNext _:list1651414114286.
-_:list1651414114286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value165.
-_:value165 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651414114286 list:isFollowedBy _:list1651414731429.
-_:timeSeriesList list:hasNext _:list1651414731429.
-_:list1651414731429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value167.
-_:value167 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651414731429 list:isFollowedBy _:list1651415348571.
-_:timeSeriesList list:hasNext _:list1651415348571.
-_:list1651415348571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value169.
-_:value169 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651415348571 list:isFollowedBy _:list1651415965714.
-_:timeSeriesList list:hasNext _:list1651415965714.
-_:list1651415965714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value171.
-_:value171 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651415965714 list:isFollowedBy _:list1651416582857.
-_:timeSeriesList list:hasNext _:list1651416582857.
-_:list1651416582857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value173.
-_:value173 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651416582857 list:isFollowedBy _:list1651417200000.
-_:timeSeriesList list:hasNext _:list1651417200000.
-_:list1651417200000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value175.
-_:value175 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651417200000 list:isFollowedBy _:list1651417817143.
-_:timeSeriesList list:hasNext _:list1651417817143.
-_:list1651417817143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value177.
-_:value177 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651417817143 list:isFollowedBy _:list1651418434286.
-_:timeSeriesList list:hasNext _:list1651418434286.
-_:list1651418434286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value179.
-_:value179 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651418434286 list:isFollowedBy _:list1651419051429.
-_:timeSeriesList list:hasNext _:list1651419051429.
-_:list1651419051429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value181.
-_:value181 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651419051429 list:isFollowedBy _:list1651419668571.
-_:timeSeriesList list:hasNext _:list1651419668571.
-_:list1651419668571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value183.
-_:value183 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651419668571 list:isFollowedBy _:list1651420285714.
-_:timeSeriesList list:hasNext _:list1651420285714.
-_:list1651420285714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value185.
-_:value185 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651420285714 list:isFollowedBy _:list1651420902857.
-_:timeSeriesList list:hasNext _:list1651420902857.
-_:list1651420902857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value187.
-_:value187 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651420902857 list:isFollowedBy _:list1651421520000.
-_:timeSeriesList list:hasNext _:list1651421520000.
-_:list1651421520000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value189.
-_:value189 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651421520000 list:isFollowedBy _:list1651422137143.
-_:timeSeriesList list:hasNext _:list1651422137143.
-_:list1651422137143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value191.
-_:value191 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651422137143 list:isFollowedBy _:list1651422754286.
-_:timeSeriesList list:hasNext _:list1651422754286.
-_:list1651422754286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value193.
-_:value193 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651422754286 list:isFollowedBy _:list1651423371429.
-_:timeSeriesList list:hasNext _:list1651423371429.
-_:list1651423371429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value195.
-_:value195 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651423371429 list:isFollowedBy _:list1651423988571.
-_:timeSeriesList list:hasNext _:list1651423988571.
-_:list1651423988571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value197.
-_:value197 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651423988571 list:isFollowedBy _:list1651424605714.
-_:timeSeriesList list:hasNext _:list1651424605714.
-_:list1651424605714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value199.
-_:value199 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651424605714 list:isFollowedBy _:list1651425222857.
-_:timeSeriesList list:hasNext _:list1651425222857.
-_:list1651425222857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value201.
-_:value201 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651425222857 list:isFollowedBy _:list1651425840000.
-_:timeSeriesList list:hasNext _:list1651425840000.
-_:list1651425840000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value203.
-_:value203 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651425840000 list:isFollowedBy _:list1651426457143.
-_:timeSeriesList list:hasNext _:list1651426457143.
-_:list1651426457143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value205.
-_:value205 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651426457143 list:isFollowedBy _:list1651427074286.
-_:timeSeriesList list:hasNext _:list1651427074286.
-_:list1651427074286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value207.
-_:value207 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651427074286 list:isFollowedBy _:list1651427691429.
-_:timeSeriesList list:hasNext _:list1651427691429.
-_:list1651427691429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value209.
-_:value209 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651427691429 list:isFollowedBy _:list1651428308571.
-_:timeSeriesList list:hasNext _:list1651428308571.
-_:list1651428308571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value211.
-_:value211 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651428308571 list:isFollowedBy _:list1651428925714.
-_:timeSeriesList list:hasNext _:list1651428925714.
-_:list1651428925714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value213.
-_:value213 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651428925714 list:isFollowedBy _:list1651429542857.
-_:timeSeriesList list:hasNext _:list1651429542857.
-_:list1651429542857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value215.
-_:value215 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651429542857 list:isFollowedBy _:list1651430160000.
-_:timeSeriesList list:hasNext _:list1651430160000.
-_:list1651430160000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value217.
-_:value217 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651430160000 list:isFollowedBy _:list1651430777143.
-_:timeSeriesList list:hasNext _:list1651430777143.
-_:list1651430777143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value219.
-_:value219 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651430777143 list:isFollowedBy _:list1651431394286.
-_:timeSeriesList list:hasNext _:list1651431394286.
-_:list1651431394286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value221.
-_:value221 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651431394286 list:isFollowedBy _:list1651432011429.
-_:timeSeriesList list:hasNext _:list1651432011429.
-_:list1651432011429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value223.
-_:value223 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651432011429 list:isFollowedBy _:list1651432628571.
-_:timeSeriesList list:hasNext _:list1651432628571.
-_:list1651432628571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value225.
-_:value225 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651432628571 list:isFollowedBy _:list1651433245714.
-_:timeSeriesList list:hasNext _:list1651433245714.
-_:list1651433245714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value227.
-_:value227 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651433245714 list:isFollowedBy _:list1651433862857.
-_:timeSeriesList list:hasNext _:list1651433862857.
-_:list1651433862857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value229.
-_:value229 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651433862857 list:isFollowedBy _:list1651434480000.
-_:timeSeriesList list:hasNext _:list1651434480000.
-_:list1651434480000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value231.
-_:value231 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651434480000 list:isFollowedBy _:list1651435097143.
-_:timeSeriesList list:hasNext _:list1651435097143.
-_:list1651435097143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value233.
-_:value233 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651435097143 list:isFollowedBy _:list1651435714286.
-_:timeSeriesList list:hasNext _:list1651435714286.
-_:list1651435714286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value235.
-_:value235 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651435714286 list:isFollowedBy _:list1651436331429.
-_:timeSeriesList list:hasNext _:list1651436331429.
-_:list1651436331429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value237.
-_:value237 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651436331429 list:isFollowedBy _:list1651436948571.
-_:timeSeriesList list:hasNext _:list1651436948571.
-_:list1651436948571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value239.
-_:value239 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651436948571 list:isFollowedBy _:list1651437565714.
-_:timeSeriesList list:hasNext _:list1651437565714.
-_:list1651437565714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value241.
-_:value241 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651437565714 list:isFollowedBy _:list1651438182857.
-_:timeSeriesList list:hasNext _:list1651438182857.
-_:list1651438182857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value243.
-_:value243 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651438182857 list:isFollowedBy _:list1651438800000.
-_:timeSeriesList list:hasNext _:list1651438800000.
-_:list1651438800000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value245.
-_:value245 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651438800000 list:isFollowedBy _:list1651439417143.
-_:timeSeriesList list:hasNext _:list1651439417143.
-_:list1651439417143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value247.
-_:value247 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651439417143 list:isFollowedBy _:list1651440034286.
-_:timeSeriesList list:hasNext _:list1651440034286.
-_:list1651440034286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value249.
-_:value249 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651440034286 list:isFollowedBy _:list1651440651429.
-_:timeSeriesList list:hasNext _:list1651440651429.
-_:list1651440651429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value251.
-_:value251 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651440651429 list:isFollowedBy _:list1651441268571.
-_:timeSeriesList list:hasNext _:list1651441268571.
-_:list1651441268571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value253.
-_:value253 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651441268571 list:isFollowedBy _:list1651441885714.
-_:timeSeriesList list:hasNext _:list1651441885714.
-_:list1651441885714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value255.
-_:value255 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651441885714 list:isFollowedBy _:list1651442502857.
-_:timeSeriesList list:hasNext _:list1651442502857.
-_:list1651442502857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value257.
-_:value257 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651442502857 list:isFollowedBy _:list1651443120000.
-_:timeSeriesList list:hasNext _:list1651443120000.
-_:list1651443120000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value259.
-_:value259 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651443120000 list:isFollowedBy _:list1651443737143.
-_:timeSeriesList list:hasNext _:list1651443737143.
-_:list1651443737143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value261.
-_:value261 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651443737143 list:isFollowedBy _:list1651444354286.
-_:timeSeriesList list:hasNext _:list1651444354286.
-_:list1651444354286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value263.
-_:value263 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651444354286 list:isFollowedBy _:list1651444971429.
-_:timeSeriesList list:hasNext _:list1651444971429.
-_:list1651444971429 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value265.
-_:value265 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651444971429 list:isFollowedBy _:list1651445588571.
-_:timeSeriesList list:hasNext _:list1651445588571.
-_:list1651445588571 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value267.
-_:value267 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651445588571 list:isFollowedBy _:list1651446205714.
-_:timeSeriesList list:hasNext _:list1651446205714.
-_:list1651446205714 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value269.
-_:value269 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651446205714 list:isFollowedBy _:list1651446822857.
-_:timeSeriesList list:hasNext _:list1651446822857.
-_:list1651446822857 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value271.
-_:value271 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651446822857 list:isFollowedBy _:list1651447440000.
-_:timeSeriesList list:hasNext _:list1651447440000.
-_:list1651447440000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value273.
-_:value273 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651447440000 list:isFollowedBy _:list1651448057143.
-_:timeSeriesList list:hasNext _:list1651448057143.
-_:list1651448057143 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value275.
-_:value275 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651448057143 list:isFollowedBy _:list1651448674286.
-_:timeSeriesList list:hasNext _:list1651448674286.
-_:list1651448674286 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value277.
-_:value277 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "13".
-_:list1651448674286 list:isFollowedBy rdf:nil.
+_:list1651449143000 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";

@@ -21,7 +21,7 @@ _:A a sosa:Observation, ifc:IfcRegularTimeSeries;
     sosa:observedProperty <https://w3id.org/gbfs#docks_in_use>;
     ifc:timeStep_IfcRegularTimeSeries _:seconds.
 _:seconds a ifc:IfcTimeMeasure;
-    <https://www.w3.org/2006/time#seconds> "3756.521739013672"^^<https://www.w3.org/2001/XMLSchema#float>.
+    <https://www.w3.org/2006/time#seconds> "28022"^^<https://www.w3.org/2001/XMLSchema#float>.
 _:A ifc:startTime_IfcWorkControl _:startTime.
 _:startTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "5/9/2022, 12:00:00 AM"^^xsd:dateTime.
@@ -30,79 +30,19 @@ _:endTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "5/10/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
-    purl:size "12"^^<https://www.w3.org/2001/XMLSchema#integer>;
-    list:hasNext _:list1652056278261.
-_:list1652056278261 a ifc:IfcTimeSeriesValue_List;
+    purl:size "2"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    list:hasNext _:list1652068411000.
+_:list1652068411000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
 _:value1 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652056278261 list:isFollowedBy _:list1652060034783.
-_:timeSeriesList list:hasNext _:list1652060034783.
-_:list1652060034783 a ifc:IfcTimeSeriesValue_List;
+_:list1652068411000 list:isFollowedBy _:list1652096433000.
+_:timeSeriesList list:hasNext _:list1652096433000.
+_:list1652096433000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value3.
 _:value3 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652060034783 list:isFollowedBy _:list1652063791304.
-_:timeSeriesList list:hasNext _:list1652063791304.
-_:list1652063791304 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value5.
-_:value5 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652063791304 list:isFollowedBy _:list1652067547826.
-_:timeSeriesList list:hasNext _:list1652067547826.
-_:list1652067547826 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value7.
-_:value7 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652067547826 list:isFollowedBy _:list1652071304348.
-_:timeSeriesList list:hasNext _:list1652071304348.
-_:list1652071304348 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value9.
-_:value9 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652071304348 list:isFollowedBy _:list1652075060870.
-_:timeSeriesList list:hasNext _:list1652075060870.
-_:list1652075060870 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value11.
-_:value11 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652075060870 list:isFollowedBy _:list1652078817391.
-_:timeSeriesList list:hasNext _:list1652078817391.
-_:list1652078817391 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value13.
-_:value13 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1652078817391 list:isFollowedBy _:list1652082573913.
-_:timeSeriesList list:hasNext _:list1652082573913.
-_:list1652082573913 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value15.
-_:value15 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1652082573913 list:isFollowedBy _:list1652086330435.
-_:timeSeriesList list:hasNext _:list1652086330435.
-_:list1652086330435 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value17.
-_:value17 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1652086330435 list:isFollowedBy _:list1652090086957.
-_:timeSeriesList list:hasNext _:list1652090086957.
-_:list1652090086957 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value19.
-_:value19 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1652090086957 list:isFollowedBy _:list1652093843478.
-_:timeSeriesList list:hasNext _:list1652093843478.
-_:list1652093843478 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value21.
-_:value21 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1652093843478 list:isFollowedBy _:list1652097600000.
-_:timeSeriesList list:hasNext _:list1652097600000.
-_:list1652097600000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value23.
-_:value23 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1652097600000 list:isFollowedBy rdf:nil.
+_:list1652096433000 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
