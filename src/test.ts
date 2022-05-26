@@ -24,7 +24,7 @@ const run = async (): Promise<void> => {
     // sortedMap.set(4,"Maarten");
     // sortedMap.set(3,"lucas");
 
-     let paa = new PAAConverter(null);
+    let paa = new PAAConverter(null);
 
     let timestamps = new Map<number, number>();
     timestamps.set(Date.parse("2019-01-16 00:00:10"), 7);
@@ -40,17 +40,18 @@ const run = async (): Promise<void> => {
     timestamps.set(Date.parse("2019-01-16 00:10:52"), 8);
     timestamps.set(Date.parse("2019-01-16 00:11:39"), 4);
 
-    
+
     let i = 0;
     for (let x of timestamps.keys()) {
         if ((x - i) > 175000) {
             console.log(x - i);
         }
         i = x;
-        let date = new Date(x);    
+        let date = new Date(x);
 
-        console.log(date.toLocaleTimeString()+" "+timestamps.get(x));
+        console.log(date.toLocaleTimeString() + " " + timestamps.get(x));
     }
+
 
 
     console.log("\nnu paa\n");
@@ -58,28 +59,28 @@ const run = async (): Promise<void> => {
 
     i = 0;
     for (let x of test.keys()) {
-        
+
            // console.log(x - i);
-        
+
         i = x;
         let date = new Date(x);    
 
         console.log(date.toLocaleTimeString()+" "+test.get(x));
     }
-    
-//    let iterator = test.keys();
-//    let key1 = iterator.next().value;
-//    let key2= iterator.next().value;
-//    console.log(key2-key1);
+
+    //    let iterator = test.keys();
+    //    let key1 = iterator.next().value;
+    //    let key2= iterator.next().value;
+    //    console.log(key2-key1);
 
 
-// let string = "Thu Apr 28 2022"+" 00:00:00"
-// let date = Date.parse(string);
-// let date2 = date + 24*60*60*1000;
-// let datE = new Date(date);
-// let datE2 = new Date(date2);
-// console.log(datE.toLocaleString());
-// console.log(datE2.toLocaleString());
+    // let string = "Thu Apr 28 2022"+" 00:00:00"
+    // let date = Date.parse(string);
+    // let date2 = date + 24*60*60*1000;
+    // let datE = new Date(date);
+    // let datE2 = new Date(date2);
+    // console.log(datE.toLocaleString());
+    // console.log(datE2.toLocaleString());
 
 
 }

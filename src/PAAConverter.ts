@@ -146,23 +146,39 @@ export class PAAConverter {
         return new Promise<SortedMap>(async (resolve, reject) => {
             try {
                 let endMap = new SortedMap<number, number>();
+
+                let iterator = sortedMap.keys();
+                let first = iterator.next().value;
+                let next = iterator.next().value;
+
+                let divider = next-first;
                 //amount of milliseconds since January 1, 1970, 00:00:00
-                let date = new Date(sortedMap.keys().next().value);
+               
+                let date = new Date(first);
                 let betweenDate = date.toDateString() + " 00:00:00";
                 let min: number = Date.parse(betweenDate);
 
-                let divider = this.findTimeStep(sortedMap);//Math.ceil((700*1000)/sortedMap.length);
+                if((first-min)>divider){
+                    divider = first-min;
+                }
 
 
 
-                // if (this.config.number_of_observations != 0) {
-                //     if (this.config.number_of_observations < sortedMap.length) {
-                //         divider = Math.round((24 * 60 * 60 * 1000) / this.config.number_of_observations);
-                //     } else {
-                //         // In this case dimensionality reduction cannot be provided
-                //         console.log("requested number of observations cannot be provided")
-                //     }
-                // }
+                if(Math.ceil((24*60*60*1000)/sortedMap.length)>divider){
+                    divider = Math.ceil((24*60*60*1000)/sortedMap.length);
+                }
+
+
+                let number_of_observations = Math.floor((24*60*60*1000)/divider);
+
+                if (this.config.number_of_observations != 0) {
+                    if (this.config.number_of_observations < number_of_observations) {
+                        divider = Math.round((24 * 60 * 60 * 1000) / this.config.number_of_observations);
+                    } else {
+                        // In this case dimensionality reduction cannot be provided
+                        console.log("requested number of observations cannot be provided")
+                    }
+                }
 
 
 
