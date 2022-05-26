@@ -32,20 +32,18 @@ export class PAAConverter {
 
     //This functions finds the largest amount of time in between two observations
     // This will be the timestep of the entire regular time series
-    private findTimeStep(sortedMap: SortedMap): Promise<number> {
-        return new Promise<number>((resolve, reject) => {
-            let previousDate: number = sortedMap.keys().next().value;
-            let max: number = 0;
-            for (let x of sortedMap.keys()) {
-                if ((x - previousDate) > max) {
-                    max = x - previousDate;
-                }
-                previousDate = x;
+    private findTimeStep(sortedMap: SortedMap): number {
+
+        let previousDate: number = sortedMap.keys().next().value;
+        let max: number = 0;
+        for (let x of sortedMap.keys()) {
+            if ((x - previousDate) > max) {
+                max = x - previousDate;
             }
+            previousDate = x;
+        }
 
-            resolve(max);
-        });
-
+        return max;
     }
 
 
@@ -153,7 +151,7 @@ export class PAAConverter {
                 let betweenDate = date.toDateString() + " 00:00:00";
                 let min: number = Date.parse(betweenDate);
 
-                let divider  = await this.findTimeStep(sortedMap);//Math.ceil((700*1000)/sortedMap.length);
+                let divider = this.findTimeStep(sortedMap);//Math.ceil((700*1000)/sortedMap.length);
 
 
 
@@ -166,7 +164,7 @@ export class PAAConverter {
                 //     }
                 // }
 
-                
+
 
                 let beginInterval = min;
                 let endInterval = beginInterval + divider;
