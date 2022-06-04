@@ -4,16 +4,9 @@ import { SortedMap } from "collections/sorted-map";
 
 export class PAAConverter {
     private readonly config: IConfig;
-    private multiplier = 1.00;
-    private Dimensionality: Boolean;
 
     constructor(config: IConfig) {
         this.config = config;
-        if (this.config.number_of_observations != 0) {
-            this.Dimensionality = true;
-        } else {
-            this.Dimensionality = false;
-        }
     }
 
     public async ConvertAll(keeperOfTheObservations: ObservationKeeper) {
@@ -166,7 +159,7 @@ export class PAAConverter {
                 let betweenDate = date.toDateString() + " 00:00:00";
                 let min: number = Date.parse(betweenDate);
 
-                let difference = 0;
+            
 
                 if ((first - min) > divider) {
                     divider = first - min;
@@ -178,12 +171,11 @@ export class PAAConverter {
                     divider = Math.ceil((24 * 60 * 60 * 1000) / sortedMap.length);
                 }
 
-                divider = divider * this.multiplier;
 
 
                 let number_of_observations = Math.floor((24 * 60 * 60 * 1000) / divider);
 
-                if (this.Dimensionality) {
+                if (this.config.number_of_observations!=0) {
                     if (this.config.number_of_observations < number_of_observations) {
                         divider = Math.round((24 * 60 * 60 * 1000) / this.config.number_of_observations);
                     } else {
@@ -229,7 +221,6 @@ export class PAAConverter {
                             endInterval = endInterval + divider;
                         } // else is de allereerste
                         while (key > endInterval) {
-                            difference = (key-endInterval);
                             endMap.set((beginInterval + divider / 2), NaN);
                             beginInterval = endInterval;
                             endInterval = endInterval + divider;
@@ -251,14 +242,9 @@ export class PAAConverter {
                     endMap.set(beginInterval + divider / 2, num / i);
                 }
 
-                if (!this.Dimensionality && difference!=0) {
-
-                    this.multiplier += (difference / divider);
-                    console.log("multiplier is: " + this.multiplier );
-                    resolve(this.convertTwo(sortedMap));
-                } else {
+                
                     resolve(endMap);
-                }
+                
             } catch (e) {
                 console.error(e);
                 reject(e);
