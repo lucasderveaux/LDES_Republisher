@@ -178,6 +178,8 @@ export class PAAConverter {
                     divider = Math.ceil((24 * 60 * 60 * 1000) / sortedMap.length);
                 }
 
+                divider = divider * this.multiplier;
+
 
                 let number_of_observations = Math.floor((24 * 60 * 60 * 1000) / divider);
 
@@ -227,7 +229,7 @@ export class PAAConverter {
                             endInterval = endInterval + divider;
                         } // else is de allereerste
                         while (key > endInterval) {
-                            difference += divider;
+                            difference += (key-endInterval);
                             endMap.set((beginInterval + divider / 2), NaN);
                             beginInterval = endInterval;
                             endInterval = endInterval + divider;
@@ -250,7 +252,8 @@ export class PAAConverter {
                 }
 
                 if (!this.Dimensionality) {
-                    this.multiplier = difference / divider;
+                    this.multiplier = (divider+difference) / divider;
+                    console.log("multiplier is: " + this.multiplier );
                     resolve(this.convertTwo(endMap));
                 } else {
                     resolve(endMap);
