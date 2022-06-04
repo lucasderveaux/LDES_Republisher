@@ -252,7 +252,8 @@ export class PAAConverter {
                 }
 
                 if (!this.Dimensionality && difference!=0) {
-                    this.multiplier = (divider+difference) / divider;
+
+                    this.multiplier += (difference / divider);
                     console.log("multiplier is: " + this.multiplier );
                     resolve(this.convertTwo(sortedMap));
                 } else {
