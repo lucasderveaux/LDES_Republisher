@@ -229,7 +229,7 @@ export class PAAConverter {
                             endInterval = endInterval + divider;
                         } // else is de allereerste
                         while (key > endInterval) {
-                            difference += (key-endInterval);
+                            difference = (key-endInterval);
                             endMap.set((beginInterval + divider / 2), NaN);
                             beginInterval = endInterval;
                             endInterval = endInterval + divider;
@@ -251,10 +251,10 @@ export class PAAConverter {
                     endMap.set(beginInterval + divider / 2, num / i);
                 }
 
-                if (!this.Dimensionality) {
+                if (!this.Dimensionality && difference!=0) {
                     this.multiplier = (divider+difference) / divider;
                     console.log("multiplier is: " + this.multiplier );
-                    resolve(this.convertTwo(endMap));
+                    resolve(this.convertTwo(sortedMap));
                 } else {
                     resolve(endMap);
                 }
