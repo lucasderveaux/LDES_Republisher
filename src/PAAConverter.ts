@@ -4,8 +4,16 @@ import { SortedMap } from "collections/sorted-map";
 
 export class PAAConverter {
     private readonly config: IConfig;
+    private multiplier = 1.00;
+    private Dimensionality: Boolean;
+
     constructor(config: IConfig) {
         this.config = config;
+        if(this.config.number_of_observations != 0){
+            this.Dimensionality= true;
+        }else{
+            this.Dimensionality=false;
+        }
     }
 
     public async ConvertAll(keeperOfTheObservations: ObservationKeeper) {
@@ -157,7 +165,7 @@ export class PAAConverter {
                 let date = new Date(first);
                 let betweenDate = date.toDateString() + " 00:00:00";
                 let min: number = Date.parse(betweenDate);
-
+                
                 if((first-min)>divider){
                     divider = first-min;
                 }
@@ -171,7 +179,7 @@ export class PAAConverter {
 
                 let number_of_observations = Math.floor((24*60*60*1000)/divider);
 
-                if (this.config.number_of_observations != 0) {
+                if (this.Dimensionality) {
                     if (this.config.number_of_observations < number_of_observations) {
                         divider = Math.round((24 * 60 * 60 * 1000) / this.config.number_of_observations);
                     } else {
@@ -198,7 +206,12 @@ export class PAAConverter {
                     //key In de window
                     if (key >= beginInterval && key < endInterval) {
                         i++;
-                        num += sortedMap.get(key);
+                        if(sortedMap.get(key)==NaN){
+                            num += 0;
+                        }else{
+                            num += sortedMap.get(key);
+                        }
+                        
                     }
 
                     // window schuift op
@@ -216,7 +229,11 @@ export class PAAConverter {
                             beginInterval = endInterval;
                             endInterval = endInterval + divider;
                         }
-                        num = sortedMap.get(key);
+                        if(sortedMap.get(key)==NaN){
+                            num += 0;
+                        }else{
+                            num += sortedMap.get(key);
+                        }
                         i = 1;
 
                     }
@@ -224,9 +241,8 @@ export class PAAConverter {
 
 
                 }
-                if (i == 0) {
-                    endMap.set((beginInterval + divider / 2), NaN);
-                } else {
+                //laatste key
+                if (i != 0) {
                     endMap.set(beginInterval + divider / 2, num / i);
                 }
                 resolve(endMap);
