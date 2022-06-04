@@ -19,10 +19,7 @@
 _:A a sosa:Observation, ifc:IfcRegularTimeSeries;
     sosa:hasFeatureOfInterest <https://blue-bike.be/stations/59>;
     sosa:observedProperty <https://w3id.org/gbfs#docks_in_use>;
-    ifc:timeStep_IfcRegularTimeSeries _:seconds.
-_:seconds a ifc:IfcTimeMeasure;
-    <https://www.w3.org/2006/time#seconds> "30220"^^<https://www.w3.org/2001/XMLSchema#float>.
-_:A ifc:startTime_IfcWorkControl _:startTime.
+    ifc:startTime_IfcWorkControl _:startTime.
 _:startTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "4/26/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:startTime_IfcWorkControl _:endTime.
@@ -30,25 +27,13 @@ _:endTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "4/27/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
-    purl:size "3"^^<https://www.w3.org/2001/XMLSchema#integer>;
-    list:hasNext _:list1650946310000.
-_:list1650946310000 a ifc:IfcTimeSeriesValue_List;
+    purl:size "1"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    list:hasNext _:list1651406273766.
+_:list1651406273766 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
 _:value1 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "NaN".
-_:list1650946310000 list:isFollowedBy _:list1650976530000.
-_:timeSeriesList list:hasNext _:list1650976530000.
-_:list1650976530000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value3.
-_:value3 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "2".
-_:list1650976530000 list:isFollowedBy _:list1651006750000.
-_:timeSeriesList list:hasNext _:list1651006750000.
-_:list1651006750000 a ifc:IfcTimeSeriesValue_List;
-    list:hasContents _:value5.
-_:value5 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#docks_in_use> "1.4444444444444444".
-_:list1651006750000 list:isFollowedBy rdf:nil.
+    <https://w3id.org/gbfs#docks_in_use> "1.9193548387096775".
+_:list1651406273766 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
