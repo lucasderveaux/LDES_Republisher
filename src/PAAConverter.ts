@@ -9,10 +9,10 @@ export class PAAConverter {
 
     constructor(config: IConfig) {
         this.config = config;
-        if(this.config.number_of_observations != 0){
-            this.Dimensionality= true;
-        }else{
-            this.Dimensionality=false;
+        if (this.config.number_of_observations != 0) {
+            this.Dimensionality = true;
+        } else {
+            this.Dimensionality = false;
         }
     }
 
@@ -159,25 +159,27 @@ export class PAAConverter {
                 let first = iterator.next().value;
                 let next = iterator.next().value;
 
-                let divider = next-first;
+                let divider = next - first;
                 //amount of milliseconds since January 1, 1970, 00:00:00
-               
+
                 let date = new Date(first);
                 let betweenDate = date.toDateString() + " 00:00:00";
                 let min: number = Date.parse(betweenDate);
-                
-                if((first-min)>divider){
-                    divider = first-min;
+
+                let difference = 0;
+
+                if ((first - min) > divider) {
+                    divider = first - min;
                 }
 
 
 
-                if(Math.ceil((24*60*60*1000)/sortedMap.length)>divider){
-                    divider = Math.ceil((24*60*60*1000)/sortedMap.length);
+                if (Math.ceil((24 * 60 * 60 * 1000) / sortedMap.length) > divider) {
+                    divider = Math.ceil((24 * 60 * 60 * 1000) / sortedMap.length);
                 }
 
 
-                let number_of_observations = Math.floor((24*60*60*1000)/divider);
+                let number_of_observations = Math.floor((24 * 60 * 60 * 1000) / divider);
 
                 if (this.Dimensionality) {
                     if (this.config.number_of_observations < number_of_observations) {
@@ -206,12 +208,12 @@ export class PAAConverter {
                     //key In de window
                     if (key >= beginInterval && key < endInterval) {
                         i++;
-                        if(sortedMap.get(key)==NaN){
+                        if (sortedMap.get(key) == NaN) {
                             num += 0;
-                        }else{
+                        } else {
                             num += sortedMap.get(key);
                         }
-                        
+
                     }
 
                     // window schuift op
@@ -225,13 +227,14 @@ export class PAAConverter {
                             endInterval = endInterval + divider;
                         } // else is de allereerste
                         while (key > endInterval) {
+                            difference += divider;
                             endMap.set((beginInterval + divider / 2), NaN);
                             beginInterval = endInterval;
                             endInterval = endInterval + divider;
                         }
-                        if(sortedMap.get(key)==NaN){
+                        if (sortedMap.get(key) == NaN) {
                             num += 0;
-                        }else{
+                        } else {
                             num += sortedMap.get(key);
                         }
                         i = 1;
@@ -245,7 +248,13 @@ export class PAAConverter {
                 if (i != 0) {
                     endMap.set(beginInterval + divider / 2, num / i);
                 }
-                resolve(endMap);
+
+                if (!this.Dimensionality) {
+                    this.multiplier = difference / divider;
+                    resolve(this.convertTwo(endMap));
+                } else {
+                    resolve(endMap);
+                }
             } catch (e) {
                 console.error(e);
                 reject(e);
