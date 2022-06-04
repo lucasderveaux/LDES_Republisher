@@ -21,7 +21,7 @@ _:A a sosa:Observation, ifc:IfcRegularTimeSeries;
     sosa:observedProperty <https://w3id.org/gbfs#bikes_available>;
     ifc:timeStep_IfcRegularTimeSeries _:seconds.
 _:seconds a ifc:IfcTimeMeasure;
-    <https://www.w3.org/2006/time#seconds> "32644.391646240234"^^<https://www.w3.org/2001/XMLSchema#float>.
+    <https://www.w3.org/2006/time#seconds> "32041"^^<https://www.w3.org/2001/XMLSchema#float>.
 _:A ifc:startTime_IfcWorkControl _:startTime.
 _:startTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "3/15/2022, 12:00:00 AM"^^xsd:dateTime.
@@ -31,24 +31,24 @@ _:endTime a ifc:IfcDateTime;
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
     purl:size "3"^^<https://www.w3.org/2001/XMLSchema#integer>;
-    list:hasNext _:list1647318722196.
-_:list1647318722196 a ifc:IfcTimeSeriesValue_List;
+    list:hasNext _:list1647318420500.
+_:list1647318420500 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
 _:value1 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "4.333333333333333".
-_:list1647318722196 list:isFollowedBy _:list1647351366587.
-_:timeSeriesList list:hasNext _:list1647351366587.
-_:list1647351366587 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#bikes_available> "NaN".
+_:list1647318420500 list:isFollowedBy _:list1647350461500.
+_:timeSeriesList list:hasNext _:list1647350461500.
+_:list1647350461500 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value3.
 _:value3 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "6.523809523809524".
-_:list1647351366587 list:isFollowedBy _:list1647384010979.
-_:timeSeriesList list:hasNext _:list1647384010979.
-_:list1647384010979 a ifc:IfcTimeSeriesValue_List;
+    <https://w3id.org/gbfs#bikes_available> "6.428571428571429".
+_:list1647350461500 list:isFollowedBy _:list1647382502500.
+_:timeSeriesList list:hasNext _:list1647382502500.
+_:list1647382502500 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value5.
 _:value5 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "8.74468085106383".
-_:list1647384010979 list:isFollowedBy rdf:nil.
+    <https://w3id.org/gbfs#bikes_available> "8.673469387755102".
+_:list1647382502500 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
