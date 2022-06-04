@@ -28,12 +28,12 @@ _:endTime a ifc:IfcDateTime;
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
     purl:size "1"^^<https://www.w3.org/2001/XMLSchema#integer>;
-    list:hasNext _:list1650680640000.
-_:list1650680640000 a ifc:IfcTimeSeriesValue_List;
+    list:hasNext _:list1650943650386.
+_:list1650943650386 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
 _:value1 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#docks_in_use> "1".
-_:list1650680640000 list:isFollowedBy rdf:nil.
+_:list1650943650386 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
