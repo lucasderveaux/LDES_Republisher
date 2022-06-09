@@ -146,13 +146,28 @@ export class PAAConverter {
     public convertTwo(sortedMap: SortedMap): Promise<SortedMap> {
         return new Promise<SortedMap>(async (resolve, reject) => {
             try {
+                //creation of the returned SortedMap
                 let endMap = new SortedMap<number, number>();
+                
+                //creation of the divider
+                let divider:number;
+
+                //The divider is the timestep in the regular time-series between two following observations
+                //the goal is a timestep with the least amount of NaN values but not to reduce the dimensionality of the given time series too much
+                //Ideally the maximum timestep between two following observations would be used. But this would mean that every given time series needs to be
+                //run through twice and the maximum value needs to be calculated.
+                //which took over 8 hours
+
+                //A different approach was used for deciding on the right divider.
+                //the time between the two first observations is used, in the hope that this is representative for the time the following observations of the entire time series
+                //afterwards 24h is divided by the amount of the values in the sortedMap
+                //the largest value of the two is used
 
                 let iterator = sortedMap.keys();
                 let first = iterator.next().value;
                 let next = iterator.next().value;
 
-                let divider = next - first;
+                divider = next - first;
                 //amount of milliseconds since January 1, 1970, 00:00:00
 
                 let date = new Date(first);
@@ -193,13 +208,13 @@ export class PAAConverter {
                 let num = 0;
 
                 for (let key of sortedMap.keys()) {
-                    //key Voor de Window
-                    //dit kan niet
+                    //value of the key is before the window
+                    //this shouldn't be possible, just in case this possibility is taken into account
                     while (key < beginInterval) {
                         endMap.set((beginInterval + divider / 2), NaN);
                     }
 
-                    //key In de window
+                    //key in the window
                     if (key >= beginInterval && key < endInterval) {
                         i++;
                         if (sortedMap.get(key) == NaN) {
@@ -210,16 +225,15 @@ export class PAAConverter {
 
                     }
 
-                    // window schuift op
+                    // window changes
                     if (key > endInterval) {
                         if (i != 0) {
                             endMap.set((beginInterval + divider / 2), num / i);
-                            //anders verlies je een key
                             num = 0;
                             i = 0;
                             beginInterval = endInterval;
                             endInterval = endInterval + divider;
-                        } // else is de allereerste
+                        } // key is the first value
                         while (key > endInterval) {
                             endMap.set((beginInterval + divider / 2), NaN);
                             beginInterval = endInterval;
@@ -237,7 +251,7 @@ export class PAAConverter {
 
 
                 }
-                //laatste key
+                //last key
                 if (i != 0) {
                     endMap.set(beginInterval + divider / 2, num / i);
                 }
