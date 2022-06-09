@@ -30,7 +30,7 @@ _:endTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "6/5/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
-    purl:size "110"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    purl:size "119"^^<https://www.w3.org/2001/XMLSchema#integer>;
     list:hasNext _:list1654301162500.
 _:list1654301162500 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
@@ -689,8 +689,62 @@ _:timeSeriesList list:hasNext _:list1654380187500.
 _:list1654380187500 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value219.
 _:value219 a ifc:IfcSimpleValue;
-    <https://w3id.org/gbfs#bikes_available> "45".
-_:list1654380187500 list:isFollowedBy rdf:nil.
+    <https://w3id.org/gbfs#bikes_available> "46".
+_:list1654380187500 list:isFollowedBy _:list1654380912500.
+_:timeSeriesList list:hasNext _:list1654380912500.
+_:list1654380912500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value221.
+_:value221 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "48".
+_:list1654380912500 list:isFollowedBy _:list1654381637500.
+_:timeSeriesList list:hasNext _:list1654381637500.
+_:list1654381637500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value223.
+_:value223 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "48".
+_:list1654381637500 list:isFollowedBy _:list1654382362500.
+_:timeSeriesList list:hasNext _:list1654382362500.
+_:list1654382362500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value225.
+_:value225 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "48".
+_:list1654382362500 list:isFollowedBy _:list1654383087500.
+_:timeSeriesList list:hasNext _:list1654383087500.
+_:list1654383087500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value227.
+_:value227 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "48".
+_:list1654383087500 list:isFollowedBy _:list1654383812500.
+_:timeSeriesList list:hasNext _:list1654383812500.
+_:list1654383812500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value229.
+_:value229 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "48.5".
+_:list1654383812500 list:isFollowedBy _:list1654384537500.
+_:timeSeriesList list:hasNext _:list1654384537500.
+_:list1654384537500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value231.
+_:value231 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "49".
+_:list1654384537500 list:isFollowedBy _:list1654385262500.
+_:timeSeriesList list:hasNext _:list1654385262500.
+_:list1654385262500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value233.
+_:value233 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "49".
+_:list1654385262500 list:isFollowedBy _:list1654385987500.
+_:timeSeriesList list:hasNext _:list1654385987500.
+_:list1654385987500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value235.
+_:value235 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "49".
+_:list1654385987500 list:isFollowedBy _:list1654386712500.
+_:timeSeriesList list:hasNext _:list1654386712500.
+_:list1654386712500 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value237.
+_:value237 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "49".
+_:list1654386712500 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
