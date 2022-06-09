@@ -30,7 +30,7 @@ _:endTime a ifc:IfcDateTime;
     ifc:IfcSimpleValue "6/5/2022, 12:00:00 AM"^^xsd:dateTime.
 _:A ifc:values_IfcRegularTimeSeries _:timeSeriesList.
 _:timeSeriesList a ifc:IfcTimeSeriesValue_List;
-    purl:size "119"^^<https://www.w3.org/2001/XMLSchema#integer>;
+    purl:size "130"^^<https://www.w3.org/2001/XMLSchema#integer>;
     list:hasNext _:list1654301133000.
 _:list1654301133000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value1.
@@ -744,7 +744,73 @@ _:list1654379721000 a ifc:IfcTimeSeriesValue_List;
     list:hasContents _:value237.
 _:value237 a ifc:IfcSimpleValue;
     <https://w3id.org/gbfs#bikes_available> "33".
-_:list1654379721000 list:isFollowedBy rdf:nil.
+_:list1654379721000 list:isFollowedBy _:list1654380387000.
+_:timeSeriesList list:hasNext _:list1654380387000.
+_:list1654380387000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value239.
+_:value239 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "33".
+_:list1654380387000 list:isFollowedBy _:list1654381053000.
+_:timeSeriesList list:hasNext _:list1654381053000.
+_:list1654381053000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value241.
+_:value241 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "34".
+_:list1654381053000 list:isFollowedBy _:list1654381719000.
+_:timeSeriesList list:hasNext _:list1654381719000.
+_:list1654381719000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value243.
+_:value243 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "35".
+_:list1654381719000 list:isFollowedBy _:list1654382385000.
+_:timeSeriesList list:hasNext _:list1654382385000.
+_:list1654382385000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value245.
+_:value245 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "35".
+_:list1654382385000 list:isFollowedBy _:list1654383051000.
+_:timeSeriesList list:hasNext _:list1654383051000.
+_:list1654383051000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value247.
+_:value247 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "35".
+_:list1654383051000 list:isFollowedBy _:list1654383717000.
+_:timeSeriesList list:hasNext _:list1654383717000.
+_:list1654383717000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value249.
+_:value249 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "35".
+_:list1654383717000 list:isFollowedBy _:list1654384383000.
+_:timeSeriesList list:hasNext _:list1654384383000.
+_:list1654384383000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value251.
+_:value251 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "NaN".
+_:list1654384383000 list:isFollowedBy _:list1654385049000.
+_:timeSeriesList list:hasNext _:list1654385049000.
+_:list1654385049000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value253.
+_:value253 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "34.5".
+_:list1654385049000 list:isFollowedBy _:list1654385715000.
+_:timeSeriesList list:hasNext _:list1654385715000.
+_:list1654385715000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value255.
+_:value255 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "35".
+_:list1654385715000 list:isFollowedBy _:list1654386381000.
+_:timeSeriesList list:hasNext _:list1654386381000.
+_:list1654386381000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value257.
+_:value257 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "37".
+_:list1654386381000 list:isFollowedBy _:list1654387047000.
+_:timeSeriesList list:hasNext _:list1654387047000.
+_:list1654387047000 a ifc:IfcTimeSeriesValue_List;
+    list:hasContents _:value259.
+_:value259 a ifc:IfcSimpleValue;
+    <https://w3id.org/gbfs#bikes_available> "37".
+_:list1654387047000 list:isFollowedBy rdf:nil.
 _:timeSeriesList list:hasNext rdf:nil.
 <https://github.com/lucasderveaux/LDES_Republisher> a fno:function;
     <http://purl.org/dc/terms/description> "This function reads a given LDES en republishes it in a new Linked Data Event Stream grouped by type of observation, feature of interest and type of observation.";
